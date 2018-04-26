@@ -4,6 +4,7 @@ var express = require('express'),
 	io = require('socket.io').listen(server),
 	ent = require('ent'), // Permet de bloquer les caractères HTML (sécurité équivalente à htmlentities en PHP)
 	fs = require('fs');
+var path = require('path');
 
 // Chargement de la page index.html
 app.get('/', function (req, res) {
