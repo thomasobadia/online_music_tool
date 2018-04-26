@@ -46,7 +46,7 @@
 			$('#zone_chat').prepend('<p><em>' + pseudo + ' a rejoint le Chat !</em></p>');
 		})
 		$('#button').on('click', function () {
-			socket.emit('sound', kick);
+			socket.emit('sound', 'sound');
 			console.log('hello');
 		});
 		socket.on('newSound', function () {
