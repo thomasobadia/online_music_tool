@@ -31,7 +31,7 @@
 	<script>
 		var audio = new Audio('kick.mp3');
 		// Connexion à socket.io
-		var socket = io.connect('http://localhost:8080');
+		var socket = io.connect('http://http://51.38.176.227:8080');
 		// On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
 		var pseudo = prompt('Quel est votre pseudo ?');
 		socket.emit('nouveau_client', pseudo);
