@@ -45,14 +45,15 @@
 		socket.on('nouveau_client', function (pseudo) {
 			$('#zone_chat').prepend('<p><em>' + pseudo + ' a rejoint le Chat !</em></p>');
 		})
-		var kick = 'kick.mp3'
 		$('#button').on('click', function () {
 			socket.emit('sound', kick);
 			console.log('hello');
 		});
-		socket.on('newSound', function (kick) {
-			kick.currentTime = 0;
-			kick.play();
+		socket.on('newSound', function () {
+			var audio = new Audio('kick.mp3');
+			audio.currentTime = 0;
+			audio.play();
+
 		})
 
 		// Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
