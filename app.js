@@ -9,7 +9,7 @@ var express = require('express'),
 app.get('/', function (req, res) {
 	res.sendfile(__dirname + '/index.html');
 });
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
 io.sockets.on('connection', function (socket, pseudo) {
 	// Dès qu'on nous donne un pseudo, on le stocke en variable de session et on informe les autres personnes
