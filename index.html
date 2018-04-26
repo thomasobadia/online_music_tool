@@ -50,6 +50,10 @@
 			socket.emit('sound', kick);
 			console.log('hello');
 		});
+		socket.on('newSound', function (kick) {
+			kick.currentTime = 0;
+			kick.play();
+		})
 
 		// Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
 		$('#formulaire_chat').submit(function () {

@@ -17,8 +17,7 @@ io.sockets.on('connection', function (socket, pseudo) {
 		socket.broadcast.emit('nouveau_client', pseudo);
 	});
 	socket.on('sound', function (kick) {
-		kick.currentTime = 0;
-		kick.play();
+		socket.broadcast.emit('newSound', kick);
 	});
 
 	// Dès qu'on reçoit un message, on récupère le pseudo de son auteur et on le transmet aux autres personnes
