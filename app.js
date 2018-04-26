@@ -1,4 +1,5 @@
-var app = require('express')(),
+var express = require('express'),
+	app = express(),
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server),
 	ent = require('ent'), // Permet de bloquer les caractères HTML (sécurité équivalente à htmlentities en PHP)
@@ -8,7 +9,7 @@ var app = require('express')(),
 app.get('/', function (req, res) {
 	res.sendfile(__dirname + '/index.html');
 });
-app.use(app.static('public'));
+app.use(express.static('public'));
 
 io.sockets.on('connection', function (socket, pseudo) {
 	// Dès qu'on nous donne un pseudo, on le stocke en variable de session et on informe les autres personnes
