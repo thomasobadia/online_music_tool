@@ -25,6 +25,9 @@
 
 	</section>
 	<div id="button" style="width: 200px;height: 200px;background: red"></div>
+	<div id="button2" style="width: 200px;height: 200px;background: blue"></div>
+	<div id="button3" style="width: 200px;height: 200px;background: green"></div>
+	<div id="button4" style="width: 200px;height: 200px;background: purple"></div>
 
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
@@ -51,6 +54,36 @@
 		});
 		socket.on('newSound', function () {
 			var audio = new Audio('kick.mp3');
+			audio.currentTime = 0;
+			audio.play();
+
+		})
+		$('#button2').on('click', function () {
+			socket.emit('sound2', 'sound2');
+			console.log('hello');
+		});
+		socket.on('newSound2', function () {
+			var audio = new Audio('hi-hat.mp3');
+			audio.currentTime = 0;
+			audio.play();
+
+		})
+		$('#button3').on('click', function () {
+			socket.emit('sound3', 'sound3');
+			console.log('hello');
+		});
+		socket.on('newSound3', function () {
+			var audio = new Audio('open-hat.mp3');
+			audio.currentTime = 0;
+			audio.play();
+
+		})
+		$('#button4').on('click', function () {
+			socket.emit('sound4', 'sound4');
+			console.log('hello');
+		});
+		socket.on('newSound4', function () {
+			var audio = new Audio('snare.mp3');
 			audio.currentTime = 0;
 			audio.play();
 
