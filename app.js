@@ -16,8 +16,8 @@ io.sockets.on('connection', function (socket, pseudo) {
 		socket.pseudo = pseudo;
 		socket.broadcast.emit('nouveau_client', pseudo);
 	});
-	socket.on('click', function (sound) {
-		var audio = new Audio(sound);
+	socket.on('sound', function (kick) {
+		var audio = new Audio(kick);
 		audio.currentTime = 0
 		audio.play();
 	})

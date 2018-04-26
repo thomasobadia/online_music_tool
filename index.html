@@ -24,7 +24,7 @@
 	<section id="zone_chat">
 
 	</section>
-	<div class="button" style="width: 200px;height: 200px;background: red"></div>
+	<div id="button" style="width: 200px;height: 200px;background: red"></div>
 
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
@@ -45,8 +45,10 @@
 		socket.on('nouveau_client', function (pseudo) {
 			$('#zone_chat').prepend('<p><em>' + pseudo + ' a rejoint le Chat !</em></p>');
 		})
-		$('.button').on('click', function () {
-			socket.emit('click', 'kick.mp3');
+		var kick = 'kick.mp3'
+		$('#button').on('click', function () {
+			socket.emit('sound', kick);
+			console.log('hello')
 		});
 
 		// Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
