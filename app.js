@@ -16,10 +16,11 @@ io.sockets.on('connection', function (socket, pseudo) {
 		socket.pseudo = pseudo;
 		socket.broadcast.emit('nouveau_client', pseudo);
 	});
-	//	socket.on('click', function () {
-	//		sound.currentTime = 0
-	//		audio.play();
-	//	})
+	socket.on('click', function (sound) {
+		var audio = new Audio(sound);
+		audio.currentTime = 0
+		audio.play();
+	})
 
 	// Dès qu'on reçoit un message, on récupère le pseudo de son auteur et on le transmet aux autres personnes
 	socket.on('message', function (message) {

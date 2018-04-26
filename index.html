@@ -29,7 +29,6 @@
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-		var audio = new Audio('kick.mp3');
 		// Connexion à socket.io
 		var socket = io.connect('http://http://51.38.176.227:8080');
 		// On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
@@ -44,11 +43,11 @@
 
 		// Quand un nouveau client se connecte, on affiche l'information
 		socket.on('nouveau_client', function (pseudo) {
-				$('#zone_chat').prepend('<p><em>' + pseudo + ' a rejoint le Chat !</em></p>');
-			})
-			//		$('.button').on('click', function () {
-			//			socket.emit('click', click);
-			//		});
+			$('#zone_chat').prepend('<p><em>' + pseudo + ' a rejoint le Chat !</em></p>');
+		})
+		$('.button').on('click', function () {
+			socket.emit('click', 'kick.mp3');
+		});
 
 		// Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
 		$('#formulaire_chat').submit(function () {
