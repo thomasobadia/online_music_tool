@@ -98,6 +98,23 @@
 		function insereMessage(pseudo, message) {
 			$('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
 		}
+
+		document.addEventListener('keydown', function(e){
+            console.log(e.keyCode)
+            //65 90 69 82
+            if(e.keyCode === 65){
+                socket.emit('sound', 'sound')
+            }
+            else if(e.keyCode === 90){
+                socket.emit('sound2', 'sound2')
+            }
+            else if(e.keyCode === 69){
+                socket.emit('sound3', 'sound3')
+            }
+            else if(e.keyCode === 82){
+                socket.emit('sound4', 'sound4')
+            }
+        })
 	</script>
 </body>
 
