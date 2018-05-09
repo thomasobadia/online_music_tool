@@ -13,3 +13,18 @@
 .white{
     background-color: aqua;
 }
+
+.record{
+    padding: 10px;
+    background-color: brown;
+}
+
+.stopRecord{
+    padding: 10px;
+    background-color: brown;
+}
+
+.sample{
+    padding: 10px;
+    background-color: brown;
+}
