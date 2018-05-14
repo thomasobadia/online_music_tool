@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Super Chat temps réel !</title>
+	<title>Online music</title>
 	<style>
 		#zone_chat strong {
 			color: white;
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<h1>Le super Chat temps réel !</h1>
+	<h1>Online music</h1>
 
 	<form action="/" method="post" id="formulaire_chat">
 		<input type="text" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
@@ -99,22 +99,22 @@
 			$('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
 		}
 
-		document.addEventListener('keydown', function(e){
-            console.log(e.keyCode)
-            //65 90 69 82
-            if(e.keyCode === 65){
-                socket.emit('sound', 'sound')
-            }
-            else if(e.keyCode === 90){
-                socket.emit('sound2', 'sound2')
-            }
-            else if(e.keyCode === 69){
-                socket.emit('sound3', 'sound3')
-            }
-            else if(e.keyCode === 82){
-                socket.emit('sound4', 'sound4')
-            }
-        })
+		document.addEventListener('keydown', function (e) {            
+			console.log(e.keyCode)             //65 90 69 82
+				             if (e.keyCode === 65) {                
+					socket.emit('sound', 'sound')            
+				}            
+				else
+			if (e.keyCode === 90) {                
+				socket.emit('sound2', 'sound2')            
+			}            
+			else if (e.keyCode === 69) {                
+				socket.emit('sound3', 'sound3')            
+			}            
+			else if (e.keyCode === 82) {                
+				socket.emit('sound4', 'sound4')            
+			}        
+		})
 	</script>
 </body>
 
