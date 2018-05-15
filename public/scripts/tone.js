@@ -1,3 +1,6 @@
+
+
+
 (function(root, factory){
 
 	//UMD
@@ -24380,3 +24383,7 @@
 	
 	return Tone;
 }));
+
+window.addEventListener("mousemove",()=>{
+	Tone.context.resume()
+})
