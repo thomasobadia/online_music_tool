@@ -19,6 +19,10 @@ const decreasingSound = (piano, interval)=>{
 }
 
 
+const test = document.querySelector(".test")
+
+
+
 
 
 

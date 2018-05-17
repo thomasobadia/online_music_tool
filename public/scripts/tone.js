@@ -24387,3 +24387,7 @@
 window.addEventListener("mousemove",()=>{
 	Tone.context.resume()
 })
+
+window.addEventListener("touch",()=>{
+	Tone.context.resume()
+})

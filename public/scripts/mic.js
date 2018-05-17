@@ -1,3 +1,5 @@
+
+
 const audio = document.querySelector("a")
 const $record = document.querySelector(".record")
 const $stopRecord = document.querySelector(".stopRecord")
@@ -15,16 +17,32 @@ if (navigator.mediaDevices) {
   
 
         
-      $record.addEventListener("click",function() {
+      // $record.addEventListener("click",function() {
        
-        mediaRecorder.start();
-        console.log(mediaRecorder.state);
-        console.log("recorder started");
+      //   mediaRecorder.start();
+      //   console.log(mediaRecorder.state);
+      //   console.log("recorder started");
+      //   $record.style.background = "red";
+      //   $record.style.color = "black";
+      // })
+      
+      // $stopRecord.addEventListener("click", function() {
+      //   mediaRecorder.stop();
+      //   console.log(mediaRecorder.state);
+      //   console.log("recorder stopped");
+      //   $record.style.background = "";
+      //   $record.style.color = "";
+      // })
+ 
+      $record.addEventListener("touchstart",function() {
+        // mediaRecorder.start();
+        // console.log(mediaRecorder.state);
+        // console.log("recorder started");
         $record.style.background = "red";
         $record.style.color = "black";
       })
       
-      $stopRecord.addEventListener("click", function() {
+      $stopRecord.addEventListener("touchend", function() {
         mediaRecorder.stop();
         console.log(mediaRecorder.state);
         console.log("recorder stopped");
