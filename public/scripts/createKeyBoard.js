@@ -12,7 +12,7 @@ const createKeyboard = ()=>{
         $whites[i].style.left = whiteLeft + "px"
         whiteLeft += parseInt($whites[i].style.width, 10) + 4 
         $whites[i].addEventListener("touchend", ()=>{
-            $whites[i].style.background = "red"
+            // $whites[i].style.background = "red"
         })
     }
     let blackLeft = $whites[1].offsetWidth-$keyBoard.offsetWidth*0.07/2
@@ -22,7 +22,7 @@ const createKeyboard = ()=>{
         $blacks[j].style.left = blackLeft + "px"
         blackLeft += parseFloat($whites[j].style.width)*1.022
         $blacks[j].addEventListener("touchend", ()=>{
-            $blacks[j].style.background = "red"
+            // $blacks[j].style.background = "red"
         })
     }
 }

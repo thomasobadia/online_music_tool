@@ -1,3 +1,5 @@
+
+
 const $sample = document.querySelector(".sample")
 
 // const node = new Tone.AudioNode ( [ AudioContext ] ) 
@@ -10,7 +12,9 @@ const $sample = document.querySelector(".sample")
 console.log($record)
 
 var sampler = new Tone.Sampler({
-    "A2" : "../../public/sounds/pianoSound.wav"
+    "C3" : "../../public/sounds/test.wav",
+    // "C1" : "../../public/sounds/pianoC1.wav",
+
 }, function(){
     //sampler will repitch the closest sample
     sampler.toMaster()
@@ -77,26 +81,60 @@ console.log(sampler)
 // $whites[7].addEventListener("mousedown", ()=>{ sampler.triggerAttack("C4")})
 // $whites[7].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
 // sampler.releaseAll()})
-console.log($whites.length)
 
-const keyLetter = ["C","D","E", "F", "A", "B"]
+
+if (!String.prototype.splice) {
+    /**
+     * {JSDoc}
+     *
+     * The splice() method changes the content of a string by removing a range of
+     * characters and/or adding new characters.
+     *
+     * @this {String}
+     * @param {number} start Index at which to start changing the string.
+     * @param {number} delCount An integer indicating the number of old chars to remove.
+     * @param {string} newSubStr The String that is spliced in.
+     * @return {string} A new string with the spliced substring.
+     */
+    String.prototype.splice = function(start, delCount, newSubStr) {
+        return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
+    }
+}
+
+String.prototype.splice = function(idx, rem, str) {
+    return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+};
+
+
+
+
+
+
+
+const keyLetter = ["C","D","E", "F", "G", "A", "B"]
 const keyNumber = ["-1", "0", "1", "2", "3", "4", "5", "6"]
-console.log($whites[2])
 
-const giveKeys = ()=>{
+
+
+
+// Give to each key the good note
+const giveWhiteKeys = ()=>{
     let k = 0
     let keyLetterNumber = []
+    const blackKeyLetterNumber = []
     for(let i = 0; i<keyNumber.length; i++){
         let j = 0
         if(i==0){
-            j = 4
+            j = 5
         }
         else{
             j = 0
         }
         while(j<keyLetter.length){
             keyLetterNumber[k] = keyLetter[j] + keyNumber[i]
-            console.log( keyLetterNumber)
+            blackKeyLetterNumber[k] = keyLetterNumber[k].splice(1, 0, "#")
+            console.log(keyLetterNumber[k])
+            console.log(blackKeyLetterNumber[k])
             j++
             k++
         }
@@ -104,11 +142,25 @@ const giveKeys = ()=>{
     for(let l = 0; l<$whites.length; l++){
         // console.log(keyLetterNumber[k])
         $whites[l].addEventListener("touchstart", ()=>{ sampler.triggerAttack(keyLetterNumber[l])})
+        $blacks[l].addEventListener("touchstart", ()=>{ sampler.triggerAttack(blackKeyLetterNumber[l])})
         $whites[l].addEventListener("touchend", ()=>{ sampler.triggerRelease(keyLetterNumber[l])})
+        $blacks[l].addEventListener("touchend", ()=>{ sampler.triggerRelease(blackKeyLetterNumber[l])})
     }
     // console.log(keyLetterNumber)
 }
 
+const giveBlackKeys = ()=>{
+    $blacks.forEach(black => {
+        console.log(black)
+    })
+}
+
+
+const giveKeys =()=>{
+    giveWhiteKeys()
+    giveBlackKeys()
+    
+}
 
 
 giveKeys()
