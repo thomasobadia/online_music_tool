@@ -1,12 +1,11 @@
 {
-    "name": "super-chat",
+    "name": "online-pusic",
     "version": "0.1.0",
     "dependencies": {
-        "ent": "~0.1.0",
-        "express": "~4.8.0",
-        "path": "^0.12.7",
-        "socket.io": "~1.2.1"
+        "express": "~3.3.4",
+        "socket.io": "~1.2.1",
+        "ent": "~0.1.0"
     },
-    "author": "Thomas",
-    "description": "super chat"
+    "author": "Thomas Obadia",
+    "description": "An online music tool"
 }
