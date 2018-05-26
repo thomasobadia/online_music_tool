@@ -27,7 +27,7 @@ body{
     height: 50vh;
     background-color: black;
     left: 20;
-    visibility: visible;
+    visibility: hidden;
 }
 
 .gradient_line{
@@ -62,24 +62,24 @@ body{
 }
 
 /*********Drumpads keyBoard *********/
-.drumpads_keyboard{
+.drumpad_keyboard{
     position: absolute;
     bottom: 0;
     width: 100vw;
     height: 50vh;
     display: flex;
-    visibility: hidden;
+    visibility: visible;
 
 }
 
-.drumpad_keyboard{
+.drumpad_keys{
     width: 21vw;
     height: 21vw;
     margin: 10% 2.5%;
     background-color: #202020;
 }
 
-.drumpad_keyboard__text{
+.drumpad_keys__text{
     font-family: Montserrat-SemiBold;;
     color: #535151;
 }
