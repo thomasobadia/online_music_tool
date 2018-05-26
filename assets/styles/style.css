@@ -1,0 +1,179 @@
+*{
+    user-select: none;
+    /* overflow: hidden; */
+    touch-action: none;
+}
+.content{
+    width: 100%;
+    height: 100%;
+}
+
+@font-face{
+    font-family: Montserrat-SemiBold;
+    src: url('fonts/Montserrat-SemiBold.otf');
+ }
+
+
+/********* keyBoard *********/
+
+.keyBoard{
+    position: absolute;
+    bottom: 0;
+    width: 98vw;
+    height: 50vh;
+    background-color: black;
+    left: 20;
+}
+
+
+.key{
+    position: absolute;
+}
+
+.invisibleKey{
+    display: none;
+}
+
+.key span{
+    position: absolute;
+    bottom: 10px;
+}
+
+.white{
+    background-color: aqua;
+}
+
+.black{
+    background-color: rgb(125, 32, 105);
+    z-index: 2;
+}
+
+/************Intrument Choice *************/
+.choose_sound, .intruments_type_color_filters{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.intruments_type_color_filters{
+    position: absolute;
+}
+
+.sounds_type, .intruments_type_color_filter{
+    width: 25%;
+    height: 100%;
+    position: relative;
+    background-size: 120%;
+}
+
+.blue_filter{
+    background-color: rgba(46, 125, 164, 0.36);
+}
+.purple_filter{
+    background-color: rgba(86, 67, 172, 0.36)
+}
+.pink_filter{
+    background-color: rgba(162, 36, 161, 0.36)
+}
+.green_filter{
+    background-color: rgba(39, 163, 163, 0.36)
+}
+
+.instruments{
+    background-image: url("../img/instrumentChoice/instruments.png")
+}
+.synthesizers{
+    background-image: url("../img/instrumentChoice/synthesizers.png")
+}
+.drumpads{
+    background-image: url("../img/instrumentChoice/drumpads.png")
+}
+.sampler{
+    background-image: url("../img/instrumentChoice/sampler.png")
+}
+
+.primary_button{
+    
+}
+
+.sounds_type>.primary_button{
+    width: 70%;
+    height: 7%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 2;
+    background-color: rgba(43, 44, 46, 0.9);
+}
+
+.primary_button__text{
+    position: absolute;
+    left: 16%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: Montserrat-SemiBold;
+    color: #F0F0F0;
+
+}
+
+.primary_button__margin{
+    width: 7%;
+    height: 100%;
+}
+
+.sounds_type>.primary_button>.primary_button__margin{
+    position: absolute;
+    top: 0;
+    background-color: #F0F0F0;
+}
+
+.all_sounds{
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: none;
+}
+
+.all_sounds>.primary_button{
+    width: 100%;
+    height: 7%;
+    margin-bottom: 10%;
+    position: relative;
+    transform: translateY(450%);
+    background-color: #F0F0F0;
+}
+
+.all_sounds>.primary_button>.primary_button__margin{
+    background-color: rgba(43, 44, 46, 1);
+}
+
+.all_sounds>.primary_button>.primary_button__text{
+    color: rgba(43, 44, 46, 1);
+}
+
+.record{
+    width: 600px;
+    height: 200px;
+    font-size: 100px;
+    background-color: green;
+}
+
+.stopRecord{
+    padding: 100px;
+    background-color: green;
+}
+
+.sample{
+    padding: 100px;
+    background-color: green;
+}
+
+.test{
+    width: 500px;
+    height: 500px;
+    background: gray;
+}
