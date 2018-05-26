@@ -8,23 +8,36 @@
     height: 100%;
 }
 
+body{
+    background-color: #343434
+}
+
 @font-face{
     font-family: Montserrat-SemiBold;
     src: url('fonts/Montserrat-SemiBold.otf');
  }
 
 
-/********* keyBoard *********/
+/*********Piano keyBoard *********/
 
 .keyBoard{
     position: absolute;
     bottom: 0;
-    width: 98vw;
+    width: 100vw;
     height: 50vh;
     background-color: black;
     left: 20;
+    visibility: visible;
 }
 
+.gradient_line{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 4%;
+    z-index: 3;
+    background: -webkit-linear-gradient(left, #27a3a3 0%,#5544ac 100%); 
+}
 
 .key{
     position: absolute;
@@ -40,15 +53,45 @@
 }
 
 .white{
-    background-color: aqua;
+    background-color: #e3e3e3;
 }
 
 .black{
-    background-color: rgb(125, 32, 105);
+    background-color: #202020;
     z-index: 2;
 }
 
+/*********Drumpads keyBoard *********/
+.drumpads_keyboard{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    visibility: hidden;
+
+}
+
+.drumpad_keyboard{
+    width: 21vw;
+    height: 21vw;
+    margin: 10% 2.5%;
+    background-color: #202020;
+}
+
+.drumpad_keyboard__text{
+    font-family: Montserrat-SemiBold;;
+    color: #535151;
+}
+
+
+
 /************Intrument Choice *************/
+.choose_sound{
+    visibility: hidden;
+    
+}
+
 .choose_sound, .intruments_type_color_filters{
     width: 100vw;
     height: 100vh;
@@ -92,13 +135,23 @@
     background-image: url("../img/instrumentChoice/sampler.png")
 }
 
-.primary_button{
-    
+.primary_button_sound_selected{
+    width: 17.5%;
+    height: 10%;
+    position: absolute;
+    right: 0px;
+    background-color: rgba(43, 44, 46, 0.9);
 }
+
+.primary_button_sound_selected span{
+    text-transform: capitalize;
+}
+
+
 
 .sounds_type>.primary_button{
     width: 70%;
-    height: 7%;
+    height: 10%;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -120,12 +173,13 @@
 .primary_button__margin{
     width: 7%;
     height: 100%;
+    background-color: #F0F0F0;
 }
 
 .sounds_type>.primary_button>.primary_button__margin{
     position: absolute;
     top: 0;
-    background-color: #F0F0F0;
+    
 }
 
 .all_sounds{
@@ -135,15 +189,16 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    display: none;
+    visibility: hidden;
 }
 
 .all_sounds>.primary_button{
     width: 100%;
-    height: 7%;
+    height: 10%;
     margin-bottom: 10%;
     position: relative;
-    transform: translateY(450%);
+    /*hack to center buttons*/
+    transform: translateY(290%);
     background-color: #F0F0F0;
 }
 
