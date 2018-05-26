@@ -70,19 +70,19 @@
                     <div class="primary_button__margin"></div>
                 </div>
                 <div class="all_sounds">
-                    <div class="primary_button" data-sound="piano">
+                    <div class="primary_button" data-sound="piano" data-number="0">
                         <span class="primary_button__text"> Piano </span>
                         <div class="primary_button__margin"></div>
                     </div>
-                    <div class="primary_button" data-sound="guitar">
+                    <div class="primary_button" data-sound="guitar" data-number="1">
                         <span class="primary_button__text"> Guitar </span>
                         <div class="primary_button__margin"></div>
                     </div>
-                    <div class="primary_button" data-sound="saxophone">
+                    <div class="primary_button" data-sound="saxophone" data-number="2">
                         <span class="primary_button__text"> Saxophone </span>
                         <div class="primary_button__margin"></div>
                     </div>
-                    <div class="primary_button" data-sound="piano">
+                    <div class="primary_button" data-sound="piano" data-number="3">
                         <span class="primary_button__text"> Flute </span>
                         <div class="primary_button__margin"></div>
                     </div>
@@ -113,10 +113,10 @@
                 </div>
             </div>
             <div class="intruments_type_color_filters">
-                    <div class="intruments_type_color_filter blue_filter"></div>
-                    <div class="intruments_type_color_filter purple_filter"></div>
-                    <div class="intruments_type_color_filter pink_filter"></div>
-                    <div class="intruments_type_color_filter green_filter"></div>
+                    <div class="intruments_type_color_filter blue_filter" data-instrument="instruments"></div>
+                    <div class="intruments_type_color_filter purple_filter" data-instrument="syntesizers"></div>
+                    <div class="intruments_type_color_filter pink_filter" data-instrument="drumpads"></div>
+                    <div class="intruments_type_color_filter green_filter" data-instrument="sampler"></div>
             </div>
         </div>
         <div class="gradient_line"></div>
@@ -224,13 +224,13 @@
             <div class="key white" id="B6"></div>
             <div class="key black invisibleKey" id="B6d"></div>
         </div>
-        <div class="drumpads_keyboard">
-            <div class="drumpad_keyboard"><span class="drumpad_keyboard__text">PlaceHolder</span></div>
-            <div class="drumpad_keyboard"><span class="drumpad_keyboard__text">PlaceHolder</span></div>
-            <div class="drumpad_keyboard"><span class="drumpad_keyboard__text">PlaceHolder</span></div>
-            <div class="drumpad_keyboard"><span class="drumpad_keyboard__text">PlaceHolder</span></div>
-            <div class="drumpad_keyboard"><span class="drumpad_keyboard__text">PlaceHolder</span></div>
-            <div class="drumpad_keyboard"><span class="drumpad_keyboard__text">PlaceHolder</span></div>
+        <div class="drumpad_keyboard">
+            <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
+            <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
+            <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
+            <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
+            <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
+            <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
         </div>
         <!-- <div class="test"></div>
         <div class="record"> record </div>
@@ -249,6 +249,7 @@
     <script src="../scripts/phone/audio.js"></script>
     <script src="../scripts/phone/mic.js"></script>
     <script src="../scripts/phone/sampler.js"></script>
+    <script src="../scripts/phone/drumpads.js"></script>
     <script src="../scripts/phone/chooseInstrument.js"></script>
     <script src="../scripts/phone/main.js"></script>
     

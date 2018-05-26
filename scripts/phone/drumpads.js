@@ -4,8 +4,8 @@ const $drumpadKeys = document.querySelectorAll(".drumpad_keys")
 
 //the last one is the name of the folder
 const drumpadTest = ["hi-hat", "kick", "open-hat", "piano", "snare", "test", "drumpad_test"]
-
-let currentDrumpad = drumpadTest
+const allDrumpads = [drumpadTest]
+let currentDrumpad = allDrumpads[0]
 
 const drumpad = new Tone.Sampler({
     "C0" : "../assets/sounds/drumpads/" + currentDrumpad[6] + "/" + currentDrumpad[0] + ".wav",
