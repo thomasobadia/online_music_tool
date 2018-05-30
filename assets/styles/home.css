@@ -1,0 +1,163 @@
+@font-face{
+    font-family: Montserrat-Bold;
+    src: url('fonts/Montserrat-Bold.otf');
+ }
+@font-face{
+    font-family: Montserrat-Regular;
+    src: url('fonts/Montserrat-Regular.otf');
+ }
+@font-face{
+    font-family: Montserrat-Light;
+    src: url('fonts/Montserrat-Light.otf');
+ }
+@font-face{
+    font-family: Montserrat-Black;
+    src: url('fonts/Montserrat-Black.otf');
+ }
+ 
+
+.logo{
+    color : #f8f8f8;
+    font-size: 1.2em;
+    font-family: Montserrat-Bold;
+    margin: 1.5em 1.5em;
+
+}
+.menu {
+    position: fixed;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.menu a {
+    font-size: 1em;
+    font-family: Montserrat-Bold;
+    text-decoration: none;
+    color : #e1e0e0;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.homeVideo {
+    position: fixed;
+    right: 0;
+    left : 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+    filter: brightness(0.8);
+}
+.musicians{
+    color : #f8f8f8;
+    margin-top: 8em;
+    font-size: 0.7em;
+    font-family: Montserrat-Light;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    letter-spacing: 0.6em;
+   
+}
+
+.slogan{
+    position: fixed;
+    z-index: -1;
+    top : 0;
+    left : 0; 
+    color : #f8f8f8;
+    height: 100vh;
+    width: 100vw;
+    color : #f8f8f8;
+    font-size: 5em;
+    font-family: Montserrat-Black;
+    font-weight: bold;
+    letter-spacing: 0.4em;
+
+}
+.slogan_create{
+    position: absolute;
+    top : 30vh;
+    left: 29vw;
+   
+}
+.slogan_with{
+    position: absolute;
+    top : 45vh;
+    left: 44vw;
+}
+.slogan_friends{
+    position: absolute;
+    top : 60vh;
+    left : 49vw;
+    
+}    
+
+.create_room{
+    background: #202020;
+    color: #f8f8f8;
+    font-family: Montserrat-Regular;
+    font-size: 1.1em;
+    padding: 0.5em 3em;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all ease-out 0.2s;
+}
+.create_room:hover{
+    transform: translateX(-50%) scale(1.1);
+}
+.create_room__whitespace{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5%;
+    height: 100%;
+    background: #f8f8f8;
+}
+
+form{
+    display: none;
+    font-family: Montserrat-Regular;
+    font-size: 1em;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+}
+input{
+    font-family: Montserrat-Bold;
+    font-size: 1.1em;
+    padding: 0.3em;
+}
+input.validate{
+    background: #202020;
+    color: #f8f8f8;
+    border: none;
+    padding: 0.5em 2em;
+    margin-left: 2em;
+    cursor: pointer;
+    transition: all ease-out 0.2s;
+}
+input.validate:hover{
+    transform: scale(1.1);
+}
+select.custom-select {
+    display: inline-block;
+    color: #f8f8f8;
+    font-family: Montserrat-Regular;
+    padding: 0.5em;
+    border: none;
+    font: inherit;
+    outline:none; /* remove focus ring from Webkit */
+    line-height: 1.2;
+    background: #202020;
+
+}
+select option{
+    font-family: Montserrat-Regular;
+}
