@@ -1,8 +1,6 @@
 <?php
-// include 'model/db_connect.php' ;
-// include 'controller/index.php' ;
-
-
+include 'model/db_connect.php' ;
+include 'controller/index.php' ;
 ?>
 
 	<!DOCTYPE html>
@@ -25,8 +23,8 @@
 		</div>
 		<div class="musicians">
 			<div>4 musicians</div>
-			<div>1 computer</div>
 			<div>4 phones</div>
+			<div>1 computer</div>
 			<div>1 music</div>
 		</div>
 		<div class="slogan">
@@ -39,17 +37,19 @@
 		<div class="create_room__whitespace"></div>
 		Create Room
 	</div>
+	<div class="error"><?= $error ?></div>
 	
 	<form action="#" method="post">
 			<select name="players" class="custom-select">
-				<option  value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
+				<option  value="1">1P</option>
+				<option value="2">2P</option>
+				<option value="3">3P</option>
+				<option selected="selected" value="4">4P</option>
 			</select><!-- 
-			--><input type="text" placeholder="Room name" name="room_name"><!-- 
+			--><input type="text" placeholder="Room name" name="room_name" autocomplete="off" ><!-- 
 			--><input  class="validate" type="submit" value="Validate">
 	</form>
+	<div class="mobile_disclaimer">To join a room on your device, please enter the Url given on your computer or scan the QR Code</div>
 
 	<script src="scripts/home.js"></script>
 	</body>
