@@ -1,9 +1,12 @@
 <?php
+
+$error = '';
+
 if(isset($_GET['error'])){
-	echo 'Please enter a valid name for your room';
+	$error ='Please enter a valid name for your room';
 }
 if(isset($_GET['alreadyTaken'])){
-	echo 'This name has already been taken';
+	$error = 'This name has already been taken';
 }
 
 if(isset($_POST['room_name'])){
