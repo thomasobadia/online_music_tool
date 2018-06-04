@@ -17,6 +17,10 @@ const mooveTimeCursor = ()=>{
         timeCursorPosition+= 1
     }
     $timeCursor.style.transform = "translateX("+ timeCursorPosition + "px"
+    console.log(timeCursorPosition)
+    if(timeCursorPosition > 674){
+        timeCursorPosition = 0
+    }
 
 }
 loop()
