@@ -1,0 +1,120 @@
+@font-face{
+    font-family: Montserrat-SemiBold;
+    src: url('fonts/Montserrat-SemiBold.otf');
+ }
+@font-face{
+    font-family: Montserrat-Medium;
+    src: url('fonts/Montserrat-Medium.otf');
+ }
+@font-face{
+    font-family: Montserrat-Light;
+    src: url('fonts/Montserrat-Light.otf');
+ }
+
+
+.room{
+    width: 100vw;
+    height: 100vh;
+}
+
+/**
+* Header
+*/
+.room__header{
+    width: 100%;
+    height: 12%;
+    background-color: #202020;
+    color: #f8f8f8;
+}
+
+/**
+* Content
+*/
+.room__content{
+    width: 100%;
+    height: 68%;
+    background-color: #343434;
+}
+
+.room__content__tracks{
+    width: 100%;
+    height: 100%;
+    /* padding: 7% 2.5% 7% 2.5%; */
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    padding-top: 65px;
+    /* padding-bottom: 4%; */
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.room__content__tracks__track{
+    width: 95%;
+    height: 68px;
+    position: relative;
+    margin-bottom: 40px;
+    background-color: #202020;
+    /* justify-content: center; */
+}
+
+/*info*/
+.room__content__tracks__track__info{
+    width: 20%;
+    height: 100%;
+    position: relative;
+
+}
+.room__content__tracks__track__info__color{
+    width: 100%;
+    height: 8%;
+    position: absolute;
+    background-color: #27a3a3;
+} 
+.room__content__tracks__track__info__name{
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family:  Montserrat-Medium;
+    color: #b5b2b1;
+
+}
+
+.room__content__tracks__track__info__mute{
+    width: 9%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #b5b2b1;
+}
+
+/*time stamps*/
+.tracks__track__time_stamps{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    left: 20%;
+    top: 0;
+    display: flex;
+}
+
+.time_stamp{
+    width: 1px;
+    height: 100%;
+    margin-right:25%; 
+    padding-left: 1px;
+    font-family:  Montserrat-Light;
+    color:#b5b2b1;
+    background-color: #b5b2b1;
+}
+
+.time_stamp>div{
+    transform: translateX(6px);
+}
+/**
+* Footer
+*/
+.room__footer{
+    height: 20%;
+    background-color: #505050;
+}

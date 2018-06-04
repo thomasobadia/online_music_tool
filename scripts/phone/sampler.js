@@ -9,19 +9,24 @@ const $sample = document.querySelector(".sample")
 //     //promise resolves when input is available
 // })
 
-console.log($record)
+// console.log($record)
 
 var sampler = new Tone.Sampler({
-    "C3" : "../../public/sounds/test.wav",
-    // "C1" : "../../public/sounds/pianoC1.wav",
+    // "C3" : "../assets/sounds/pianoC3.wav",
+    "C3" : "../assets/sounds/test.wav",
 
 }, function(){
     //sampler will repitch the closest sample
     sampler.toMaster()
 })
 
-console.log(sampler)
+// console.log(sampler)
 
+// sampler.add(
+//             "C3" , "../assets/sounds/pianoC3.wav")
+//         console.log(audio.src)
+//         sampler.toMaster()
+    
 
 
 
@@ -133,8 +138,8 @@ const giveWhiteKeys = ()=>{
         while(j<keyLetter.length){
             keyLetterNumber[k] = keyLetter[j] + keyNumber[i]
             blackKeyLetterNumber[k] = keyLetterNumber[k].splice(1, 0, "#")
-            console.log(keyLetterNumber[k])
-            console.log(blackKeyLetterNumber[k])
+            // console.log(keyLetterNumber[k])
+            // console.log(blackKeyLetterNumber[k])
             j++
             k++
         }
@@ -151,7 +156,7 @@ const giveWhiteKeys = ()=>{
 
 const giveBlackKeys = ()=>{
     $blacks.forEach(black => {
-        console.log(black)
+        // console.log(black)
     })
 }
 

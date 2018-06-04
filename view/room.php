@@ -10,7 +10,7 @@ include '../controller/room.php';
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Lobby</title>
+		<title>Room</title>
 	</head>
 
 	<body>
