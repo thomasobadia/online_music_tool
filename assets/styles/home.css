@@ -41,14 +41,17 @@
 
 .homeVideo {
     position: fixed;
-    right: 0;
-    left : 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     min-width: 100%; 
     min-height: 100%;
     z-index: -1;
+    object-fit: cover;
     filter: brightness(0.8);
 }
+
+
 .musicians{
     color : #f8f8f8;
     margin-top: 8em;
@@ -71,7 +74,7 @@
     left : 50%; 
     transform: translateX(-50%);
     color : #f8f8f8;
-    height: 1000px;
+    height: 100%;
     width: 1000px;
     color : #f8f8f8;
     font-size: 5em;
@@ -223,7 +226,8 @@ div.error{
     display: none;
 }
 
-@media screen and (max-width: 1280px)
+
+@media screen and (max-width: 1000px)
 {
     .slogan,.musicians,.create_room,.menu{
         display: none;
