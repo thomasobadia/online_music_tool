@@ -176,6 +176,7 @@ body{
     width: 100%;
     height: 30%;
     position: relative;
+    z-index: 2;
     background-color: #212121;
 }
 
@@ -222,10 +223,11 @@ body{
 
 .time_cursor{
     width: 1px;
-    height: 100%;
+    height: 91%;
     position: absolute;
     left: 21.2%;
     /*95.8*/
+    z-index: 2;
     background-color: red;
 }
 
