@@ -1,0 +1,247 @@
+@font-face{
+    font-family: Montserrat-Bold;
+    src: url('fonts/Montserrat-Bold.otf');
+ }
+@font-face{
+    font-family: Montserrat-Regular;
+    src: url('fonts/Montserrat-Regular.otf');
+ }
+@font-face{
+    font-family: Montserrat-Light;
+    src: url('fonts/Montserrat-Light.otf');
+ }
+@font-face{
+    font-family: Montserrat-Black;
+    src: url('fonts/Montserrat-Black.otf');
+ }
+ 
+
+.logo{
+    color : #f8f8f8;
+    font-size: 1.2em;
+    font-family: Montserrat-Bold;
+    margin: 1.5em 1.5em;
+
+}
+.menu {
+    position: fixed;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.menu a {
+    font-size: 1em;
+    font-family: Montserrat-Bold;
+    text-decoration: none;
+    color : #e1e0e0;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.homeVideo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+
+.musicians{
+    color : #f8f8f8;
+    margin-top: 8em;
+    font-size: 0.7em;
+    font-family: Montserrat-Light;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    letter-spacing: 0.6em;
+    animation: musicians 2s;
+   
+}
+
+
+.slogan{
+    position: fixed;
+    z-index: -1;
+    top : 0;
+    left : 50%; 
+    transform: translateX(-50%);
+    color : #f8f8f8;
+    height: 100%;
+    width: 1000px;
+    color : #f8f8f8;
+    font-size: 5em;
+    font-family: Montserrat-Black;
+    font-weight: bold;
+    letter-spacing: 0.4em;
+
+}
+.slogan_create{
+    position: absolute;
+    top : 30%;
+    left: 3%;
+    animation: create 2s;
+
+   
+}
+.slogan_with{
+    position: absolute;
+    top : 45%;
+    left: 36.5%;
+    animation: with 2s;
+}
+.slogan_friends{
+    position: absolute;
+    top : 60%;
+    left : 48%;
+    animation: friends 2s;
+    
+}    
+
+@keyframes create {
+    0% {
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes with {
+    0% {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes musicians {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes friends {
+    0% {
+        transform: translateX(20%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.create_room{
+    background: #202020;
+    color: #f8f8f8;
+    font-family: Montserrat-Regular;
+    font-size: 1.1em;
+    padding: 0.5em 3em;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all ease-out 0.2s;
+}
+
+.create_room__whitespace{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5%;
+    height: 100%;
+    background: #f8f8f8;
+}
+
+form{
+    display: none;
+    font-family: Montserrat-Regular;
+    font-size: 1em;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+}
+input{
+    font-family: Montserrat-Regular;
+    font-size: 1.1em;
+    padding: 0.3em;
+}
+input.validate{
+    background: #202020;
+    color: #f8f8f8;
+    border: none;
+    padding: 0.5em 2em;
+    margin-left: 2em;
+    cursor: pointer;
+    transition: all ease-out 0.2s;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #202020;
+    opacity: 1; /* Firefox */
+}
+
+select.custom-select {
+    display: inline-block;
+    color: #f8f8f8;
+    font-family: Montserrat-Regular;
+    padding: 0.5em;
+    border: none;
+    font: inherit;
+    outline:none; /* remove focus ring from Webkit */
+    line-height: 1.2;
+    background: #202020;
+
+}
+select option{
+    font-family: Montserrat-Regular;
+}
+
+div.error{
+    color: #df6052;
+    font-family: Montserrat-Regular;
+    font-size: 1.2em;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+}
+.mobile_disclaimer{
+    display: none;
+}
+
+
+@media screen and (max-width: 1000px)
+{
+    .slogan,.musicians,.create_room,.menu{
+        display: none;
+    }
+    .logo{
+        text-align: center;
+        font-size: 3rem
+    }
+    .mobile_disclaimer{
+        display: block;
+        color: #f8f8f8;
+        font-size: 2rem;
+        margin: 0 2rem;
+        font-family: Montserrat-Regular;
+        text-align: center;
+    }
+}

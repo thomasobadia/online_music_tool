@@ -1,7 +1,7 @@
 var app = require('express')(),
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server),
-	ent = require('ent'), // Permet de bloquer les caractères HTML (sécurité équivalente à htmlentities en PHP)
+	ent = require('ent'), 
 	fs = require('fs');
 
 
@@ -20,16 +20,18 @@ io.sockets.on('connection', function (socket) {
 		$players = players
 	})
 
-	socket.on('newPseudo', function (pseudo) {
-		socket.name = pseudo;
-		console.log(socket.name)
-		console.log(sessionid);
+	socket.on('newPseudo', function (data) {
+		socket.name = data.name;
+		console.log(data.name)
+		console.log(data.room)
+		socket.to(data.room).emit('addPlayer', data.name)
+		
 	})
 
 	socket.on('newComputer', function () {
 		if (io.sockets.adapter.rooms[$room].computer == 0) {
 			io.sockets.adapter.rooms[$room].computer++
-				console.log(io.sockets.adapter.rooms[$room].computer)
+			console.log(io.sockets.adapter.rooms[$room].computer)
 			console.log(sessionid);
 			console.log($room)
 
@@ -51,12 +53,13 @@ io.sockets.on('connection', function (socket) {
 			console.log(io.sockets.adapter.rooms[$room].touchDevice)
 		} else {
 			io.sockets.adapter.rooms[$room].touchDevice++
-				var destination = '404.php';
+			var destination = '404.php';
 			socket.emit('redirect', destination);
 		}
 		socket.on('disconnect', function () {
 			io.sockets.adapter.rooms[$room].touchDevice--
-				console.log('deconnection')
+			socket.to($room).emit('removePlayer', socket.name)
+			console.log('deconnection')
 			console.log(io.sockets.adapter.rooms[$room].touchDevice)
 		});
 
@@ -68,8 +71,6 @@ io.sockets.on('connection', function (socket) {
 	})
 
 });
-
-io.sockets.on
 
 console.log('node start');
 

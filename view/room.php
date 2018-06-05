@@ -14,10 +14,6 @@ include '../controller/room.php';
 	</head>
 
 	<body>
-		<form onsubmit="event.preventDefault(); updatePseudo();">
-			<input type="text" id='pseudo' name="pseudo" />
-			<input id="validate" type="submit" value="Validate" />
-		</form>
 		<h1>Room Name : <?= $room->name ?></h1>
 		<p>To join this room, please copy the following link or scan the QR Code</p>
 		<p>http://51.38.176.227/view/room.php?roomId=
