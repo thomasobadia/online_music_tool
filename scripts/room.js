@@ -22,11 +22,52 @@ if (Modernizr.touchevents) {
 
 socket.on('addPlayer',  (pseudo) => {
 	if (!Modernizr.touchevents){
-		var div = document.createElement('div')
-		div.setAttribute("id", pseudo);
-		div.innerHTML = pseudo;
-		document.body.appendChild(div)
+		const  tracksContainer = document.querySelector('.room__content__tracks')
+		
+		const  newTrack = document.createElement('div')
+			newTrack.setAttribute("id", pseudo)
+			newTrack.setAttribute("class", 'room__content__tracks__track')
+			tracksContainer.appendChild(newTrack)
+
+		const  newTrackInfo = document.createElement('div')
+			newTrackInfo.setAttribute("class", 'room__content__tracks__track__info')
+			newTrack.appendChild(newTrackInfo)	
+
+		const  newTrackInfoName = document.createElement('div')
+			newTrackInfoName.setAttribute("class", 'room__content__tracks__track__info__name')
+			newTrackInfo.appendChild(newTrackInfoName)
+			newTrackInfoName.innerHTML = pseudo
+			
+		const  newTrackInfoColor = document.createElement('div')
+			newTrackInfoColor.setAttribute("class", 'room__content__tracks__track__info__color')
+			newTrackInfo.appendChild(newTrackInfoColor)
+
+		const  newTrackInfoMute = document.createElement('div')
+			newTrackInfoMute.setAttribute("class", 'room__content__tracks__track__info__mute')
+			newTrackInfo.appendChild(newTrackInfoMute)
+
+		const  newTrackContent = document.createElement('div')
+			newTrackContent.setAttribute("class", 'room__content__tracks__track__content')
+			newTrack.appendChild(newTrackContent)
+
+		const  newTrackStamp = document.createElement('div')
+			newTrackStamp.setAttribute("class", 'tracks__track__time_stamps')
+			newTrackContent.appendChild(newTrackStamp)
+		
+		for(let i = 1 ; i < 5 ; i++){
+			let  newTrackStampSingle = document.createElement('div')
+			newTrackStampSingle.setAttribute("class", 'time_stamp')
+			newTrackStamp.appendChild(newTrackStampSingle)
+			let newTrackStampSingle_div = document.createElement('div')
+			newTrackStampSingle.appendChild(newTrackStampSingle_div)
+			newTrackStampSingle_div.innerHTML = i
+		}
+		
+		const  newTrackVolume = document.createElement('div')
+			newTrackVolume.setAttribute("class", 'tracks__track__volume')
+			newTrack.appendChild(newTrackVolume)
 }})
+
 socket.on('removePlayer',  (pseudo) => {
 	if (!Modernizr.touchevents){
 		removeElement(pseudo)
