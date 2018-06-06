@@ -20,15 +20,26 @@ body{
 
 /*********Piano keyBoard *********/
 
-.keyBoard{
+
+
+#keyBoard{
     position: absolute;
     bottom: 0;
     width: 100vw;
     height: 50vh;
     background-color: black;
-    left: 20;
     visibility: hidden;
 }
+#keyBoard{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 50vh;
+    background-color: black;
+    visibility: hidden;
+}
+
+
 
 .gradient_line{
     position: absolute;
