@@ -7,14 +7,28 @@ const $pause = document.querySelector(".room__footer__parameters__audio_controls
 const $volume = document.querySelector(".tracks__track__volume")
 
 let trackContentWidth = $trackContent.offsetWidth
+
 //speed of the timeCursor
 let timeCursorBPM = 500
 let timeCursorDistance = trackContentWidth / timeCursorBPM
 let timeCursorPosition = 0
+
+//are we playing the sound
 let isPause = true
+
+//are we recording the sound
+let isRecording = false
+
+//on which subtrack are we going to record
+let whichTrack = 2
+
+//calculate the lenght of the track
+let timeCursorLimit = $volume.offsetLeft - $timeCursor.offsetLeft
+
 
 console.log(timeCursorDistance)
 
+//when we resize
 window.addEventListener("resize", ()=>{
     trackContentWidth = $trackContent.offsetWidth
     timeCursorDistance = trackContentWidth / 100
@@ -22,13 +36,13 @@ window.addEventListener("resize", ()=>{
 })
 
 
-let timeCursorLimit = $volume.offsetLeft - $timeCursor.offsetLeft
 console.log(timeCursorLimit)
 const loop = ()=>{
     window.requestAnimationFrame(loop)
     mooveTimeCursor()
 }
 
+//make the cursor advance
 const mooveTimeCursor = ()=>{
     if(isPause === -1){
         timeCursorPosition+= timeCursorDistance
@@ -37,20 +51,38 @@ const mooveTimeCursor = ()=>{
     if(timeCursorPosition > trackContentWidth){
         timeCursorPosition = 0
         isPause = 1
+        isRecording = 0
     }
 
 }
 loop()
 
-
+//play/pause when we press space
 document.addEventListener('keydown', (event)=>{
     if (event.keyCode === 32) {
         isPause = -isPause
+        isRecording = -1
     }
 })
 
+//play when we press play
 $play.addEventListener('mouseup', (event)=>{
     isPause = -1
+    isRecording = -1
+})
+
+//record when we press record
+$record.addEventListener('mouseup', (event)=>{
+    timeCursorPosition = 0
+    //change the subtrack where we are recording
+    if(whichTrack!=2){
+        whichTrack+=1
+    }
+    else{
+        whichTrack = 0
+    }
+    isPause = -1
+    isRecording = 1
 })
 
 $pause.addEventListener('mouseup', (event)=>{
@@ -58,6 +90,7 @@ $pause.addEventListener('mouseup', (event)=>{
         timeCursorPosition = 0
     }
     isPause = 1
+    isRecording = -1
 })
 
 

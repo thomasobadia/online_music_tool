@@ -2,7 +2,7 @@
 
 const $subTracks = document.querySelectorAll(".sub_track")
 const anchors = []
-let whichTrack = 0
+
 
 
 console.log($subTracks[0])
@@ -10,7 +10,7 @@ console.log($subTracks[0])
 //when a key is pressed
 document.addEventListener("keydown", (event)=>{
     if (event.keyCode===65){
-        if(!event.repeat){
+        if(!event.repeat && isRecording === 1){
         //creation of the div
         const newAnchorDiv = document.createElement('div')
         newAnchorDiv.setAttribute("class", 'anchor')
@@ -47,23 +47,24 @@ document.addEventListener("keyup", ()=>{
             let width
             //if the key is not drawn yet
             if(!anchor.dataset.isFinished){
-                console.log(timeCursorPosition)
                 console.log(anchor.dataset.start)
+                console.log(timeCursorPosition)
 
                 //we record when where we release the key
                 anchor.dataset.stop = timeCursorPosition
 
                 //handle if we release the key after the end of the track
-                if(anchor.dataset.stop > anchor.dataset.start){
+                // if(anchor.dataset.stop >= anchor.dataset.start){
                      width = anchor.dataset.stop - anchor.dataset.start
                     console.log("bitch")
-                }
-                else{
-                     width = trackContentWidth - anchor.dataset.start 
-                }
+                // }
+                // else{
+                //      width = trackContentWidth - anchor.dataset.start 
+                // }
                 console.log(width)
                 anchor.style.width = width +"px"
                 anchor.dataset.isFinished = 1
+                
             }
         })
     }
