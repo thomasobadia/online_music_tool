@@ -165,10 +165,11 @@ body{
 }
 
 .anchor{
-    width: 1px;
+    width: 3px;
     height: 10px;
     position: absolute;
     background-color: rgb(233, 163, 33);
+    border: #f8f8f8 solid 0.1px;
 }
 
 /**

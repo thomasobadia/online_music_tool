@@ -21,8 +21,11 @@ document.addEventListener("keydown", (event)=>{
         //position of the div
         newAnchorDiv.style.transform = "translateX("+timeCursorPosition+"px)"
 
-        //the div is not finished yet
+        //the div is not finished from being created yet
         newAnchorDiv.setAttribute("data-isfinished", 0)
+
+        //the anchor is not played
+        newAnchorDiv.setAttribute("data-isplayed", -1)
 
         //which instrument should we play
         newAnchorDiv.setAttribute("data-instrument", "piano")
@@ -44,6 +47,7 @@ document.addEventListener("keyup", ()=>{
     //a key
     if (event.keyCode===65){    
         anchors.forEach(anchor => {
+    
             let width
             //if the key is not drawn yet
             if(!anchor.dataset.isFinished){

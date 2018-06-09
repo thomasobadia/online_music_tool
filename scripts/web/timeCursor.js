@@ -36,11 +36,9 @@ window.addEventListener("resize", ()=>{
 })
 
 
-console.log(timeCursorLimit)
-const loop = ()=>{
-    window.requestAnimationFrame(loop)
-    mooveTimeCursor()
-}
+/**
+ * mooving the cursor
+ */
 
 //make the cursor advance
 const mooveTimeCursor = ()=>{
@@ -50,12 +48,25 @@ const mooveTimeCursor = ()=>{
     $timeCursor.style.transform = "translateX("+ timeCursorPosition + "px"
     if(timeCursorPosition > trackContentWidth){
         timeCursorPosition = 0
+        sampler.releaseAll()
         isPause = 1
         isRecording = 0
     }
 
 }
+
+//moving time cursor with a loop
+const loop = ()=>{
+    window.requestAnimationFrame(loop)
+    mooveTimeCursor()
+}
 loop()
+
+
+
+/**
+ * Play pause and record
+ */
 
 //play/pause when we press space
 document.addEventListener('keydown', (event)=>{
@@ -67,6 +78,7 @@ document.addEventListener('keydown', (event)=>{
 
 //play when we press play
 $play.addEventListener('mouseup', (event)=>{
+    sampler.releaseAll()
     isPause = -1
     isRecording = -1
 })
@@ -74,6 +86,7 @@ $play.addEventListener('mouseup', (event)=>{
 //record when we press record
 $record.addEventListener('mouseup', (event)=>{
     timeCursorPosition = 0
+    sampler.releaseAll()
     //change the subtrack where we are recording
     if(whichTrack!=2){
         whichTrack+=1
@@ -90,6 +103,7 @@ $pause.addEventListener('mouseup', (event)=>{
         timeCursorPosition = 0
     }
     isPause = 1
+    sampler.releaseAll()
     isRecording = -1
 })
 
