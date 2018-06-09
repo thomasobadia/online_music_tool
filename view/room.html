@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../assets/styles/reset.css">
+    <link rel="stylesheet" href="../assets/styles/web.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="room">
+        <div class="room__header">
+            <div class="room__header__title">Harmony</div>
+            <img src="../assets/img/web/arrow-left.svg" class="room__header__left_arrow"></img>
+            <div class="room__header__room_name">231</div>
+        </div>
+        <div class="room__content">
+            <div class="time_cursor"></div>
+            <div class="room__content__tracks">
+                <div class="room__content__tracks__track">
+                    <div class="room__content__tracks__track__info">
+                        <div class="room__content__tracks__track__info__name">Ingal</div>
+                        <div class="room__content__tracks__track__info__color"></div>
+                        <div class="room__content__tracks__track__info__mute"></div>
+                    </div>
+                    <div class="room__content__tracks__track__content">
+                        <div class="tracks__track__sub_tracks">
+                            <div class="tracks__track__sub_tracks__sub_track1 sub_track">
+                            </div>
+                            <div class="tracks__track__sub_tracks__sub_track2 sub_track"></div>
+                            <div class="tracks__track__sub_tracks__sub_track3 sub_track"></div>
+                        </div>
+                        <div class="tracks__track__time_stamps">
+                            <div class="time_stamp"><div>1</div></div>
+                            <div class="time_stamp"><div>2</div></div>
+                            <div class="time_stamp"><div>3</div></div>
+                            <div class="time_stamp"><div>4</div></div>
+                        </div>
+                    </div>
+                    <div class="tracks__track__volume"></div>
+                </div>
+                <div class="room__content__tracks__track">
+                    <div class="room__content__tracks__track__info">
+                        <div class="room__content__tracks__track__info__name"></div>
+                        <div class="room__content__tracks__track__info__color"></div>
+                        <div class="room__content__tracks__track__info__mute"></div>
+                    </div>
+                    <div class="tracks__track__time_stamps">
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                    </div>
+                    <div class="tracks__track__volume"></div>
+                </div>
+                <div class="room__content__tracks__track">
+                    <div class="room__content__tracks__track__info">
+                        <div class="room__content__tracks__track__info__name"></div>
+                        <div class="room__content__tracks__track__info__color"></div>
+                        <div class="room__content__tracks__track__info__mute"></div>
+                    </div>
+                    <div class="tracks__track__time_stamps">
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                    </div>
+                    <div class="tracks__track__volume"></div>
+                </div>
+                <div class="room__content__tracks__track">
+                    <div class="room__content__tracks__track__info">
+                        <div class="room__content__tracks__track__info__name"></div>
+                        <div class="room__content__tracks__track__info__color"></div>
+                        <div class="room__content__tracks__track__info__mute"></div>
+                    </div>
+                    <div class="tracks__track__time_stamps">
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                        <div class="time_stap"></div>
+                    </div>
+                    <div class="tracks__track__volume"></div>
+                </div>
+            </div>
+        </div>
+        <div class="room__footer">
+            <div class="room__footer__parameters">
+                <div class="room__footer__parameters__volume">
+                        <div class="room__footer__parameters__volume__text">Volume : 100</div>
+                        <!-- <div class="room__footer__parameters__volume__slider">
+                            <div class="room__footer__parameters__volume__slider__cursor"></div>
+                        </div> -->
+                        <input class="room__footer__parameters__volume__slider" type="range">
+                </div>
+                <div class="room__footer__parameters__audio_controls">
+                    <img src="../assets/img/web/play.png" class="room__footer__parameters__audio_controls__play">
+                    <img src="../assets/img/web/stop.png" class="room__footer__parameters__audio_controls__pause">
+                    <img src="../assets/img/web/record.png" class="room__footer__parameters__audio_controls__record">
+                </div>
+            </div>
+            <div class="room__footer__frequency"></div>
+        </div>
+    </div>
+    
+    <script src="../scripts/phone/audioContext.js"></script>
+    <script src="../scripts/phone/tone.js"></script>
+    <script src="../scripts/web/volume.js"></script>
+    <script src="../scripts/web/timeCursor.js"></script>
+    <script src="../scripts/web/createKeyAnchor.js"></script>
+    <script src="../scripts/web/analyser.js"></script>
+
+</body>
+</html>
