@@ -56,6 +56,22 @@ io.sockets.on('connection', function (socket) {
 			var destination = '404.php';
 			socket.emit('redirect', destination);
 		}
+		socket.on('white_key_pressed', function(key){
+			io.to($room).emit('newKeyPressed', key)
+			console.log(key)
+		})
+		socket.on('white_key_released', function(key){
+			io.to($room).emit('newKeyReleased', key)
+			console.log(key)
+		})
+		socket.on('black_key_pressed', function(key){
+			io.to($room).emit('newKeyPressed', key)
+			console.log(key)
+		})
+		socket.on('black_key_released', function(key){
+			io.to($room).emit('newKeyReleased', key)
+			console.log(key)
+		})
 		socket.on('disconnect', function () {
 			io.sockets.adapter.rooms[$room].touchDevice--
 			socket.to($room).emit('removePlayer', socket.name)
@@ -64,6 +80,7 @@ io.sockets.on('connection', function (socket) {
 		});
 
 	})
+	
 	var sessionid = socket.id;
 	socket.on('sound', function (socket) {
 		io.to($room).emit('newSound', 'newSound')

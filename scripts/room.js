@@ -1,4 +1,4 @@
-var socket = io.connect('http://51.38.176.227:8080')
+var socket = io.connect('51.38.176.227:8080')
 const button = document.querySelector('#button')
 const $validate = document.querySelector('#validate')
 const  removeElement = (id) => {
@@ -6,10 +6,27 @@ const  removeElement = (id) => {
     return elem.parentNode.removeChild(elem);
 }
 
+const desktop = document.querySelector(".desktop")
+const mobile = document.querySelector(".mobile")
+
 socket.emit('room', roomId);
 socket.emit('players', players);
 
+
+socket.on('newKeyPressed', (key) =>{
+	if (!Modernizr.touchevents) {
+		sampler.triggerAttack(key)
+	}
+})
+socket.on('newKeyReleased', (key) =>{
+	if (!Modernizr.touchevents) {
+		sampler.triggerRelease(key)
+	}
+})
 if (Modernizr.touchevents) {
+	desktop.style.display = "none"
+
+	
 	socket.emit('newTouchDevice', 'touchDevice')
 	var pseudo = prompt('Enter your pseudo');
 	if(!pseudo){
@@ -18,6 +35,7 @@ if (Modernizr.touchevents) {
 	socket.emit('newPseudo',{ name: pseudo, room: roomId });
 } else {
 	socket.emit('newComputer', 'computer')
+	mobile.style.display = "none"
 }
 
 socket.on('addPlayer',  (pseudo) => {
