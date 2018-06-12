@@ -31,7 +31,7 @@ const allSounds = [$instrumentsSounds, $synthesizersSounds, $drumpadsSounds, $sa
 const $chooseSound = document.querySelector(".choose_sound")
 const $soundSelected = document.querySelector(".primary_button_sound_selected")
 
-const $gradientLine = document.querySelector(".gradient_line")
+
 
 
 
@@ -119,12 +119,12 @@ allSounds.forEach(sounds => {
     })
 })
 
-const changeSampleAudioFile = (sound)=>{
-    sampler.add(
-        "C3" , "../assets/sounds/" + sound.dataset.sound +".wav")
-    console.log(audio.src)
-    sampler.toMaster()
-}
+// const changeSampleAudioFile = (sound)=>{
+//     sampler.add(
+//         "C3" , "../assets/sounds/" + sound.dataset.sound +".wav")
+//     console.log(audio.src)
+//     sampler.toMaster()
+// }
 
 const changeSampleAudioFileDrumpad = (sound)=>{
     currentDrumpad = allDrumpads[sound.dataset.number]

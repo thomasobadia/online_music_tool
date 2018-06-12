@@ -20,6 +20,8 @@ var sampler = new Tone.Sampler({
     sampler.toMaster()
 })
 
+sampler.chain(volume, Tone.Master)
+
 // console.log(sampler)
 
 // sampler.add(
@@ -145,11 +147,12 @@ const giveWhiteKeys = ()=>{
         }
     }
     for(let l = 0; l<$whites.length; l++){
-        // console.log(keyLetterNumber[k])
-        $whites[l].addEventListener("touchstart", ()=>{ sampler.triggerAttack(keyLetterNumber[l])})
-        $blacks[l].addEventListener("touchstart", ()=>{ sampler.triggerAttack(blackKeyLetterNumber[l])})
-        $whites[l].addEventListener("touchend", ()=>{ sampler.triggerRelease(keyLetterNumber[l])})
-        $blacks[l].addEventListener("touchend", ()=>{ sampler.triggerRelease(blackKeyLetterNumber[l])})
+        console.log($whites[l])
+        // $whites[l].addEventListener("touchstart", ()=>{ sampler.triggerAttack(keyLetterNumber[l])})
+        $whites[l].addEventListener("touchstart", ()=>{ socket.emit('white_key_pressed', keyLetterNumber[l])})
+        $blacks[l].addEventListener("touchstart", ()=>{ socket.emit('black_key_pressed', blackKeyLetterNumber[l])})
+        $whites[l].addEventListener("touchend", ()=>{ socket.emit('white_key_released', keyLetterNumber[l])})
+        $blacks[l].addEventListener("touchend", ()=>{ socket.emit('black_key_released', blackKeyLetterNumber[l])})
     }
     // console.log(keyLetterNumber)
 }
@@ -159,7 +162,7 @@ const giveBlackKeys = ()=>{
         // console.log(black)
     })
 }
-
+    
 
 const giveKeys =()=>{
     giveWhiteKeys()

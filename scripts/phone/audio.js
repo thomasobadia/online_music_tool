@@ -1,34 +1,34 @@
 
 
-//Synths are capable of a wide range of sounds depending on their settings
-var synthA = new Tone.Synth({
-	oscillator : {
-  	type : 'fmsquare',
-    modulationType : 'sawtooth',
-    modulationIndex : 3,
-    harmonicity: 3.4
-  },
-  envelope : {
-  	attack : 0.001,
-    decay : 0.1,
-    sustain: 0.1,
-    release: 0.1
-  }
-}).toMaster()
+// //Synths are capable of a wide range of sounds depending on their settings
+// var synthA = new Tone.Synth({
+// 	oscillator : {
+//   	type : 'fmsquare',
+//     modulationType : 'sawtooth',
+//     modulationIndex : 3,
+//     harmonicity: 3.4
+//   },
+//   envelope : {
+//   	attack : 0.001,
+//     decay : 0.1,
+//     sustain: 0.1,
+//     release: 0.1
+//   }
+// }).toMaster()
 
-var synthB = new Tone.Synth({
-	oscillator : {
-  	type : 'triangle8'
-  },
-  envelope : {
-  	attack : 0,
-    decay : 1,
-    sustain: 0.4,
-    release: 1
-  }
-}).toMaster()
+// var synthB = new Tone.Synth({
+// 	oscillator : {
+//   	type : 'triangle8'
+//   },
+//   envelope : {
+//   	attack : 0,
+//     decay : 1,
+//     sustain: 0.4,
+//     release: 1
+//   }
+// }).toMaster()
 
-console.log(synthA)
+// console.log(synthA)
 
 // synthA.triggerAttack('D4')
 

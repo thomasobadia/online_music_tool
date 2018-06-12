@@ -68,22 +68,40 @@ socket.on('addPlayer',  (pseudo) => {
 			newTrackContent.setAttribute("class", 'room__content__tracks__track__content')
 			newTrack.appendChild(newTrackContent)
 
+
 		const  newTrackStamp = document.createElement('div')
 			newTrackStamp.setAttribute("class", 'tracks__track__time_stamps')
 			newTrackContent.appendChild(newTrackStamp)
 		
-		for(let i = 1 ; i < 5 ; i++){
+		for(let j = 1 ; j < 5 ; j++){
 			let  newTrackStampSingle = document.createElement('div')
 			newTrackStampSingle.setAttribute("class", 'time_stamp')
 			newTrackStamp.appendChild(newTrackStampSingle)
 			let newTrackStampSingle_div = document.createElement('div')
 			newTrackStampSingle.appendChild(newTrackStampSingle_div)
-			newTrackStampSingle_div.innerHTML = i
+			newTrackStampSingle_div.innerHTML = j
+		}
+
+		console.log("bitch")
+		const  newTrackSubtracks = document.createElement('div')
+			newTrackSubtracks.setAttribute("class", 'tracks__track__sub_tracks')
+			newTrackContent.appendChild(newTrackSubtracks)
+			
+
+		for(let i = 1 ; i < 4 ; i++){
+			let  newTrackSubtrack = document.createElement('div')
+			console.log(newTrackSubtracks)
+			newTrackSubtrack.setAttribute("class", 'sub_track')
+			newTrackSubtracks.appendChild(newTrackSubtrack)
 		}
 		
 		const  newTrackVolume = document.createElement('div')
 			newTrackVolume.setAttribute("class", 'tracks__track__volume')
 			newTrack.appendChild(newTrackVolume)
+
+		timeCursorScript()
+		
+		
 }})
 
 socket.on('removePlayer',  (pseudo) => {

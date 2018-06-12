@@ -1,9 +1,13 @@
-const $keyBoard = document.querySelector(".keyBoard")
+const $keyBoard = document.querySelector("#keyBoard")
 const $whites = $keyBoard.querySelectorAll(".white")
 const $blacks = $keyBoard.querySelectorAll(".black")
 
+const $gradientLine = document.querySelector(".gradient_line")
+
+
 let windowWidth = window.innerWidth
 
+//create Keyboard
 const createKeyboard = ()=>{
     let whiteLeft = 0
     for (let i = 0; i < $whites.length; i++ ){
@@ -32,23 +36,25 @@ let keyBoardDistance = 0
 let keyBoardStart 
 
 console.log(keyBoardLeft)
-$keyBoard.addEventListener("touchstart",(e)=>{
-    console.log($keyBoard.style.left)
-    keyBoardLeft = $keyBoard.style.left
-    keyBoardStart =  parseInt(e.changedTouches[0].clientX)
-    console.log(keyBoardStart)
-    e.preventDefault()
-})
 
-$keyBoard.addEventListener("touchmove", (e)=>{
-    
-    keyBoardDistance = parseInt(e.changedTouches[0].clientX) - keyBoardStart
-        if(keyBoardLeft){ keyBoardLeft = parseInt(keyBoardLeft) }
-    $keyBoard.style.left =  keyBoardLeft + keyBoardDistance + "px"
-    e.preventDefault()
-})
+//moove keyboard from left to right when swipe on the gradient line
+    $gradientLine.addEventListener("touchstart",(e)=>{
+        console.log($keyBoard.style.left)
+        keyBoardLeft = $keyBoard.style.left
+        keyBoardStart =  parseInt(e.changedTouches[0].clientX)
+        console.log(keyBoardStart)
+        e.preventDefault()
+    })
 
+    $gradientLine.addEventListener("touchmove", (e)=>{
+        
+        keyBoardDistance = parseInt(e.changedTouches[0].clientX) - keyBoardStart
+            if(keyBoardLeft){ keyBoardLeft = parseInt(keyBoardLeft) }
+        $keyBoard.style.left =  keyBoardLeft + keyBoardDistance + "px"
+        e.preventDefault()
+    })
 
+//can't moove the screen
 window.addEventListener('touchmove', function(e) {
     e.preventDefault();
 })

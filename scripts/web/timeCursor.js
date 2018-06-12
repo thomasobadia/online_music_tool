@@ -1,3 +1,17 @@
+/***********************************/
+ /*HANDLE TIME CURSOR AND ANCHORS*/
+/***********************************/
+
+
+
+
+/**                 /** 
+ * time cursor  *******
+ */            
+ 
+
+const timeCursorScript = ()=>{
+
 const $trackContent = document.querySelector(".room__content__tracks__track__content")
 
 const $timeCursor = document.querySelector(".time_cursor")
@@ -39,6 +53,7 @@ window.addEventListener("resize", ()=>{
 /**
  * mooving the cursor
  */
+
 
 //make the cursor advance
 const mooveTimeCursor = ()=>{
@@ -107,6 +122,110 @@ $pause.addEventListener('mouseup', (event)=>{
     isRecording = -1
 })
 
+/**
+ * ANCHORS
+ */
+const $subTracks = document.querySelectorAll(".sub_track")
+const anchors = []
+    
+    
+//when a key is pressed create anchor
+document.addEventListener("keydown", (event)=>{
+    if (event.keyCode===65){
+        if(!event.repeat && isRecording === 1){
+        //creation of the div
+        const newAnchorDiv = document.createElement('div')
+        newAnchorDiv.setAttribute("class", 'anchor')
 
+        //giving temporal info to the div
+        newAnchorDiv.setAttribute("data-start", timeCursorPosition)
 
+        //position of the div
+        newAnchorDiv.style.transform = "translateX("+timeCursorPosition+"px)"
 
+        //the div is not finished from being created yet
+        newAnchorDiv.setAttribute("data-isfinished", 0)
+
+        //the anchor is not played
+        newAnchorDiv.setAttribute("data-isplayed", -1)
+
+        //which instrument should we play
+        newAnchorDiv.setAttribute("data-instrument", "piano")
+
+        //on which track the anchor should be placed
+        $subTracks[whichTrack].appendChild(newAnchorDiv)
+        
+        //push the anchor in the array to save it
+        anchors.push(newAnchorDiv)
+        } 
+
+        
+            
+    }
+})
+
+//when a key is released finish anchor
+document.addEventListener("keyup", ()=>{
+    //a key
+    if (event.keyCode===65){   
+        console.log("test") 
+        anchors.forEach(anchor => {
+    
+            let width
+            //if the key is not drawn yet
+            if(!anchor.dataset.isFinished){
+                console.log(anchor.dataset.start)
+                console.log(timeCursorPosition)
+
+                //we record when where we release the key
+                anchor.dataset.stop = timeCursorPosition
+
+                //handle if we release the key after the end of the track
+                // if(anchor.dataset.stop >= anchor.dataset.start){
+                        width = anchor.dataset.stop - anchor.dataset.start
+                    console.log("bitch")
+                // }
+                // else{
+                //      width = trackContentWidth - anchor.dataset.start 
+                // }
+                console.log(width)
+                anchor.style.width = width +"px"
+                anchor.dataset.isFinished = 1
+                
+            }
+        })
+    }
+})
+
+/**
+ * ANCHOR DETECTION
+ */
+
+const AnchorCursorLoop = ()=>{
+    // console.log(anchors)
+    if(anchors){
+    window.requestAnimationFrame(AnchorCursorLoop)
+    anchors.forEach(anchor => {
+        //if we are not recording
+        if(isRecording === -1){
+            // if there is a collision betwin the anchor and the time cursor && the anchor is not already being played
+            if( timeCursorPosition > anchor.dataset.start && timeCursorPosition < anchor.dataset.stop && anchor.dataset.isplayed == -1){
+                console.log("fs")
+                sampler.triggerAttack("C3")
+                //the anchor is being played and can't be retrigered
+                anchor.dataset.isplayed = 1
+            }
+            if(timeCursorPosition > anchor.dataset.stop && anchor.dataset.isplayed == 1){
+                console.log("fs")
+                sampler.triggerRelease("C3")
+                //the anchor is being played and can't be retrigered
+                anchor.dataset.isplayed = -1
+            }
+        }
+    })
+}   
+
+}
+AnchorCursorLoop()
+
+}
