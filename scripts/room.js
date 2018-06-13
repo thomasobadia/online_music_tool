@@ -26,7 +26,9 @@ socket.on('newKeyReleased', (key) =>{
 socket.on('changingSound', (sound) =>{
 	if (!Modernizr.touchevents) {
 		console.log(sound)
-		currentInstrument = instrumentArray[sound]
+		currentInstrumentId = sound
+		// currentInstrument = instrumentArray[currentInstrumentId]
+		
 	}
 })
 if (Modernizr.touchevents) {
