@@ -1,4 +1,4 @@
-var socket = io.connect('51.38.176.227:8080')
+var socket = io.connect('https://harmonyngal.ovh:8080/', { secure: true })
 const button = document.querySelector('#button')
 const $validate = document.querySelector('#validate')
 const  removeElement = (id) => {
