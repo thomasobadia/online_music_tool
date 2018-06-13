@@ -19,8 +19,6 @@ include '../controller/room.php';
 <body>
 
 <div class="desktop">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://harmonyngal.ovh/view/room.php?roomId=<?= $room->room_id ?>" alt="">
-
         <div class="room">
             <div class="room__header">
                 <div class="room__header__title">Harmony</div>
@@ -29,17 +27,18 @@ include '../controller/room.php';
             </div>
             <div class="room__content">
                 <div class="time_cursor"></div>
-                <div class="room__content__tracks">
-                </div>
+                <div class="room__content__tracks"></div>
+                <img class="qr_code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://harmonyngal.ovh/view/room.php?roomId=<?= $room->room_id ?>" alt="">
             </div>
             <div class="room__footer">
                 <div class="room__footer__parameters">
+                    <div class="room__footer__parameters__qr_code_toggle">Display Qr code</div>
                     <div class="room__footer__parameters__volume">
-                            <div class="room__footer__parameters__volume__text">Volume : 100</div>
-                            <!-- <div class="room__footer__parameters__volume__slider">
-                                <div class="room__footer__parameters__volume__slider__cursor"></div>
-                            </div> -->
-                            <input class="room__footer__parameters__volume__slider" type="range">
+                        <div class="room__footer__parameters__volume__text">Volume : 100</div>
+                        <!-- <div class="room__footer__parameters__volume__slider">
+                            <div class="room__footer__parameters__volume__slider__cursor"></div>
+                        </div> -->
+                        <input class="room__footer__parameters__volume__slider" type="range">
                     </div>
                     <div class="room__footer__parameters__audio_controls">
                         <img src="../assets/img/web/play.png" class="room__footer__parameters__audio_controls__play">
@@ -315,14 +314,14 @@ include '../controller/room.php';
     </script>
     <script src="../scripts/phone/tone.js"></script>
 	<script src="../scripts/vendor/modernizr-custom.js"></script>
-	
+	<script src="../scripts/web/qrCodeToggle.js"></script>
     <script src="../scripts/web/volume.js"></script>
     <script src="../scripts/web/createKeyAnchor.js"></script>
     <script src="../scripts/web/timeCursorAndAnchorCollision.js"></script>
     <script src="../scripts/web/timeCursor.js"></script>
 
 
-    <!-- fsdiufhidqfqi -->
+    <!-- phone -->
 
     <script src="../scripts/phone/audioContext.js"></script>
     <script src="../scripts/phone/createKeyBoard.js"></script>

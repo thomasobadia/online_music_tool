@@ -58,6 +58,14 @@ body{
     overflow: hidden;
 }
 
+.qr_code{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1000;
+}
+
 .room__content__tracks{
     width: 100%;
     height: 100%;
@@ -85,7 +93,6 @@ body{
     width: 20%;
     height: 100%;
     position: relative;
-
 }
 .room__content__tracks__track__info__color{
     width: 100%;
@@ -100,7 +107,13 @@ body{
     transform: translateY(-50%);
     font-family:  Montserrat-Medium;
     color: #b5b2b1;
+}
 
+.room__content__tracks__track__info__mic{
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .room__content__tracks__track__info__mute{
@@ -197,8 +210,6 @@ body{
 }
 
 .room__footer__parameters__volume__slider{
-
-
     background: #b5b2b1;
     cursor: pointer; /* Cursor on hover */
     width: 200px;
@@ -228,6 +239,15 @@ body{
     margin-right: 5%; 
 }
 
+.room__footer__parameters__qr_code_toggle{
+    width: 14%;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: Montserrat-Light;
+    color: #b5b2b1;
+}
 
 .time_cursor{
     width: 1px;
