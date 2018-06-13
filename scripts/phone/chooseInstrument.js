@@ -1,3 +1,8 @@
+/***********************************/
+ /*HANDLE CHANGING INSTRUMENTS AND INTRUMENT MENU*/
+/***********************************/
+
+
 const $instruments = document.querySelector(".instruments")
 const $synthesizers = document.querySelector(".synthesizers")
 const $drumpads = document.querySelector(".drumpads")
@@ -24,12 +29,14 @@ const $synthesizersColorFilter = document.querySelector(".purple_filter")
 const $drumpadsColorFilter = document.querySelector(".pink_filter")
 const $samplerColorFilter = document.querySelector(".green_filter")
 
-console.log($instrumentsColorFilter)
+
 
 const allSounds = [$instrumentsSounds, $synthesizersSounds, $drumpadsSounds, $samplerSounds]
 
 const $chooseSound = document.querySelector(".choose_sound")
 const $soundSelected = document.querySelector(".primary_button_sound_selected")
+
+let isSelectionningSound = 0
 
 
 
@@ -55,9 +62,9 @@ $soundSelected.addEventListener("touchstart", ()=>{
 
 
 
-console.log($soundSelected.children)
 
 
+//handle instruments menu
 const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrimaryButton)=>{
     
     //we need a real array
@@ -66,19 +73,25 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
     //displaying the sounds inside each sound_type
     //if we click on the whole section
     instrumentColorFilter.addEventListener("touchstart", ()=>{
+        if(!isSelectionningSound){
         soundPrimaryButton.style.opacity = 0
         soundSelection.style.visibility = "visible"
         sounds.forEach(sound=>{
             sound.style.visibility = "visible"
         })  
+        isSelectionningSound = 1
+        }
     })
     //or the button
     soundPrimaryButton.addEventListener("touchstart", ()=>{
-        soundPrimaryButton.style.opacity = 0
-        soundSelection.style.visibility = "visible"
-        sounds.forEach(sound=>{
-            sound.style.visibility = "visible"
-        })  
+        if(!isSelectionningSound){
+            soundPrimaryButton.style.opacity = 0
+            soundSelection.style.visibility = "visible"
+            sounds.forEach(sound=>{
+                sound.style.visibility = "visible"
+            })  
+        isSelectionningSound = 1
+        }
     })
 
     //setting the good audio file, removing the choose instrument selection screen and selecting the good keyboard
@@ -92,19 +105,20 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
                 sound.style.visibility = "hidden"
                 soundPrimaryButton.style.opacity = 1;
             })
+            isSelectionningSound = 0
 
             //displaying either the keyboard, or the drumpad
             if(instrumentColorFilter.dataset.instrument === "syntesizers" || instrumentColorFilter.dataset.instrument === "instruments" || instrumentColorFilter.dataset.instrument === "sampler"){
                 $keyBoard.style.visibility = "visible"
                 changeSampleAudioFile(sound)
-                console.log(sound)
+               
             }
             else if(instrumentColorFilter.dataset.instrument === "drumpads"){
                 $drumpadKeyboard.style.visibility = "visible"
                 changeSampleAudioFileDrumpad(sound)
             }
             
-            console.log(instrumentColorFilter.dataset.instrument)
+            
 
         })
     });
@@ -119,13 +133,16 @@ allSounds.forEach(sounds => {
     })
 })
 
-// const changeSampleAudioFile = (sound)=>{
-//     sampler.add(
-//         "C3" , "../assets/sounds/" + sound.dataset.sound +".wav")
-//     console.log(audio.src)
-//     sampler.toMaster()
-// }
+//change the source for the sampler
+const changeSampleAudioFile = (sound)=>{
+    console.log(sound)
+    socket.emit('changing_sound', sound)
+    
 
+console.log(sampler)
+}
+
+//change the source for the drumpad
 const changeSampleAudioFileDrumpad = (sound)=>{
     currentDrumpad = allDrumpads[sound.dataset.number]
     drumpad.add(

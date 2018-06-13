@@ -103,6 +103,7 @@ body{
     left: 0;
     top: 0;
     z-index: 100;
+    visibility: hidden;
 }
 
 .sampler_page__circle_mic{
@@ -200,7 +201,7 @@ body{
 
 
 .sounds_type>.primary_button{
-    width: 70%;
+    width: 87%;
     height: 10%;
     position: absolute;
     left: 50%;
@@ -233,7 +234,7 @@ body{
 }
 
 .all_sounds{
-    width: 70%;
+    width: 87%;
     height: 100%;
     position: absolute;
     left: 50%;
