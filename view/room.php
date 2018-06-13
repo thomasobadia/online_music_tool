@@ -66,20 +66,20 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="piano">
+                        <div class="primary_button" data-sound="piano" data-soundid="0">
                             <span class="primary_button__text"> Piano </span>
                             <div class="primary_button__margin"></div>
                         </div>
                         
-                        <div class="primary_button" data-sound="laser">
+                        <div class="primary_button" data-sound="laser" data-soundid="1">
                             <span class="primary_button__text"> Laser </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="saxophone">
+                        <div class="primary_button" data-sound="saxophone" data-soundid="2">
                             <span class="primary_button__text"> Saxophone </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="piano">
+                        <div class="primary_button" data-sound="piano" data-soundid="3">
                             <span class="primary_button__text"> Flute </span>
                             <div class="primary_button__margin"></div>
                         </div>
@@ -315,6 +315,7 @@ include '../controller/room.php';
     <script src="../scripts/phone/tone.js"></script>
 	<script src="../scripts/vendor/modernizr-custom.js"></script>
 	<script src="../scripts/web/qrCodeToggle.js"></script>
+	<script src="../scripts/web/allInstruments.js"></script>
     <script src="../scripts/web/volume.js"></script>
     <script src="../scripts/web/createKeyAnchor.js"></script>
     <script src="../scripts/web/timeCursorAndAnchorCollision.js"></script>
