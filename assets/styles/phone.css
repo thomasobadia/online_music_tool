@@ -84,13 +84,20 @@ body{
 }
 
 .drumpad_keys{
-    width: 21vw;
-    height: 21vw;
+    width: 4em;
+    height: 4em;
+    position: relative;
     margin: 10% 2.5%;
+    text-align: center;
     background-color: #202020;
 }
 
 .drumpad_keys__text{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7em;
     font-family: Montserrat-SemiBold;
     color: #535151;
 }

@@ -283,12 +283,12 @@ include '../controller/room.php';
                 <div class="key black invisibleKey" id="B6d"></div>
             </div>
             <div class="drumpad_keyboard">
-                <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
-                <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
-                <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
-                <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
-                <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
-                <div class="drumpad_keys"><span class="drumpad_keys__text">PlaceHolder</span></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
             </div>
             <!-- <div class="test"></div>
             <div class="record"> record </div>
