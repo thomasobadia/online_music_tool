@@ -79,7 +79,7 @@ body{
     width: 100vw;
     height: 50vh;
     display: flex;
-    visibility: visible;
+    visibility: hidden;
 
 }
 
@@ -93,6 +93,45 @@ body{
 .drumpad_keys__text{
     font-family: Montserrat-SemiBold;
     color: #535151;
+}
+
+/**********Sampler***********/
+.sampler_page{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.sampler_page__circle_mic{
+    width: 6em;
+    height: 6em;
+    position: absolute;
+    left: 50%;
+    bottom: 40%;
+    transform: translateX(-50%);
+    border: #F0F0F0 solid 2px;
+    border-radius: 50%;
+}
+
+.sampler_page__circle_mic>img{
+    width: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.primary_button_sampler0{
+    top: 70%;
+    left: 30%;
+}
+
+.primary_button_sampler1{
+    top: 70%;
+    left: 60%;
 }
 
 

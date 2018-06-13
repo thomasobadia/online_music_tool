@@ -19,7 +19,7 @@ include '../controller/room.php';
 <body>
 
 <div class="desktop">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=harmonyngal.ovh/view/room.php?roomId=<?= $room->room_id ?>" alt="">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://harmonyngal.ovh/view/room.php?roomId=<?= $room->room_id ?>" alt="">
 
         <div class="room">
             <div class="room__header">
@@ -71,8 +71,9 @@ include '../controller/room.php';
                             <span class="primary_button__text"> Piano </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="guitar">
-                            <span class="primary_button__text"> Guitar </span>
+                        
+                        <div class="primary_button" data-sound="laser">
+                            <span class="primary_button__text"> Laser </span>
                             <div class="primary_button__margin"></div>
                         </div>
                         <div class="primary_button" data-sound="saxophone">
@@ -165,6 +166,19 @@ include '../controller/room.php';
                 </div>
             </div>
             <div class="gradient_line"></div>
+            <div class="sampler_page">
+                <div class="sampler_page__circle_mic">
+                    <img src="../assets/img/mic.svg" alt="mic">
+                </div>
+                <div class="primary_button_sound_selected primary_button_sampler0">
+                    <span class="primary_button__text"> Retry </span>
+                    <div class="primary_button__margin"></div>
+                </div>
+                <div class="primary_button_sound_selected primary_button_sampler1">
+                    <span class="primary_button__text"> Next Step</span>
+                    <div class="primary_button__margin"></div>
+                </div>
+            </div>
             <div id="keyBoard">
                 <div class="key white" id="A-1"></div>
                 <div class="key black" id="A-1d"><span>A#-1</span></div>
