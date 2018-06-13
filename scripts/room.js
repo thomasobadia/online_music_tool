@@ -23,6 +23,12 @@ socket.on('newKeyReleased', (key) =>{
 		sampler.triggerRelease(key)
 	}
 })
+socket.on('changingSound', (sound) =>{
+	if (!Modernizr.touchevents) {
+		console.log(sound)
+		currentInstrument = instrumentArray[sound]
+	}
+})
 if (Modernizr.touchevents) {
 	desktop.style.display = "none"
 
@@ -59,6 +65,12 @@ socket.on('addPlayer',  (pseudo) => {
 		const  newTrackInfoColor = document.createElement('div')
 			newTrackInfoColor.setAttribute("class", 'room__content__tracks__track__info__color')
 			newTrackInfo.appendChild(newTrackInfoColor)
+
+		// const newMic = document.createElement('img')
+		// 	newMic.setAttribute("class", 'room__content__tracks__track__info__mic')
+		// 	newMic.setAttribute("src", '../assets/img/web/mic.svg')
+		// 	newTrackInfo.appendChild(newMic)
+
 
 		const  newTrackInfoMute = document.createElement('div')
 			newTrackInfoMute.setAttribute("class", 'room__content__tracks__track__info__mute')

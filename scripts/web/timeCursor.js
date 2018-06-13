@@ -10,6 +10,8 @@
  */            
  
 
+let idCurrentInstrument
+
 const timeCursorScript = ()=>{
 
 const $trackContent = document.querySelector(".room__content__tracks__track__content")
@@ -151,6 +153,9 @@ document.addEventListener("keydown", (event)=>{
 
         //which instrument should we play
         newAnchorDiv.setAttribute("data-instrument", "piano")
+        
+        //which instrument should we play
+        newAnchorDiv.setAttribute("data-id", idCurrentInstrument)
 
         //on which track the anchor should be placed
         $subTracks[whichTrack].appendChild(newAnchorDiv)
@@ -211,13 +216,13 @@ const AnchorCursorLoop = ()=>{
             // if there is a collision betwin the anchor and the time cursor && the anchor is not already being played
             if( timeCursorPosition > anchor.dataset.start && timeCursorPosition < anchor.dataset.stop && anchor.dataset.isplayed == -1){
                 console.log("fs")
-                sampler.triggerAttack("C3")
+                currentInstrument.triggerAttack("C3")
                 //the anchor is being played and can't be retrigered
                 anchor.dataset.isplayed = 1
             }
             if(timeCursorPosition > anchor.dataset.stop && anchor.dataset.isplayed == 1){
                 console.log("fs")
-                sampler.triggerRelease("C3")
+                currentInstrument.triggerRelease("C3")
                 //the anchor is being played and can't be retrigered
                 anchor.dataset.isplayed = -1
             }

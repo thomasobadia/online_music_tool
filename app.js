@@ -72,6 +72,10 @@ io.sockets.on('connection', function (socket) {
 			io.to($room).emit('newKeyReleased', key)
 			console.log(key)
 		})
+		socket.on('changing_sound', function(sound){
+			io.to($room).emit('changingSound', sound)
+			console.log("sound = " + sound)
+		})
 		socket.on('disconnect', function () {
 			io.sockets.adapter.rooms[$room].touchDevice--
 			socket.to($room).emit('removePlayer', socket.name)

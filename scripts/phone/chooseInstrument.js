@@ -135,8 +135,8 @@ allSounds.forEach(sounds => {
 
 //change the source for the sampler
 const changeSampleAudioFile = (sound)=>{
-    console.log(sound)
-    socket.emit('changing_sound', sound)
+    console.log(sound.dataset.soundid)
+    socket.emit('changing_sound', sound.dataset.soundid)
     
 
 console.log(sampler)

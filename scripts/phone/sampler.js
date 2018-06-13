@@ -12,8 +12,7 @@ const $sample = document.querySelector(".sample")
 // console.log($record)
 
 var sampler = new Tone.Sampler({
-    // "C3" : "../assets/sounds/pianoC3.wav",
-    "C3" : "../assets/sounds/test.wav",
+    "C3" : "../assets/sounds/laser.wav",
 
 }, function(){
     //sampler will repitch the closest sample
@@ -147,7 +146,6 @@ const giveWhiteKeys = ()=>{
         }
     }
     for(let l = 0; l<$whites.length; l++){
-        console.log($whites[l])
         // $whites[l].addEventListener("touchstart", ()=>{ sampler.triggerAttack(keyLetterNumber[l])})
         $whites[l].addEventListener("touchstart", ()=>{ socket.emit('white_key_pressed', keyLetterNumber[l])})
         $blacks[l].addEventListener("touchstart", ()=>{ socket.emit('black_key_pressed', blackKeyLetterNumber[l])})
