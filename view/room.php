@@ -307,7 +307,6 @@ include '../controller/room.php';
 
 
     
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
 	<script>
 		const roomId = "<?= $room->room_id ?>"
 		const players = "<?= $room->players ?>"
@@ -332,7 +331,7 @@ include '../controller/room.php';
     <script src="../scripts/phone/drumpads.js"></script>
     <script src="../scripts/phone/chooseInstrument.js"></script>
     <script src="../scripts/phone/main.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
     <script src="../scripts/room.js"></script>
 </body>
 </html>

@@ -2,9 +2,10 @@
     "name": "online-pusic",
     "version": "0.1.0",
     "dependencies": {
+        "ent": "~0.1.0",
         "express": "~3.3.4",
-        "socket.io": "~1.2.1",
-        "ent": "~0.1.0"
+        "https": "^1.0.0",
+        "socket.io": "~1.2.1"
     },
     "author": "Thomas Obadia",
     "description": "An online music tool"

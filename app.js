@@ -1,8 +1,19 @@
+var fs = require('fs');
+
+const options = {
+	key: fs.readFileSync("/etc/letsencrypt/live/harmonyngal.ovh/privkey.pem"),
+	cert: fs.readFileSync("/etc/letsencrypt/live/harmonyngal.ovh/cert.pem")
+};
+
+// cert.pem  chain.pem  fullchain.pem  privkey.pem  README
+
+
 var app = require('express')(),
-	server = require('http').createServer(app),
+	server = require('https').createServer(options , app),
 	io = require('socket.io').listen(server),
-	ent = require('ent'), 
-	fs = require('fs');
+	ent = require('ent')
+	
+
 
 
 io.sockets.on('connection', function (socket) {
