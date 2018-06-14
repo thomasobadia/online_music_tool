@@ -240,7 +240,9 @@ socket.on('addPlayer',  (pseudo) => {
 			newTrackVolume.setAttribute("class", 'tracks__track__volume')
 			newTrack.appendChild(newTrackVolume)
 
-		timeCursorScript()
+		if(!event.repeat){
+			timeCursorScript()
+		}
 
 		
 		

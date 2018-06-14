@@ -68,19 +68,19 @@ io.sockets.on('connection', function (socket) {
 			socket.emit('redirect', destination);
 		}
 		socket.on('white_key_pressed', function(key){
-			io.to($room).emit('newKeyPressed', key)
-			console.log(key)
+			io.to($room).emit('newKeyPressed',{ name: socket.name, key: key })
+			console.log(socket.name)
 		})
 		socket.on('white_key_released', function(key){
-			io.to($room).emit('newKeyReleased', key)
-			console.log(key)
+			io.to($room).emit('newKeyReleased',{ name: socket.name, key: key })
+			console.log(socket.name)
 		})
 		socket.on('black_key_pressed', function(key){
-			io.to($room).emit('newKeyPressed', key)
+			io.to($room).emit('newKeyPressed',{ name: socket.name, key: key })
 			console.log(key)
 		})
 		socket.on('black_key_released', function(key){
-			io.to($room).emit('newKeyReleased', key)
+			io.to($room).emit('newKeyReleased',{ name: socket.name, key: key })
 			console.log(key)
 		})
 		socket.on('changing_sound', function(sound){

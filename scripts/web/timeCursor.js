@@ -127,12 +127,13 @@ $pause.addEventListener('mouseup', (event)=>{
 /**
  * ANCHORS
  */
-const $subTracks = document.querySelectorAll(".sub_track")
+
 const anchors = []
     
     
 //when a key is pressed create anchor
-const createAnchor = (currentKey)=>{
+const createAnchor = (currentKey, name)=>{
+    const $subTracks = document.querySelectorAll("#"+name+" .tracks__track__sub_tracks .sub_track")
         if(!event.repeat && isRecording === 1){
         //creation of the div
         const newAnchorDiv = document.createElement('div')
@@ -231,16 +232,16 @@ const AnchorCursorLoop = ()=>{
 }
 AnchorCursorLoop()
 
-socket.on('newKeyPressed', (key) =>{
+socket.on('newKeyPressed', (data) =>{
     if (!Modernizr.touchevents) {
-        instrumentArray[currentInstrumentId].triggerAttack(key)
-        createAnchor(key)
+        instrumentArray[currentInstrumentId].triggerAttack(data.key)
+        createAnchor(data.key, data.name)
     }
 })
-socket.on('newKeyReleased', (key) =>{
+socket.on('newKeyReleased', (data) =>{
     if (!Modernizr.touchevents) {
-        instrumentArray[currentInstrumentId].triggerRelease(key)
-        finishAnchor(key)
+        instrumentArray[currentInstrumentId].triggerRelease(data.key)
+        finishAnchor(data.key)
     }
 })
 
