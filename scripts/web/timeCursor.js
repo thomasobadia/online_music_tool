@@ -13,7 +13,7 @@
 let idCurrentInstrument
 
 const timeCursorScript = ()=>{
-
+console.log("je suis appelé")
 const $trackContent = document.querySelector(".room__content__tracks__track__content")
 
 const $timeCursor = document.querySelector(".time_cursor")
@@ -157,7 +157,7 @@ const createAnchor = (currentKey)=>{
         newAnchorDiv.setAttribute("data-id", currentInstrumentId)
 
         //what is the instrument key used
-        newAnchorDiv.setAttribute("data-id", currentKey)
+        newAnchorDiv.setAttribute("data-key", currentKey)
 
         //on which track the anchor should be placed
         $subTracks[whichTrack].appendChild(newAnchorDiv)
@@ -213,14 +213,14 @@ const AnchorCursorLoop = ()=>{
         if(isRecording === -1){
             // if there is a collision betwin the anchor and the time cursor && the anchor is not already being played
             if( timeCursorPosition > anchor.dataset.start && timeCursorPosition < anchor.dataset.stop && anchor.dataset.isplayed == -1){
-                console.log("fs")
-                instrumentArray[anchor.dataset.id].triggerAttack("C3")
+                console.log(anchor.dataset.id)
+                instrumentArray[anchor.dataset.id].triggerAttack(anchor.dataset.key)
                 //the anchor is being played and can't be retrigered
                 anchor.dataset.isplayed = 1
             }
             if(timeCursorPosition > anchor.dataset.stop && anchor.dataset.isplayed == 1){
-                console.log("fs")
-                instrumentArray[anchor.dataset.id].triggerRelease("C3")
+                console.log(anchor.dataset.id)
+                instrumentArray[anchor.dataset.id].triggerRelease(anchor.dataset.key)
                 //the anchor is being played and can't be retrigered
                 anchor.dataset.isplayed = -1
             }
@@ -230,5 +230,18 @@ const AnchorCursorLoop = ()=>{
 
 }
 AnchorCursorLoop()
+
+socket.on('newKeyPressed', (key) =>{
+    if (!Modernizr.touchevents) {
+        instrumentArray[currentInstrumentId].triggerAttack(key)
+        createAnchor(key)
+    }
+})
+socket.on('newKeyReleased', (key) =>{
+    if (!Modernizr.touchevents) {
+        instrumentArray[currentInstrumentId].triggerRelease(key)
+        finishAnchor(key)
+    }
+})
 
 }

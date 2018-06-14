@@ -10,21 +10,142 @@ const desktop = document.querySelector(".desktop")
 const mobile = document.querySelector(".mobile")
 
 socket.emit('room', roomId);
-socket.emit('players', players);
+socket.emit('players', players);const createAnchor = (currentKey)=>{
+	if(!event.repeat && isRecording === 1){
+	//creation of the div
+	const newAnchorDiv = document.createElement('div')
+	newAnchorDiv.setAttribute("class", 'anchor')
+
+	//giving temporal info to the div
+	newAnchorDiv.setAttribute("data-start", timeCursorPosition)
+
+	//position of the div
+	newAnchorDiv.style.transform = "translateX("+timeCursorPosition+"px)"
+
+	//the div is not finished from being created yet
+	newAnchorDiv.setAttribute("data-isfinished", 0)
+
+	//the anchor is not played
+	newAnchorDiv.setAttribute("data-isplayed", -1)
+
+	//which instrument should we play
+	newAnchorDiv.setAttribute("data-instrument", "piano")
+	
+	//what is the instrument id
+	newAnchorDiv.setAttribute("data-id", currentInstrumentId)
+
+	//what is the instrument key used
+	newAnchorDiv.setAttribute("data-id", currentKey)
+
+	//on which track the anchor should be placed
+	$subTracks[whichTrack].appendChild(newAnchorDiv)
+	
+	//push the anchor in the array to save it
+	anchors.push(newAnchorDiv)
+	}             
+
+}
+
+//when a key is released finish anchor
+const finishAnchor = (currentKey)=>{
+//a key  
+	console.log("test") 
+	anchors.forEach(anchor => {
+
+		let width
+		//if the key is not drawn yet
+		if(!anchor.dataset.isFinished){
+			console.log(anchor.dataset.start)
+			console.log(timeCursorPosition)
+
+			//we record when where we release the key
+			anchor.dataset.stop = timeCursorPosition
+
+			//handle if we release the key after the end of the track
+			// if(anchor.dataset.stop >= anchor.dataset.start){
+					width = anchor.dataset.stop - anchor.dataset.start
+				console.log("bitch")
+			// }
+			// else{
+			//      width = trackContentWidth - anchor.dataset.start 
+			// }
+			console.log(width)
+			anchor.style.width = width +"px"
+			anchor.dataset.isFinished = 1
+			
+		}
+	})
+
+}
+// const createAnchor = (currentKey)=>{
+// 	if(!event.repeat && isRecording === 1){
+// 	//creation of the div
+// 	const newAnchorDiv = document.createElement('div')
+// 	newAnchorDiv.setAttribute("class", 'anchor')
+
+// 	//giving temporal info to the div
+// 	newAnchorDiv.setAttribute("data-start", timeCursorPosition)
+
+// 	//position of the div
+// 	newAnchorDiv.style.transform = "translateX("+timeCursorPosition+"px)"
+
+// 	//the div is not finished from being created yet
+// 	newAnchorDiv.setAttribute("data-isfinished", 0)
+
+// 	//the anchor is not played
+// 	newAnchorDiv.setAttribute("data-isplayed", -1)
+
+// 	//which instrument should we play
+// 	newAnchorDiv.setAttribute("data-instrument", "piano")
+	
+// 	//what is the instrument id
+// 	newAnchorDiv.setAttribute("data-id", currentInstrumentId)
+
+// 	//what is the instrument key used
+// 	newAnchorDiv.setAttribute("data-id", currentKey)
+
+// 	//on which track the anchor should be placed
+// 	$subTracks[whichTrack].appendChild(newAnchorDiv)
+	
+// 	//push the anchor in the array to save it
+// 	anchors.push(newAnchorDiv)
+// 	}             
+
+// }
+
+// //when a key is released finish anchor
+// const finishAnchor = (currentKey)=>{
+// //a key  
+// 	console.log("test") 
+// 	anchors.forEach(anchor => {
+
+// 		let width
+// 		//if the key is not drawn yet
+// 		if(!anchor.dataset.isFinished){
+// 			console.log(anchor.dataset.start)
+// 			console.log(timeCursorPosition)
+
+// 			//we record when where we release the key
+// 			anchor.dataset.stop = timeCursorPosition
+
+// 			//handle if we release the key after the end of the track
+// 			// if(anchor.dataset.stop >= anchor.dataset.start){
+// 					width = anchor.dataset.stop - anchor.dataset.start
+// 				console.log("bitch")
+// 			// }
+// 			// else{
+// 			//      width = trackContentWidth - anchor.dataset.start 
+// 			// }
+// 			console.log(width)
+// 			anchor.style.width = width +"px"
+// 			anchor.dataset.isFinished = 1
+			
+// 		}
+// 	})
+
+// }
 
 
-socket.on('newKeyPressed', (key) =>{
-	if (!Modernizr.touchevents) {
-		sampler.triggerAttack(key)
-		createAnchor(key)
-	}
-})
-socket.on('newKeyReleased', (key) =>{
-	if (!Modernizr.touchevents) {
-		sampler.triggerRelease(key)
-		finishAnchor(key)
-	}
-})
 socket.on('changingSound', (sound) =>{
 	if (!Modernizr.touchevents) {
 		console.log(sound)
@@ -116,6 +237,8 @@ socket.on('addPlayer',  (pseudo) => {
 			newTrack.appendChild(newTrackVolume)
 
 		timeCursorScript()
+
+		
 		
 		
 }})

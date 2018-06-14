@@ -316,8 +316,6 @@ include '../controller/room.php';
 	<script src="../scripts/web/qrCodeToggle.js"></script>
 	<script src="../scripts/web/allInstruments.js"></script>
     <script src="../scripts/web/volume.js"></script>
-    <script src="../scripts/web/createKeyAnchor.js"></script>
-    <script src="../scripts/web/timeCursorAndAnchorCollision.js"></script>
     <script src="../scripts/web/timeCursor.js"></script>
 
 
