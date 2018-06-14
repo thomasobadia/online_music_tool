@@ -16,11 +16,13 @@ socket.emit('players', players);
 socket.on('newKeyPressed', (key) =>{
 	if (!Modernizr.touchevents) {
 		sampler.triggerAttack(key)
+		createAnchor(key)
 	}
 })
 socket.on('newKeyReleased', (key) =>{
 	if (!Modernizr.touchevents) {
 		sampler.triggerRelease(key)
+		finishAnchor(key)
 	}
 })
 socket.on('changingSound', (sound) =>{

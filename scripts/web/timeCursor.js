@@ -132,8 +132,7 @@ const anchors = []
     
     
 //when a key is pressed create anchor
-document.addEventListener("keydown", (event)=>{
-    if (event.keyCode===65){
+const createAnchor = (currentKey)=>{
         if(!event.repeat && isRecording === 1){
         //creation of the div
         const newAnchorDiv = document.createElement('div')
@@ -165,17 +164,13 @@ document.addEventListener("keydown", (event)=>{
         
         //push the anchor in the array to save it
         anchors.push(newAnchorDiv)
-        } 
-
-        
-            
-    }
-})
+        }             
+    
+}
 
 //when a key is released finish anchor
-document.addEventListener("keyup", ()=>{
-    //a key
-    if (event.keyCode===65){   
+const finishAnchor = (currentKey)=>{
+    //a key  
         console.log("test") 
         anchors.forEach(anchor => {
     
@@ -202,8 +197,8 @@ document.addEventListener("keyup", ()=>{
                 
             }
         })
-    }
-})
+    
+}
 
 /**
  * ANCHOR DETECTION

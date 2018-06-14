@@ -1,8 +1,7 @@
 
-
 const audio = document.querySelector("a")
-const $record = document.querySelector(".record")
-const $stopRecord = document.querySelector(".stopRecord")
+const $sampleRecord = document.querySelector(".primary_button_sampler0")
+const $sampleStopRecord = document.querySelector(".primary_button_sampler1")
 
 if (navigator.mediaDevices) {
     console.log('getUserMedia supported.');
@@ -17,37 +16,37 @@ if (navigator.mediaDevices) {
   
 
         
-      // $record.addEventListener("click",function() {
+      $sampleRecord.addEventListener("click",function() {
        
-      //   mediaRecorder.start();
-      //   console.log(mediaRecorder.state);
-      //   console.log("recorder started");
-      //   $record.style.background = "red";
-      //   $record.style.color = "black";
-      // })
-      
-      // $stopRecord.addEventListener("click", function() {
-      //   mediaRecorder.stop();
-      //   console.log(mediaRecorder.state);
-      //   console.log("recorder stopped");
-      //   $record.style.background = "";
-      //   $record.style.color = "";
-      // })
- 
-      $record.addEventListener("touchstart",function() {
-        // mediaRecorder.start();
-        // console.log(mediaRecorder.state);
-        // console.log("recorder started");
-        $record.style.background = "red";
-        $record.style.color = "black";
+        mediaRecorder.start();
+        console.log(mediaRecorder.state);
+        console.log("recorder started");
+        $sampleRecord.style.background = "red";
+        $sampleRecord.style.color = "black";
       })
       
-      $stopRecord.addEventListener("touchend", function() {
+      $sampleStopRecord.addEventListener("click", function() {
         mediaRecorder.stop();
         console.log(mediaRecorder.state);
         console.log("recorder stopped");
-        $record.style.background = "";
-        $record.style.color = "";
+        $sampleRecord.style.background = "";
+        $sampleRecord.style.color = "";
+      })
+ 
+      $sampleRecord.addEventListener("touchstart",function() {
+        // mediaRecorder.start();
+        // console.log(mediaRecorder.state);
+        // console.log("recorder started");
+        $sampleRecord.style.background = "red";
+        $sampleRecord.style.color = "black";
+      })
+      
+      $sampleStopRecord.addEventListener("touchend", function() {
+        mediaRecorder.stop();
+        console.log(mediaRecorder.state);
+        console.log("recorder stopped");
+        $sampleRecord.style.background = "";
+        $sampleRecord.style.color = "";
       })
   
     
