@@ -144,7 +144,10 @@ const finishAnchor = (currentKey)=>{
 // 	})
 
 // }
-
+if(!pseudo){
+		const pseudos =  ['Burno','Bruno','Bruneau', 'Pruneau','Prudeau', 'Barno','Brano','Braneau', 'Praneau','Pradeau','Polo','Diego','Barjo','Rateau','Nano','Bento','Stephano','Rafaelo','PizzaYolo','Momo','Monnot']
+		pseudo = pseudos[Math.floor(Math.random()*pseudos.length)]
+	}
 
 socket.on('changingSound', (sound) =>{
 	if (!Modernizr.touchevents) {
@@ -161,7 +164,8 @@ if (Modernizr.touchevents) {
 	socket.emit('newTouchDevice', 'touchDevice')
 	var pseudo = prompt('Enter your pseudo');
 	if(!pseudo){
-		pseudo = 'Anonymous'
+		const pseudos =  ['Burno','Bruno','Bruneau', 'Pruneau','Prudeau', 'Barno','Brano','Braneau', 'Praneau','Pradeau','Polo','Diego','Barjo','Rateau','Nano','Bento','Stephano','Rafaelo','PizzaYolo','Momo','Monnot']
+		pseudo = pseudos[Math.floor(Math.random()*pseudos.length)]
 	}
 	socket.emit('newPseudo',{ name: pseudo, room: roomId });
 } else {
