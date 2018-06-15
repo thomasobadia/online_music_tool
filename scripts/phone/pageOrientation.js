@@ -5,7 +5,7 @@
 const turnYourPhone = document.querySelector(".turnYourPhone")
 
 const phoneOrientation = ()=>{
-    if(window.innerHeight > window.innerWidth){
+    if(window.innerHeight > window.innerWidth && Modernizr.touchevents){
         alert('Turn your phone to play music')
     }
 }
