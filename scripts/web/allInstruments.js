@@ -24,5 +24,5 @@ const smoothSampler = new Tone.Sampler({
 })
 
 const instrumentArray = [pianoSampler, laserSampler, smoothSampler]
-let currentInstrumentId = 0
+let currentInstrumentId = {}
 let currentInstrument = instrumentArray[currentInstrumentId]
