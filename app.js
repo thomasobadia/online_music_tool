@@ -84,7 +84,7 @@ io.sockets.on('connection', function (socket) {
 			console.log(key)
 		})
 		socket.on('changing_sound', function(sound){
-			io.to($room).emit('changingSound', sound)
+			io.to($room).emit('changingSound', { name: socket.name, sound: sound })
 			console.log("sound = " + sound)
 		})
 		socket.on('disconnect', function () {

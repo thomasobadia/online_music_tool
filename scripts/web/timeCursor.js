@@ -155,7 +155,7 @@ const createAnchor = (currentKey, name)=>{
         newAnchorDiv.setAttribute("data-instrument", "piano")
         
         //what is the instrument id
-        newAnchorDiv.setAttribute("data-id", currentInstrumentId)
+        newAnchorDiv.setAttribute("data-id", currentInstrumentId[name])
 
         //what is the instrument key used
         newAnchorDiv.setAttribute("data-key", currentKey)
@@ -231,16 +231,15 @@ const AnchorCursorLoop = ()=>{
 
 }
 AnchorCursorLoop()
-
 socket.on('newKeyPressed', (data) =>{
     if (!Modernizr.touchevents) {
-        instrumentArray[currentInstrumentId].triggerAttack(data.key)
+        instrumentArray[currentInstrumentId[data.name]].triggerAttack(data.key)
         createAnchor(data.key, data.name)
     }
 })
 socket.on('newKeyReleased', (data) =>{
     if (!Modernizr.touchevents) {
-        instrumentArray[currentInstrumentId].triggerRelease(data.key)
+        instrumentArray[currentInstrumentId[data.name]].triggerRelease(data.key)
         finishAnchor(data.key)
     }
 })
