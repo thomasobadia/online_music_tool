@@ -1,4 +1,6 @@
-
+/***********************************/
+ /*Sample the mic*/
+/***********************************/
 const audio = document.querySelector("a")
 const $sampleRecord = document.querySelector(".primary_button_sampler0")
 const $sampleStopRecord = document.querySelector(".primary_button_sampler1")

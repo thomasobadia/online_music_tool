@@ -115,7 +115,9 @@ $record.addEventListener('mouseup', (event)=>{
     isRecording = 1
 })
 
+//pause when we press pause
 $pause.addEventListener('mouseup', (event)=>{
+    //if already paused put the cursor at 0
     if(isPause == 1){
         timeCursorPosition = 0
     }
@@ -205,6 +207,7 @@ const finishAnchor = (currentKey)=>{
  * ANCHOR DETECTION
  */
 
+ //handle collision between anchor and cursor
 const AnchorCursorLoop = ()=>{
     // console.log(anchors)
     if(anchors){
@@ -212,7 +215,7 @@ const AnchorCursorLoop = ()=>{
     anchors.forEach(anchor => {
         //if we are not recording
         if(isRecording === -1){
-            // if there is a collision betwin the anchor and the time cursor && the anchor is not already being played
+            // if there is a collision between the anchor and the time cursor && the anchor is not already being played
             if( timeCursorPosition > anchor.dataset.start && timeCursorPosition < anchor.dataset.stop && anchor.dataset.isplayed == -1){
                 console.log(anchor.dataset.id)
                 instrumentArray[anchor.dataset.id].triggerAttack(anchor.dataset.key)
@@ -231,12 +234,16 @@ const AnchorCursorLoop = ()=>{
 
 }
 AnchorCursorLoop()
+
+//when receiving signal from a key pressed from mobile, trigger the attack on the computer
 socket.on('newKeyPressed', (data) =>{
     if (!Modernizr.touchevents) {
         instrumentArray[currentInstrumentId[data.name]].triggerAttack(data.key)
         createAnchor(data.key, data.name)
     }
 })
+
+//when receiving signal from a key released from mobile, trigger the attack on the computer
 socket.on('newKeyReleased', (data) =>{
     if (!Modernizr.touchevents) {
         instrumentArray[currentInstrumentId[data.name]].triggerRelease(data.key)

@@ -1,3 +1,7 @@
+/***********************************/
+ /*CREATE AUDIO CONTEXT*/
+/***********************************/
+
 if(typeof AudioContext != "undefined" || typeof webkitAudioContext != "undefined") {
     var resumeAudio = function() {
        if(typeof g_WebAudioContext == "undefined" || g_WebAudioContext == null) return;

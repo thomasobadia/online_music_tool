@@ -1,3 +1,7 @@
+/***********************************/
+ /*Handle page orientation*/
+/***********************************/
+
 const turnYourPhone = document.querySelector(".turnYourPhone")
 
 const phoneOrientation = ()=>{

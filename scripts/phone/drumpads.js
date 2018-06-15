@@ -1,3 +1,8 @@
+/***********************************/
+ /*DRUM PADS*/
+/***********************************/
+
+
 const $drumpadKeyboard = document.querySelector(".drumpad_keyboard")
 console.log($drumpadKeyboard)
 const $drumpadKeys = document.querySelectorAll(".drumpad_keys")
