@@ -21,9 +21,9 @@ include '../controller/room.php';
 <div class="desktop">
         <div class="room">
             <div class="room__header">
-                <div class="room__header__title">Harmony</div>
+            <a href="https://harmonyngal.ovh/"><div class="room__header__title">Harmony</div></a>
                 <img src="../assets/img/web/arrow-left.svg" class="room__header__left_arrow"></img>
-                <div class="room__header__room_name"><?= $room->name ?></div>
+                <a href="https://harmonyngal.ovh/"><div class="room__header__room_name"><?= $room->name ?></div></a>
             </div>
             <div class="room__content">
                 <div class="time_cursor"></div>
