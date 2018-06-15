@@ -1,3 +1,11 @@
+/***********************************/
+ /*NODE.JS SSERVER CONFIGURATION*/
+/***********************************/
+
+
+
+// Enabling HTTPS on Node Server
+
 var fs = require('fs');
 
 const options = {
@@ -5,9 +13,11 @@ const options = {
 	cert: fs.readFileSync("/etc/letsencrypt/live/harmonyngal.ovh/cert.pem")
 };
 
-// cert.pem  chain.pem  fullchain.pem  privkey.pem  README
 
 
+/**
+ *  Including Modules
+ */
 var app = require('express')(),
 	server = require('https').createServer(options , app),
 	io = require('socket.io').listen(server),
@@ -16,10 +26,18 @@ var app = require('express')(),
 
 
 
-io.sockets.on('connection', function (socket) {
+/**	
+ * Connection callback Function
+ */
+
+io.sockets.on('connection',  (socket) =>{
 	var $room
 	var $players
-	socket.on('room', function (room) {
+
+	/**
+	 * Room Variables Init
+	 */
+	socket.on('room',  (room) =>{
 		socket.join(room)
 		$room = room
 		if (Object.keys(io.sockets.adapter.rooms[$room]).length <= 1) {
@@ -27,28 +45,40 @@ io.sockets.on('connection', function (socket) {
 			io.sockets.adapter.rooms[$room].touchDevice = 0
 		}
 	})
-	socket.on('players', function (players) {
+
+	/**	
+	 * Number of players
+	 */
+
+	socket.on('players', (players) => {
 		$players = players
 	})
 
-	socket.on('newPseudo', function (data) {
-		socket.name = data.name;
+	socket.on('newPseudo', (data) => {
+		socket.name = data.name
 		console.log(data.name)
 		console.log(data.room)
 		socket.to(data.room).emit('addPlayer', data.name)
 		
 	})
 
-	socket.on('newComputer', function () {
+	/**
+	 * Computer Connerction Callback
+	 */
+	socket.on('newComputer',  () => {
+
+		/**	
+		 * Updating Computer Number
+		 */
 		if (io.sockets.adapter.rooms[$room].computer == 0) {
 			io.sockets.adapter.rooms[$room].computer++
 			console.log(io.sockets.adapter.rooms[$room].computer)
-			console.log(sessionid);
+			console.log(sessionid)
 			console.log($room)
 
 		} else {
 			io.sockets.adapter.rooms[$room].computer++
-				var destination = '404.php';
+			var destination = '404.php'
 			socket.emit('redirect', destination);
 		}
 		socket.on('disconnect', function () {
@@ -57,16 +87,26 @@ io.sockets.on('connection', function (socket) {
 		});
 
 	})
+
+	/**
+	 * Touch Device Connection Callback
+	 */
 	socket.on('newTouchDevice', function () {
+		/**	
+		 * Updating Touch Devices Number
+		 */
 		if (io.sockets.adapter.rooms[$room].touchDevice < $players) {
 			io.sockets.adapter.rooms[$room].touchDevice++
-				console.log('ca a marcheeee')
 			console.log(io.sockets.adapter.rooms[$room].touchDevice)
 		} else {
 			io.sockets.adapter.rooms[$room].touchDevice++
 			var destination = '404.php';
 			socket.emit('redirect', destination);
 		}
+
+		/**
+		 * Touch Device Keyboard handling
+		 */
 		socket.on('white_key_pressed', function(key){
 			io.to($room).emit('newKeyPressed',{ name: socket.name, key: key })
 			console.log(socket.name)
@@ -97,10 +137,6 @@ io.sockets.on('connection', function (socket) {
 	})
 	
 	var sessionid = socket.id;
-	socket.on('sound', function (socket) {
-		io.to($room).emit('newSound', 'newSound')
-
-	})
 
 });
 
