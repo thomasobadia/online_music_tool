@@ -10,7 +10,8 @@ const desktop = document.querySelector(".desktop")
 const mobile = document.querySelector(".mobile")
 
 socket.emit('room', roomId);
-socket.emit('players', players);const createAnchor = (currentKey)=>{
+socket.emit('players', players);
+const createAnchor = (currentKey)=>{
 	if(!event.repeat && isRecording === 1){
 	//creation of the div
 	const newAnchorDiv = document.createElement('div')
@@ -144,10 +145,7 @@ const finishAnchor = (currentKey)=>{
 // 	})
 
 // }
-if(!pseudo){
-		const pseudos =  ['Burno','Bruno','Bruneau', 'Pruneau','Prudeau', 'Barno','Brano','Braneau', 'Praneau','Pradeau','Polo','Diego','Barjo','Rateau','Nano','Bento','Stephano','Rafaelo','PizzaYolo','Momo','Monnot']
-		pseudo = pseudos[Math.floor(Math.random()*pseudos.length)]
-	}
+
 
 socket.on('changingSound', (sound) =>{
 	if (!Modernizr.touchevents) {
@@ -172,8 +170,8 @@ if (Modernizr.touchevents) {
 	socket.emit('newComputer', 'computer')
 	mobile.style.display = "none"
 }
-
-socket.on('addPlayer',  (pseudo) => {
+let firstConnection = 0
+socket.on('addPlayer', (pseudo) => {
 	if (!Modernizr.touchevents){
 		const  tracksContainer = document.querySelector('.room__content__tracks')
 		
@@ -240,11 +238,11 @@ socket.on('addPlayer',  (pseudo) => {
 			newTrackVolume.setAttribute("class", 'tracks__track__volume')
 			newTrack.appendChild(newTrackVolume)
 
-		if(!event.repeat){
+		if(!firstConnection){
 			timeCursorScript()
 		}
 
-		
+		firstConnection = 1
 		
 		
 }})
