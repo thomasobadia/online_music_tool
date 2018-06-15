@@ -123,6 +123,14 @@ io.sockets.on('connection',  (socket) =>{
 			io.to($room).emit('newKeyReleased',{ name: socket.name, key: key })
 			console.log(key)
 		})
+		socket.on('drumpad_pressed', function(key){
+			io.to($room).emit('newKeyPressed',{ name: socket.name, key: key })
+			console.log(key)
+		})
+		socket.on('drumpad_released', function(key){
+			io.to($room).emit('newKeyReleased',{ name: socket.name, key: key })
+			console.log(key)
+		})
 		socket.on('changing_sound', function(sound){
 			io.to($room).emit('changingSound', { name: socket.name, sound: sound })
 			console.log("sound = " + sound)
@@ -136,7 +144,7 @@ io.sockets.on('connection',  (socket) =>{
 
 	})
 	
-	var sessionid = socket.id;
+	var sessionid = socket.id
 
 });
 

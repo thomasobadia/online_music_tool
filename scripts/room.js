@@ -150,6 +150,7 @@ const finishAnchor = (currentKey)=>{
 socket.on('changingSound', (data) =>{
 	if (!Modernizr.touchevents) {
 		currentInstrumentId[data.name] = data.sound
+		console.log("linstafiohzqduh = " + data.sound)
 		// currentInstrument = instrumentArray[currentInstrumentId]
 		
 	}

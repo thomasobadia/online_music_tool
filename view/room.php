@@ -9,11 +9,12 @@ include '../controller/room.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../assets/styles/reset.css">
     <link rel="stylesheet" href="../assets/styles/web.css">
     <link rel="stylesheet" href="../assets/styles/phone.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Document</title>
 </head>
 <body>
@@ -98,19 +99,19 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="piano">
+                        <div class="primary_button" data-sound="piano" data-soundid="4">
                             <span class="primary_button__text"> Piano </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="guitar">
+                        <div class="primary_button" data-sound="guitar" data-soundid="5">
                             <span class="primary_button__text"> Guitar </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="saxophone">
+                        <div class="primary_button" data-sound="saxophone" data-soundid="6">
                             <span class="primary_button__text"> Saxophone </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="piano">
+                        <div class="primary_button" data-sound="piano" data-soundid="7">
                             <span class="primary_button__text"> Flute </span>
                             <div class="primary_button__margin"></div>
                         </div>
@@ -122,19 +123,19 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="piano" data-number="0">
+                        <div class="primary_button" data-sound="piano" data-soundid="8">
                             <span class="primary_button__text"> Piano </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="guitar" data-number="1">
+                        <div class="primary_button" data-sound="guitar" data-soundid="9">
                             <span class="primary_button__text"> Guitar </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="saxophone" data-number="2">
+                        <div class="primary_button" data-sound="saxophone" data-soundid="10">
                             <span class="primary_button__text"> Saxophone </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="piano" data-number="3">
+                        <div class="primary_button" data-sound="piano" data-soundid="11">
                             <span class="primary_button__text"> Flute </span>
                             <div class="primary_button__margin"></div>
                         </div>
@@ -146,19 +147,19 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="piano">
+                        <div class="primary_button" data-sound="piano" data-number="3">
                             <span class="primary_button__text"> Piano </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="guitar">
+                        <div class="primary_button" data-sound="guitar" data-number="3">
                             <span class="primary_button__text"> Guitar </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="saxophone">
+                        <div class="primary_button" data-sound="saxophone" data-number="3">
                             <span class="primary_button__text"> Saxophone </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="piano">
+                        <div class="primary_button" data-sound="piano" data-number="3">
                             <span class="primary_button__text"> Flute </span>
                             <div class="primary_button__margin"></div>
                         </div>
@@ -187,11 +188,11 @@ include '../controller/room.php';
             </div>
             <div id="keyBoard">
                 <div class="key white" id="A-1"></div>
-                <div class="key black" id="A-1d"><span>A#-1</span></div>
+                <div class="key black" id="A-1d"><span></span></div>
                 <div class="key white" id="B-1"></div>
                 <div class="key black invisibleKey" id="B-1d"></div>
-                <div class="key white" id="C0"><span>C0</span></div>
-                <div class="key black" id="C0d"><span>C0#</span></div>
+                <div class="key white" id="C0"><span></span></div>
+                <div class="key black" id="C0d"><span></span></div>
                 <div class="key white" id="D0"></div>
                 <div class="key black" id="D0d"></div>
                 <div class="key white" id="E0"></div>
@@ -204,7 +205,7 @@ include '../controller/room.php';
                 <div class="key black" id="A0d"></div>
                 <div class="key white" id="B0"></div>
                 <div class="key black invisibleKey" id="B0d"></div>
-                <div class="key white" id="C1"><span>C1</span></div>
+                <div class="key white" id="C1"><span></span></div>
                 <div class="key black" id="C1d"></div>
                 <div class="key white" id="D1"></div>
                 <div class="key black" id="D1d"></div>
@@ -218,7 +219,7 @@ include '../controller/room.php';
                 <div class="key black" id="A1d"></div>
                 <div class="key white" id="B1"></div>
                 <div class="key black invisibleKey" id="B1d"></div>
-                <div class="key white" id="C2"><span>C2</span></div>
+                <div class="key white" id="C2"><span></span></div>
                 <div class="key black" id="C2d"></div>
                 <div class="key white" id="D2"></div>
                 <div class="key black" id="D2d"></div>
@@ -232,7 +233,7 @@ include '../controller/room.php';
                 <div class="key black" id="A2d"></div>
                 <div class="key white" id="B2"></div>
                 <div class="key black invisibleKey" id="B2d"></div>
-                <div class="key white" id="C3"><span>C3</span></div>
+                <div class="key white" id="C3"><span></span></div>
                 <div class="key black" id="C3d"></div>
                 <div class="key white" id="D3"></div>
                 <div class="key black" id="D3d"></div>
@@ -246,7 +247,7 @@ include '../controller/room.php';
                 <div class="key black" id="A3d"></div>
                 <div class="key white" id="B3"></div>
                 <div class="key black invisibleKey" id="B3d"></div>
-                <div class="key white" id="C4"><span>C4</span></div>
+                <div class="key white" id="C4"><span></span></div>
                 <div class="key black" id="C4d"></div>
                 <div class="key white" id="D4"></div>
                 <div class="key black" id="D4d"></div>
@@ -260,7 +261,7 @@ include '../controller/room.php';
                 <div class="key black" id="A4d"></div>
                 <div class="key white" id="B4"></div>
                 <div class="key black invisibleKey" id="B4d"></div>
-                <div class="key white" id="C5"><span>C5</span></div>
+                <div class="key white" id="C5"><span></span></div>
                 <div class="key black" id="C5d"></div>
                 <div class="key white" id="D5"></div>
                 <div class="key black" id="D5d"></div>
@@ -274,7 +275,7 @@ include '../controller/room.php';
                 <div class="key black" id="A5d"></div>
                 <div class="key white" id="B5"></div>
                 <div class="key black invisibleKey" id="B5d"></div>
-                <div class="key white" id="C6"><span>C6</span></div>
+                <div class="key white" id="C6"><span></span></div>
                 <div class="key black" id="C6d"></div>
                 <div class="key white" id="D6"></div>
                 <div class="key black" id="D6d"></div>
