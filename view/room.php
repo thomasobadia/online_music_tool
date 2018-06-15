@@ -55,6 +55,7 @@ include '../controller/room.php';
 
 <div class="mobile">
     <!-- <div class="content"> -->
+    <div class="turnYourPhone"></div>
     <div class="primary_button_sound_selected" data-sound="piano">
                 <span class="primary_button__text"> Piano </span>
                 <div class="primary_button__margin"></div>
@@ -322,6 +323,7 @@ include '../controller/room.php';
     <!-- phone -->
 
     <script src="../scripts/phone/audioContext.js"></script>
+    <script src="../scripts/phone/pageOrientation.js"></script>
     <script src="../scripts/phone/createKeyBoard.js"></script>
     <script src="../scripts/phone/audio.js"></script>
     <!-- <script src="../scripts/phone/mic.js"></script> -->
