@@ -9,12 +9,12 @@ console.log($qrCodeToggle)
 
 $qrCodeToggle.addEventListener("click",()=>{
     if(isQrDisplayed){
-        $qrCodeToggle.innerHTML = "Hide Qr code"
+        $qrCodeToggle.innerHTML = "Display Qr code"
         isQrDisplayed = 0
         $qrCode.style.visibility = "hidden"
     }
     else{
-        $qrCodeToggle.innerHTML = "Display Qr code"
+        $qrCodeToggle.innerHTML = "Hide Qr code"
         isQrDisplayed = 1
         $qrCode.style.visibility = "visible"
     }

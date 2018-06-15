@@ -28,7 +28,13 @@ include '../controller/room.php';
             <div class="room__content">
                 <div class="time_cursor"></div>
                 <div class="room__content__tracks"></div>
-                <img class="qr_code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://harmonyngal.ovh/view/room.php?roomId=<?= $room->room_id ?>" alt="">
+                <div class="qr_code">
+                    <p class ="qr_code__title">To join this room, please copy the following link or scan the QR Code</p>
+                    <p class ="qr_code__text">https://harmonyngal.ovh/view/room.php?roomId=
+                        <?= $room->room_id ?>
+                    </p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://harmonyngal.ovh/view/room.php?roomId=<?= $room->room_id ?>" alt="">
+                </div>
             </div>
             <div class="room__footer">
                 <div class="room__footer__parameters">

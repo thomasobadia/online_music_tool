@@ -60,10 +60,27 @@ body{
 
 .qr_code{
     position: absolute;
+    font-size: 0.9em;
+    padding: 3em;
+    border-radius: 2%;
+    background: #202020;
+    color: #f8f8f8;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 1000;
+    text-align: center;
+    font-family: Montserrat-Light;
+   
+}
+.qr_code__title{
+    font-family: Montserrat-Medium;
+    text-align: left;
+    font-size: 1.1rem;
+    margin-bottom: 2em;
+}
+.qr_code__text{
+    margin-bottom: 1em;
 }
 
 .room__content__tracks{
