@@ -83,6 +83,32 @@
     letter-spacing: 0.4em;
 
 }
+.slogan_bg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 40%;
+    width: 10%;
+    background-color: blue;    
+    opacity: 0.2;
+    animation: slogan_background 10s infinite;
+}
+
+@keyframes slogan_background{
+    0%{
+        background-color: blue    
+    }
+    25%{
+        background-color: red
+    }
+    50%{
+        background-color: yellow
+    }
+    75%{
+        background-color: green
+    }
+}
 .slogan_create{
     position: absolute;
     top : 30%;
@@ -150,7 +176,7 @@
     background: #202020;
     color: #f8f8f8;
     font-family: Montserrat-Regular;
-    font-size: 1.1em;
+    font-size: 1em;
     padding: 0.5em 3em;
     position: absolute;
     left: 50%;
@@ -158,6 +184,7 @@
     transform: translateX(-50%);
     cursor: pointer;
     transition: all ease-out 0.2s;
+    z-index: 10;
 }
 
 .create_room__whitespace{
@@ -167,6 +194,16 @@
     width: 5%;
     height: 100%;
     background: #f8f8f8;
+    transition: all ease-in 0.3s
+}
+
+.create_room:hover{
+    color: #202020;
+    background: none;
+}
+.create_room:hover .create_room__whitespace{
+    width: 100%;
+    z-index: -1
 }
 
 form{

@@ -28,6 +28,7 @@ include 'controller/index.php' ;
 			<div>1 music</div>
 		</div>
 		<div class="slogan">
+			<div class="slogan_bg"></div>
 			<div class="slogan_create">CREATE</div>
 			<div class="slogan_with">WITH</div>
 			<div class="slogan_friends">FRIENDS</div>
@@ -35,7 +36,7 @@ include 'controller/index.php' ;
 	
 	<div class="create_room">
 		<div class="create_room__whitespace"></div>
-		Create Room
+		<div>Create Room</div>
 	</div>
 	<div class="error"><?= $error ?></div>
 	
