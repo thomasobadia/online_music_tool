@@ -18,8 +18,8 @@ include 'controller/index.php' ;
 	</video>
 		<div class="logo">Harmony</div>
 		<div class="menu">
-			<a href="#">How to join a room</a>
-			<a href="#">Contact</a>
+			<a href="view/how-to.php">How to join a room</a>
+			<a href="view/contact.php">Contact</a>
 		</div>
 		<div class="musicians">
 			<div>4 musicians</div>

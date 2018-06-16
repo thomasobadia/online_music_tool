@@ -1,0 +1,41 @@
+@font-face{
+    font-family: Montserrat-Bold;
+    src: url('fonts/Montserrat-Bold.otf');
+ }
+@font-face{
+    font-family: Montserrat-Regular;
+    src: url('fonts/Montserrat-Regular.otf');
+ }
+@font-face{
+    font-family: Montserrat-Light;
+    src: url('fonts/Montserrat-Light.otf');
+ }
+@font-face{
+    font-family: Montserrat-Black;
+    src: url('fonts/Montserrat-Black.otf');
+ }
+ 
+body{
+    color: #202020
+}
+.logo{
+    font-size: 1.2em;
+    font-family: Montserrat-Bold;
+    margin: 1.5em 1.5em;
+
+}
+.menu {
+    position: fixed;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.menu a {
+    font-size: 1em;
+    font-family: Montserrat-Bold;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
