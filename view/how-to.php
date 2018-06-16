@@ -13,6 +13,9 @@
 			<a href="view/how-to.php">How to join a room</a>
 			<a href="view/contact.php">Contact</a>
 		</div>
-		<h1>How to join a room ?</h1>
+		<div class="content">
+			<h1>How to join a room ?</h1>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi maxime ea cum, perspiciatis fuga provident officiis quasi, asperiores voluptate, minus quam eos. In at, cum commodi voluptas magnam consectetur nulla.</p>
+		</div>
 	</body>
 	</html>
