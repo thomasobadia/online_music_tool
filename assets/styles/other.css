@@ -19,6 +19,7 @@ body{
     color: #202020
 }
 .logo{
+    color: #202020;
     font-size: 1.2em;
     font-family: Montserrat-Bold;
     margin: 1.5em 1.5em;
@@ -32,6 +33,7 @@ body{
 
 }
 .menu a {
+    color: #202020;
     font-size: 1em;
     font-family: Montserrat-Bold;
     text-decoration: none;
@@ -40,7 +42,7 @@ body{
 }
 
 .content{
-    margin-top: 2em;
+    margin-top: 5em;
     padding: 0 10%;
     font-family: Montserrat-Regular; 
 }
