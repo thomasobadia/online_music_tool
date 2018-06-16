@@ -18,12 +18,15 @@
 body{
     color: #202020
 }
-.logo{
-    color: #202020;
+.logo {
     font-size: 1.2em;
     font-family: Montserrat-Bold;
     margin: 1.5em 1.5em;
 
+}
+.logo a{
+    color: #202020;
+    text-decoration: none;
 }
 .menu {
     position: fixed;

@@ -10,8 +10,8 @@
 	<body>
 		<div class="logo"><a href="../index.php">Harmony</a></div>
 		<div class="menu">
-			<a href="view/how-to.php">How to join a room</a>
-			<a href="view/contact.php">Contact</a>
+			<a href="how-to.php">How to join a room</a>
+			<a href="contact.php">Contact</a>
 		</div>
 		<div class="content">
 			<h1>Contact</h1>
