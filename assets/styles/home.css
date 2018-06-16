@@ -90,23 +90,23 @@
     transform: translateX(-50%) translateY(-50%);
     height: 40%;
     width: 10%;
-    background-color: blue;    
+    background-color:#1BA3A4;    
     opacity: 0.2;
     animation: slogan_background 10s infinite;
 }
 
 @keyframes slogan_background{
     0%{
-        background-color: blue    
+        background-color: #1BA3A4   
     }
     25%{
-        background-color: red
+        background-color: #297CA6
     }
     50%{
-        background-color: yellow
+        background-color: #563FAF
     }
     75%{
-        background-color: green
+        background-color: #A419A3
     }
 }
 .slogan_create{
