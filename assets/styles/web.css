@@ -278,6 +278,16 @@ body{
     color: #b5b2b1;
 }
 
+.room__footer__parameters__BPM{
+    width: 14%;
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: Montserrat-Light;
+    color: #b5b2b1;
+}
+
 .time_cursor{
     width: 1px;
     height: 91%;

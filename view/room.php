@@ -69,6 +69,10 @@ include '../controller/room.php';
                         <img src="../assets/img/web/stop.png" class="room__footer__parameters__audio_controls__pause">
                         <img src="../assets/img/web/record.png" class="room__footer__parameters__audio_controls__record">
                     </div>
+                    <div class="room__footer__parameters__BPM">
+                        <div class="room__footer__parameters__BPM__text">Temp : 500</div>
+                        <input class="room__footer__parameters__BPM__slider" type="range">
+                    </div>
                 </div>
                 <div class="room__footer__frequency"></div>
             </div>
@@ -324,6 +328,7 @@ include '../controller/room.php';
 	<script src="../scripts/web/allInstruments.js"></script>
     <script src="../scripts/web/volume.js"></script>
     <script src="../scripts/web/timeCursor.js"></script>
+
 
 
     <!-- phone -->

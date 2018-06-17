@@ -20,5 +20,4 @@ $volumeSlider.addEventListener('mouseup', ()=>{
     volume.volume = - volumeValue
     console.log(volumeValue)
     console.log(volume.volume)
-    
 })

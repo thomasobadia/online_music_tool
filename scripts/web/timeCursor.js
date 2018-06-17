@@ -239,6 +239,28 @@ const AnchorCursorLoop = ()=>{
 }
 AnchorCursorLoop()
 
+/**
+ * BPM handler
+ */
+const $bpmSlider = document.querySelector('.room__footer__parameters__BPM__slider')
+const $bpmSliderText = document.querySelector('.room__footer__parameters__BPM__text')
+let bpmValue = $bpmSlider.value
+
+console.log($bpmSlider)
+console.log("pute")
+$bpmSlider.addEventListener('mouseup', ()=>{
+    bpmValue = $bpmSlider.value * 10
+    console.log(bpmValue)
+    console.log($bpmSlider.value)
+    timeCursorBPM = bpmValue
+    $bpmSliderText.innerHTML = "tempo : " + timeCursorBPM
+    trackContentWidth = $trackContent.offsetWidth
+    timeCursorDistance = trackContentWidth / timeCursorBPM
+
+})
+
+
+
 //when receiving signal from a key pressed from mobile, trigger the attack on the computer
 socket.on('newKeyPressed', (data) =>{
     if (!Modernizr.touchevents) {
