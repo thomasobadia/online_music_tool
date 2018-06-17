@@ -31,8 +31,11 @@
 			<a href="contact.php">Contact</a>
 		</div>
 		<div class="content">
-			<h1>How to join a room ?</h1>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi maxime ea cum, perspiciatis fuga provident officiis quasi, asperiores voluptate, minus quam eos. In at, cum commodi voluptas magnam consectetur nulla.</p>
-		</div>
+		<h1>What is Harmony ?</h1>
+		<p>Harmony is a school project that lets you create music with your friends. Harmony is based on a simple principle, a computer and up to 4 mobiles connected together, each player can compose independently and the computer gathers all the soundtracks to create the final project gathering each copositions.</p>
+		<h1>How to play ?</h1>
+		<p>It's very simple, you have to creat a room with your computer, choose the number of players and choose a room name. Harmony will generate a qr code for your room and each player will be able to connect from their mobile by scanning this code. It is possible to connect up to 4 players.
+  		Then, All you have to do is launch the recording, coordinate with your friends and create your most beautiful compositions! You can delete a record if you do not like it and start again until you get the expected result.
+    </p>
 	</body>
 	</html>
