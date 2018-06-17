@@ -11,7 +11,7 @@
  
 
 let idCurrentInstrument
-
+const anchors = []
 const timeCursorScript = ()=>{
 console.log("je suis appelé")
 const $trackContent = document.querySelector(".room__content__tracks__track__content")
@@ -76,6 +76,7 @@ const mooveTimeCursor = ()=>{
 const loop = ()=>{
     window.requestAnimationFrame(loop)
     mooveTimeCursor()
+    
 }
 loop()
 
@@ -130,7 +131,7 @@ $pause.addEventListener('mouseup', (event)=>{
  * ANCHORS
  */
 
-const anchors = []
+
     
     
 //when a key is pressed create anchor
@@ -141,6 +142,8 @@ const createAnchor = (currentKey, name)=>{
         const newAnchorDiv = document.createElement('div')
         newAnchorDiv.setAttribute("class", 'anchor')
 
+        //who played
+        newAnchorDiv.setAttribute("data-name", name)
         //giving temporal info to the div
         newAnchorDiv.setAttribute("data-start", timeCursorPosition)
 
@@ -163,6 +166,7 @@ const createAnchor = (currentKey, name)=>{
         newAnchorDiv.setAttribute("data-key", currentKey)
 
         //on which track the anchor should be placed
+        newAnchorDiv.setAttribute("data-track", whichTrack)        
         $subTracks[whichTrack].appendChild(newAnchorDiv)
         
         //push the anchor in the array to save it
