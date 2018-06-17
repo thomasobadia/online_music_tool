@@ -18,6 +18,7 @@ Harmony is a school project that lets you create music with your friends. Harmon
 - Real time music composition recording
 - Modification of the records
 - Sampler
+- 20 beautifull instruments
 
 
 # Technologies used

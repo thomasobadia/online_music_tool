@@ -6,12 +6,12 @@
 
 // Enabling HTTPS on Node Server
 
-var fs = require('fs');
+var fs = require('fs')
 
 const options = {
 	key: fs.readFileSync("/etc/letsencrypt/live/harmonyngal.ovh/privkey.pem"),
 	cert: fs.readFileSync("/etc/letsencrypt/live/harmonyngal.ovh/cert.pem")
-};
+}
 
 
 
@@ -56,8 +56,6 @@ io.sockets.on('connection',  (socket) =>{
 
 	socket.on('newPseudo', (data) => {
 		socket.name = data.name
-		console.log(data.name)
-		console.log(data.room)
 		socket.to(data.room).emit('addPlayer', data.name)
 		
 	})
@@ -72,19 +70,15 @@ io.sockets.on('connection',  (socket) =>{
 		 */
 		if (io.sockets.adapter.rooms[$room].computer == 0) {
 			io.sockets.adapter.rooms[$room].computer++
-			console.log(io.sockets.adapter.rooms[$room].computer)
-			console.log(sessionid)
-			console.log($room)
 
 		} else {
 			io.sockets.adapter.rooms[$room].computer++
 			var destination = 'computer-error.php'
-			socket.emit('redirect', destination);
+			socket.emit('redirect', destination)
 		}
 		socket.on('disconnect', function () {
 			io.sockets.adapter.rooms[$room].computer--
-				console.log(io.sockets.adapter.rooms[$room].computer)
-		});
+		})
 
 	})
 
@@ -97,11 +91,10 @@ io.sockets.on('connection',  (socket) =>{
 		 */
 		if (io.sockets.adapter.rooms[$room].touchDevice < $players) {
 			io.sockets.adapter.rooms[$room].touchDevice++
-			console.log(io.sockets.adapter.rooms[$room].touchDevice)
 		} else {
 			io.sockets.adapter.rooms[$room].touchDevice++
-			var destination = 'touch-error.php';
-			socket.emit('redirect', destination);
+			var destination = 'touch-error.php'
+			socket.emit('redirect', destination)
 		}
 
 		/**
@@ -112,37 +105,31 @@ io.sockets.on('connection',  (socket) =>{
 		 //white key pressed
 		socket.on('white_key_pressed', function(key){
 			io.to($room).emit('newKeyPressed',{ name: socket.name, key: key })
-			console.log(socket.name)
 		})
 		
 		//white key released
 		socket.on('white_key_released', function(key){
 			io.to($room).emit('newKeyReleased',{ name: socket.name, key: key })
-			console.log(socket.name)
 		})
 		
 		//black key pressed
 		socket.on('black_key_pressed', function(key){
 			io.to($room).emit('newKeyPressed',{ name: socket.name, key: key })
-			console.log(key)
 		})
 		
 		//black key released
 		socket.on('black_key_released', function(key){
 			io.to($room).emit('newKeyReleased',{ name: socket.name, key: key })
-			console.log(key)
 		})
 		
 		//drumpads key pressed
 		socket.on('drumpad_pressed', function(key){
 			io.to($room).emit('newKeyPressed',{ name: socket.name, key: key })
-			console.log(key)
 		})
 		
 		//drumpads key released
 		socket.on('drumpad_released', function(key){
 			io.to($room).emit('newKeyReleased',{ name: socket.name, key: key })
-			console.log(key)
 		})
 
 		/**
@@ -151,7 +138,6 @@ io.sockets.on('connection',  (socket) =>{
 
 		socket.on('changing_sound', function(sound){
 			io.to($room).emit('changingSound', { name: socket.name, sound: sound })
-			console.log("sound = " + sound)
 		})
 
 
@@ -162,13 +148,11 @@ io.sockets.on('connection',  (socket) =>{
 		//stop recording
 		socket.on('stop_recording', function(){
 			io.to($room).emit('stopRecording', 0)
-			console.log("stop recording ")
 		})
 
 		//start recording
 		socket.on('start_recording', function(){
 			io.to($room).emit('startRecording', 0)
-			console.log("start recording")
 		})
 
 		/**
@@ -177,16 +161,13 @@ io.sockets.on('connection',  (socket) =>{
 		socket.on('disconnect', function () {
 			io.sockets.adapter.rooms[$room].touchDevice--
 			socket.to($room).emit('removePlayer', socket.name)
-			console.log('deconnection')
-			console.log(io.sockets.adapter.rooms[$room].touchDevice)
-		});
+		})
 
 	})
 	
 	var sessionid = socket.id
 
-});
+})
 
-console.log('node start');
 
-server.listen(8080);
+server.listen(8080)
