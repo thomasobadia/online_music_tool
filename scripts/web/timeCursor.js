@@ -13,7 +13,6 @@
 let idCurrentInstrument
 const anchors = []
 const timeCursorScript = ()=>{
-console.log("je suis appelé")
 const $trackContent = document.querySelector(".room__content__tracks__track__content")
 
 const $timeCursor = document.querySelector(".time_cursor")

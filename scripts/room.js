@@ -1,8 +1,14 @@
+/**
+ * ROOM CONNECTION AND SOCKET HANDLING
+ */
+
 var socket = io.connect('https://harmonyngal.ovh:8080/', { secure: true })
 const button = document.querySelector('#button')
 const $validate = document.querySelector('#validate')
+
+// Removing anchor
 const  removeElement = (id) => {
-    var elem = document.getElementById(id);
+    var elem = document.getElementById(id)
 	for (let k = 0; k<anchors.length; k++){
 		if(anchors[k].dataset.name){
 			if(anchors[k].dataset.name == id){
@@ -11,155 +17,20 @@ const  removeElement = (id) => {
 			}
 		}
 	}
-	return elem.parentNode.removeChild(elem);	
+	return elem.parentNode.removeChild(elem)	
 }
 
 const desktop = document.querySelector(".desktop")
 const mobile = document.querySelector(".mobile")
 
-socket.emit('room', roomId);
-socket.emit('players', players);
-const createAnchor = (currentKey)=>{
-	if(!event.repeat && isRecording === 1){
-	//creation of the div
-	const newAnchorDiv = document.createElement('div')
-	newAnchorDiv.setAttribute("class", 'anchor')
-
-	//giving temporal info to the div
-	newAnchorDiv.setAttribute("data-start", timeCursorPosition)
-
-	//position of the div
-	newAnchorDiv.style.transform = "translateX("+timeCursorPosition+"px)"
-
-	//the div is not finished from being created yet
-	newAnchorDiv.setAttribute("data-isfinished", 0)
-
-	//the anchor is not played
-	newAnchorDiv.setAttribute("data-isplayed", -1)
-
-	//which instrument should we play
-	newAnchorDiv.setAttribute("data-instrument", "piano")
-	
-	//what is the instrument id
-	newAnchorDiv.setAttribute("data-id", currentInstrumentId)
-
-	//what is the instrument key used
-	newAnchorDiv.setAttribute("data-id", currentKey)
-
-	//on which track the anchor should be placed
-	$subTracks[whichTrack].appendChild(newAnchorDiv)
-	
-	//push the anchor in the array to save it
-	anchors.push(newAnchorDiv)
-	}             
-
-}
-
-//when a key is released finish anchor
-const finishAnchor = (currentKey)=>{
-//a key  
-	console.log("test") 
-	anchors.forEach(anchor => {
-
-		let width
-		//if the key is not drawn yet
-		if(!anchor.dataset.isFinished){
-			console.log(anchor.dataset.start)
-			console.log(timeCursorPosition)
-
-			//we record when where we release the key
-			anchor.dataset.stop = timeCursorPosition
-
-			//handle if we release the key after the end of the track
-			// if(anchor.dataset.stop >= anchor.dataset.start){
-					width = anchor.dataset.stop - anchor.dataset.start
-				console.log("bitch")
-			// }
-			// else{
-			//      width = trackContentWidth - anchor.dataset.start 
-			// }
-			console.log(width)
-			anchor.style.width = width +"px"
-			anchor.dataset.isFinished = 1
-			
-		}
-	})
-
-}
-// const createAnchor = (currentKey)=>{
-// 	if(!event.repeat && isRecording === 1){
-// 	//creation of the div
-// 	const newAnchorDiv = document.createElement('div')
-// 	newAnchorDiv.setAttribute("class", 'anchor')
-
-// 	//giving temporal info to the div
-// 	newAnchorDiv.setAttribute("data-start", timeCursorPosition)
-
-// 	//position of the div
-// 	newAnchorDiv.style.transform = "translateX("+timeCursorPosition+"px)"
-
-// 	//the div is not finished from being created yet
-// 	newAnchorDiv.setAttribute("data-isfinished", 0)
-
-// 	//the anchor is not played
-// 	newAnchorDiv.setAttribute("data-isplayed", -1)
-
-// 	//which instrument should we play
-// 	newAnchorDiv.setAttribute("data-instrument", "piano")
-	
-// 	//what is the instrument id
-// 	newAnchorDiv.setAttribute("data-id", currentInstrumentId)
-
-// 	//what is the instrument key used
-// 	newAnchorDiv.setAttribute("data-id", currentKey)
-
-// 	//on which track the anchor should be placed
-// 	$subTracks[whichTrack].appendChild(newAnchorDiv)
-	
-// 	//push the anchor in the array to save it
-// 	anchors.push(newAnchorDiv)
-// 	}             
-
-// }
-
-// //when a key is released finish anchor
-// const finishAnchor = (currentKey)=>{
-// //a key  
-// 	console.log("test") 
-// 	anchors.forEach(anchor => {
-
-// 		let width
-// 		//if the key is not drawn yet
-// 		if(!anchor.dataset.isFinished){
-// 			console.log(anchor.dataset.start)
-// 			console.log(timeCursorPosition)
-
-// 			//we record when where we release the key
-// 			anchor.dataset.stop = timeCursorPosition
-
-// 			//handle if we release the key after the end of the track
-// 			// if(anchor.dataset.stop >= anchor.dataset.start){
-// 					width = anchor.dataset.stop - anchor.dataset.start
-// 				console.log("bitch")
-// 			// }
-// 			// else{
-// 			//      width = trackContentWidth - anchor.dataset.start 
-// 			// }
-// 			console.log(width)
-// 			anchor.style.width = width +"px"
-// 			anchor.dataset.isFinished = 1
-			
-// 		}
-// 	})
-
-// }
-
+socket.emit('room', roomId)
+socket.emit('players', players)
 
 socket.on('changingSound', (data) =>{
 	if (!Modernizr.touchevents) {
 		currentInstrumentId[data.name] = data.sound
 		console.log("linstafiohzqduh = " + data.sound)
-		// currentInstrument = instrumentArray[currentInstrumentId]
+		
 		
 	}
 })
@@ -168,12 +39,13 @@ if (Modernizr.touchevents) {
 
 	
 	socket.emit('newTouchDevice', 'touchDevice')
-	var pseudo = prompt('Enter your pseudo');
+	var pseudo = prompt('Enter your pseudo')
 	if(!pseudo){
+		// REALLY FUNNY NAMES ARRAY
 		const pseudos =  ['Burno','Bruno','Bruneau', 'Pruneau','Prudeau', 'Barno','Brano','Braneau', 'Praneau','Pradeau','Polo','Diego','Barjo','Rateau','Nano','Bento','Stephano','Rafaelo','PizzaYolo','Momo','Monnot']
 		pseudo = pseudos[Math.floor(Math.random()*pseudos.length)]
 	}
-	socket.emit('newPseudo',{ name: pseudo, room: roomId });
+	socket.emit('newPseudo',{ name: pseudo, room: roomId })
 } else {
 	socket.emit('newComputer', 'computer')
 	mobile.style.display = "none"
@@ -181,8 +53,11 @@ if (Modernizr.touchevents) {
 let firstConnection = 0
 socket.on('addPlayer', (pseudo) => {
 	if (!Modernizr.touchevents){
+		/**
+		 * CREATING TRACK ON CONNECTION
+		 */
 		const  tracksContainer = document.querySelector('.room__content__tracks')
-		
+	
 		const  newTrack = document.createElement('div')
 			newTrack.setAttribute("id", pseudo)
 			newTrack.setAttribute("class", 'room__content__tracks__track')
@@ -200,12 +75,6 @@ socket.on('addPlayer', (pseudo) => {
 		const  newTrackInfoColor = document.createElement('div')
 			newTrackInfoColor.setAttribute("class", 'room__content__tracks__track__info__color')
 			newTrackInfo.appendChild(newTrackInfoColor)
-
-		// const newMic = document.createElement('img')
-		// 	newMic.setAttribute("class", 'room__content__tracks__track__info__mic')
-		// 	newMic.setAttribute("src", '../assets/img/web/mic.svg')
-		// 	newTrackInfo.appendChild(newMic)
-
 
 		const  newTrackInfoMute = document.createElement('div')
 			newTrackInfoMute.setAttribute("class", 'room__content__tracks__track__info__mute')
@@ -229,7 +98,6 @@ socket.on('addPlayer', (pseudo) => {
 			newTrackStampSingle_div.innerHTML = j
 		}
 
-		console.log("bitch")
 		const  newTrackSubtracks = document.createElement('div')
 			newTrackSubtracks.setAttribute("class", 'tracks__track__sub_tracks')
 			newTrackContent.appendChild(newTrackSubtracks)
@@ -237,12 +105,10 @@ socket.on('addPlayer', (pseudo) => {
 
 		for(let i = 1 ; i < 4 ; i++){
 			let  newTrackSubtrack = document.createElement('div')
-			console.log(newTrackSubtracks)
 			newTrackSubtrack.setAttribute("class", 'sub_track')
 			newTrackSubtracks.appendChild(newTrackSubtrack)
 
 			let  newTrackSubtrackCross = document.createElement('img')
-			console.log(newTrackSubtracks)
 			newTrackSubtrackCross.setAttribute("class", 'sub_track__cross')
 			newTrackSubtrackCross.setAttribute("src", '../assets/img/web/x.svg')
 			newTrackSubtrack.appendChild(newTrackSubtrackCross)
@@ -255,13 +121,16 @@ socket.on('addPlayer', (pseudo) => {
 		if(!firstConnection){
 			timeCursorScript()
 		}
+		/**
+		 * DELETING A LINE ON TRACK
+		 */
 		const deleteLine = () =>{
 			const crosses = document.querySelectorAll('.sub_track__cross')
 			for(let s = 0; s < crosses.length; s++){   
 				crosses[s].addEventListener('click',()=>{
 					for (let k = 0; k<anchors.length; k++){
 						if(anchors[k].dataset.track == s%3 && crosses[s].closest('.room__content__tracks__track').id == anchors[k].dataset.name){
-								anchors[k].outerHTML = '';
+								anchors[k].outerHTML = ''
 								anchors.splice(k,1)
 								k--
 						}
@@ -280,99 +149,61 @@ socket.on('removePlayer',  (pseudo) => {
 		removeElement(pseudo)
 }})
 socket.on('redirect', function (destination) {
-	window.location.href = destination;
-});
+	window.location.href = destination
+})
 
 
-
-
+/**
+ * VOICE SAMPLER
+ */
 
 if (navigator.mediaDevices) {
-    console.log('getUserMedia supported.');
-  
-    var constraints = { audio: true };
-    var chunks = [];
+    var constraints = { audio: true }
+    var chunks = []
   
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(stream) {
   
-      var mediaRecorder = new MediaRecorder(stream);
+      var mediaRecorder = new MediaRecorder(stream)
   
 
         
 	socket.on('startRecording', function () {
-		mediaRecorder.start();
-		console.log(mediaRecorder.state);
-		console.log("recorder started");
-		$sampleRecord.style.background = "red";
-		$sampleRecord.style.color = "black";
+		mediaRecorder.start()
+		$sampleRecord.style.background = "red"
+		$sampleRecord.style.color = "black"
 		isRecordingMic = 1
 	})
 	  
 	socket.on('stopRecording', function () {
 	if(!isRecordingMic){
-		console.log("yeah")
 		}
-
 		else{
-		mediaRecorder.stop();
-		console.log(mediaRecorder.state);
-		console.log("recorder stopped");
+		mediaRecorder.stop()
 		isRecordingMic = 0
-		console.log(isRecordingMic)
 		}
 		setTimeout(() => {
 			micSampler.add(
 				"C1", audio.href
 			)
-		}, 1000);
+		}, 1000)
 	})
   
     
-      mediaRecorder.onstop = function(e) {
-        console.log("data available after MediaRecorder.stop() called.");
-  
-        var clipName = prompt('Enter a name for your sound clip');
-  
-        // var clipContainer = document.createElement('article');
-        // var clipLabel = document.createElement('p');
-        // var audio = document.createElement('audio');
-        // var deleteButton = document.createElement('button');
-        // var soundClips = document.createElement('div');
-       
-        // clipContainer.classList.add('clip');
-        // audio.setAttribute('controls', '');
-        // deleteButton.innerHTML = "Delete";
-        // clipLabel.innerHTML = clipName;
-  
-        // clipContainer.appendChild(audio);
-        // clipContainer.appendChild(clipLabel);
-        // clipContainer.appendChild(deleteButton);
-        // soundClips.appendChild(clipContainer);
-        
-  
-        audio.controls = true;
-        var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
-        
-        var audioURL = URL.createObjectURL(blob);
-        audio.href = audioURL;
-        // audio.download = "test"
-        // audio.click()
-        // window.URL.revokeObjectURL(audioURL)
-        console.log("recorder stopped");
-  
-        // deleteButton.onclick = function(e) {
-        //   evtTgt = e.target;
-        //   evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-        // }
+      mediaRecorder.onstop = function(e) {  
+        var clipName = prompt('Enter a name for your sound clip')     
+        audio.controls = true
+        var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' })
+        var audioURL = URL.createObjectURL(blob)
+        audio.href = audioURL
+
       }
-  
       mediaRecorder.ondataavailable = function(e) {
         chunks.splice(0, 1, e.data)
       }
     })
     .catch(function(err) {
-      console.log('The following error occurred: ' + err);
+      console.log('The following error occurred: ' + err)
     })
   }
 
