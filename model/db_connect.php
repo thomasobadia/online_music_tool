@@ -14,5 +14,5 @@ try
 catch(PDOException $e)
 {
 	
-    die('merde');
+    die('DataBase Error');
 }
