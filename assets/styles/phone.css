@@ -273,12 +273,15 @@ body{
 
 .all_sounds>.primary_button{
     width: 100%;
-    height: 10%;
+    height: 9%;
     margin-bottom: 10%;
     position: relative;
-    /*hack to center buttons*/
-    transform: translateY(57%);
+    transform: translateY(30%);
     background-color: #F0F0F0;
+}
+
+.all_sounds>.voice{
+    transform: translateY(500%);
 }
 
 .all_sounds>.primary_button>.primary_button__margin{

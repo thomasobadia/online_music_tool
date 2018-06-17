@@ -70,7 +70,7 @@ include '../controller/room.php';
                         <img src="../assets/img/web/record.png" class="room__footer__parameters__audio_controls__record">
                     </div>
                     <div class="room__footer__parameters__BPM">
-                        <div class="room__footer__parameters__BPM__text">Temp : 500</div>
+                        <div class="room__footer__parameters__BPM__text">Temp : 800</div>
                         <input class="room__footer__parameters__BPM__slider" type="range">
                     </div>
                 </div>
@@ -199,7 +199,7 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="voice recorder" data-soundid="12">
+                        <div class="primary_button voice" data-sound=" recorder" data-soundid="12">
                             <span class="primary_button__text"> Voice recorder </span>
                             <div class="primary_button__margin"></div>
                         </div>

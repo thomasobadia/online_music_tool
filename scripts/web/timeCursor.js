@@ -25,7 +25,7 @@ const $volume = document.querySelector(".tracks__track__volume")
 let trackContentWidth = $trackContent.offsetWidth
 
 //speed of the timeCursor
-let timeCursorBPM = 500
+let timeCursorBPM = 800
 let timeCursorDistance = trackContentWidth / timeCursorBPM
 let timeCursorPosition = 0
 
@@ -249,7 +249,7 @@ let bpmValue = $bpmSlider.value
 console.log($bpmSlider)
 console.log("pute")
 $bpmSlider.addEventListener('mouseup', ()=>{
-    bpmValue = $bpmSlider.value * 10
+    bpmValue = ($bpmSlider.value * 10) + 300
     console.log(bpmValue)
     console.log($bpmSlider.value)
     timeCursorBPM = bpmValue

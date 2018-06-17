@@ -53,6 +53,7 @@ $soundSelected.addEventListener("touchstart", ()=>{
     $drumpadKeyboard.style.visibility = "hidden"
     $gradientLine.style.visibility = "hidden"
     $chooseSound.style.visibility = "visible"
+    $samplerRecorder.style.visibility = "hidden"
 
 })
 
@@ -72,7 +73,7 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
 
     //if we click on the whole section
     instrumentColorFilter.addEventListener("touchstart", ()=>{
-        $samplerRecorder.visibility = "hidden"
+
         if(!isSelectionningSound){
         soundPrimaryButton.style.opacity = 0
         soundSelection.style.visibility = "visible"
@@ -84,6 +85,7 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
     })
     //or the button
     soundPrimaryButton.addEventListener("touchstart", ()=>{
+
         if(!isSelectionningSound){
             soundPrimaryButton.style.opacity = 0
             soundSelection.style.visibility = "visible"
