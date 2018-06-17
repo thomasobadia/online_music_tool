@@ -255,7 +255,21 @@ socket.on('addPlayer', (pseudo) => {
 		if(!firstConnection){
 			timeCursorScript()
 		}
-
+		const deleteLine = () =>{
+			const crosses = document.querySelectorAll('.sub_track__cross')
+			for(let s = 0; s < crosses.length; s++){   
+				crosses[s].addEventListener('click',()=>{
+					for (let k = 0; k<anchors.length; k++){
+						if(anchors[k].dataset.track == s%3 && crosses[s].closest('.room__content__tracks__track').id == anchors[k].dataset.name){
+								anchors[k].outerHTML = '';
+								anchors.splice(k,1)
+								k--
+						}
+					}
+				})
+			}
+		}
+		deleteLine()
 		firstConnection = 1
 		
 		
