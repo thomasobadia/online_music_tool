@@ -135,6 +135,14 @@ io.sockets.on('connection',  (socket) =>{
 			io.to($room).emit('changingSound', { name: socket.name, sound: sound })
 			console.log("sound = " + sound)
 		})
+		socket.on('stop_recording', function(){
+			io.to($room).emit('stopRecording', 0)
+			console.log("stop recording ")
+		})
+		socket.on('start_recording', function(){
+			io.to($room).emit('startRecording', 0)
+			console.log("start recording")
+		})
 		socket.on('disconnect', function () {
 			io.sockets.adapter.rooms[$room].touchDevice--
 			socket.to($room).emit('removePlayer', socket.name)

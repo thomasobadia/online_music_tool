@@ -29,6 +29,7 @@ const $synthesizersColorFilter = document.querySelector(".purple_filter")
 const $drumpadsColorFilter = document.querySelector(".pink_filter")
 const $samplerColorFilter = document.querySelector(".green_filter")
 
+const $samplerRecorder = document.querySelector(".sampler_page")
 
 
 const allSounds = [$instrumentsSounds, $synthesizersSounds, $drumpadsSounds, $samplerSounds]
@@ -73,6 +74,7 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
     //displaying the sounds inside each sound_type
     //if we click on the whole section
     instrumentColorFilter.addEventListener("touchstart", ()=>{
+        $samplerRecorder.visibility = "hidden"
         if(!isSelectionningSound){
         soundPrimaryButton.style.opacity = 0
         soundSelection.style.visibility = "visible"
@@ -108,16 +110,23 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
             isSelectionningSound = 0
 
             //displaying either the keyboard, or the drumpad
-            if(instrumentColorFilter.dataset.instrument === "syntesizers" || instrumentColorFilter.dataset.instrument === "instruments" || instrumentColorFilter.dataset.instrument === "sampler"){
+            console.log("pute = " + instrumentColorFilter.dataset.instrument)
+            if(instrumentColorFilter.dataset.instrument === "syntesizers" || instrumentColorFilter.dataset.instrument === "instruments"){
                 $keyBoard.style.visibility = "visible"
                 changeSampleAudioFile(sound)
-                console.log("synt")
+                console.log(instrumentColorFilter.dataset.instrument)
                
             }
             else if(instrumentColorFilter.dataset.instrument === "drumpads"){
                 $drumpadKeyboard.style.visibility = "visible"
                 changeSampleAudioFile(sound)
-                console.log("drums")
+                console.log(instrumentColorFilter.dataset.instrument)
+            }
+            else if(instrumentColorFilter.dataset.instrument == "sampler"){
+                console.log(instrumentColorFilter.dataset.instrument)
+                $samplerRecorder.style.visibility = "visible"
+                $keyBoard.style.visibility = "visible"
+                changeSampleAudioFile(sound)
             }
             
             
@@ -141,7 +150,6 @@ const changeSampleAudioFile = (sound)=>{
     socket.emit('changing_sound', sound.dataset.soundid)
     
 
-console.log(sampler)
 }
 
 

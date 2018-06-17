@@ -1,3 +1,7 @@
+//sampler
+const audio = document.querySelector(".hiddenLinkSample")
+
+
 const bassSampler = new Tone.Sampler({
     "C3" : "../assets/sounds/instruments/bass.wav",
 
@@ -109,7 +113,18 @@ const softDrum = new Tone.Sampler({
     softDrum.toMaster()
 })
 
+const micSampler = new Tone.Sampler({
+    "C1" : "../assets/sounds/instruments/bass.wav",
 
-const instrumentArray = [bassSampler, bellSampler, guitarSampler, pianoSampler, huit08BassSampler, airySampler, atmosPadSampler, microPadSampler, allenDrum, dirtyDrum, SauceYaDrum, softDrum]
+}, function(){
+    //sampler will repitch the closest sample
+    micSampler.toMaster()
+})
+
+
+
+
+
+const instrumentArray = [bassSampler, bellSampler, guitarSampler, pianoSampler, huit08BassSampler, airySampler, atmosPadSampler, microPadSampler, allenDrum, dirtyDrum, SauceYaDrum, softDrum, micSampler]
 let currentInstrumentId = {}
 let currentInstrument = instrumentArray[currentInstrumentId]

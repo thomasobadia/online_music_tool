@@ -3,7 +3,8 @@ const button = document.querySelector('#button')
 const $validate = document.querySelector('#validate')
 const  removeElement = (id) => {
     var elem = document.getElementById(id);
-    return elem.parentNode.removeChild(elem);
+	elem.parentNode.removeChild(elem);
+	elem = null
 }
 
 const desktop = document.querySelector(".desktop")
@@ -254,3 +255,100 @@ socket.on('removePlayer',  (pseudo) => {
 socket.on('redirect', function (destination) {
 	window.location.href = destination;
 });
+
+
+
+
+
+if (navigator.mediaDevices) {
+    console.log('getUserMedia supported.');
+  
+    var constraints = { audio: true };
+    var chunks = [];
+  
+    navigator.mediaDevices.getUserMedia(constraints)
+    .then(function(stream) {
+  
+      var mediaRecorder = new MediaRecorder(stream);
+  
+
+        
+	socket.on('startRecording', function () {
+		mediaRecorder.start();
+		console.log(mediaRecorder.state);
+		console.log("recorder started");
+		$sampleRecord.style.background = "red";
+		$sampleRecord.style.color = "black";
+		isRecordingMic = 1
+	})
+	  
+	socket.on('stopRecording', function () {
+	if(!isRecordingMic){
+		console.log("yeah")
+		}
+
+		else{
+		mediaRecorder.stop();
+		console.log(mediaRecorder.state);
+		console.log("recorder stopped");
+		isRecordingMic = 0
+		console.log(isRecordingMic)
+		}
+		setTimeout(() => {
+			micSampler.add(
+				"C1", audio.href
+			)
+		}, 1000);
+	})
+  
+    
+      mediaRecorder.onstop = function(e) {
+        console.log("data available after MediaRecorder.stop() called.");
+  
+        var clipName = prompt('Enter a name for your sound clip');
+  
+        // var clipContainer = document.createElement('article');
+        // var clipLabel = document.createElement('p');
+        // var audio = document.createElement('audio');
+        // var deleteButton = document.createElement('button');
+        // var soundClips = document.createElement('div');
+       
+        // clipContainer.classList.add('clip');
+        // audio.setAttribute('controls', '');
+        // deleteButton.innerHTML = "Delete";
+        // clipLabel.innerHTML = clipName;
+  
+        // clipContainer.appendChild(audio);
+        // clipContainer.appendChild(clipLabel);
+        // clipContainer.appendChild(deleteButton);
+        // soundClips.appendChild(clipContainer);
+        
+  
+        audio.controls = true;
+        var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+        
+        var audioURL = URL.createObjectURL(blob);
+        audio.href = audioURL;
+        // audio.download = "test"
+        // audio.click()
+        // window.URL.revokeObjectURL(audioURL)
+        console.log("recorder stopped");
+  
+        // deleteButton.onclick = function(e) {
+        //   evtTgt = e.target;
+        //   evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+        // }
+      }
+  
+      mediaRecorder.ondataavailable = function(e) {
+        chunks.splice(0, 1, e.data)
+      }
+    })
+    .catch(function(err) {
+      console.log('The following error occurred: ' + err);
+    })
+  }
+
+
+
+
