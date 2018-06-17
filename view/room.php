@@ -91,21 +91,21 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="piano" data-soundid="0">
-                            <span class="primary_button__text"> Piano </span>
+                        <div class="primary_button" data-sound="bass" data-soundid="0">
+                            <span class="primary_button__text"> Bass </span>
                             <div class="primary_button__margin"></div>
                         </div>
                         
-                        <div class="primary_button" data-sound="laser" data-soundid="1">
-                            <span class="primary_button__text"> Laser </span>
+                        <div class="primary_button" data-sound="bell" data-soundid="1">
+                            <span class="primary_button__text"> Bell </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="saxophone" data-soundid="2">
-                            <span class="primary_button__text"> Saxophone </span>
+                        <div class="primary_button" data-sound="guitar" data-soundid="2">
+                            <span class="primary_button__text"> Guitar </span>
                             <div class="primary_button__margin"></div>
                         </div>
                         <div class="primary_button" data-sound="piano" data-soundid="3">
-                            <span class="primary_button__text"> Flute </span>
+                            <span class="primary_button__text"> Piano </span>
                             <div class="primary_button__margin"></div>
                         </div>
                     </div>
@@ -116,20 +116,20 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="piano" data-soundid="4">
-                            <span class="primary_button__text"> Piano </span>
+                        <div class="primary_button" data-sound="808Bass" data-soundid="4">
+                            <span class="primary_button__text"> 808Bass </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="guitar" data-soundid="5">
-                            <span class="primary_button__text"> Guitar </span>
+                        <div class="primary_button" data-sound="airy" data-soundid="5">
+                            <span class="primary_button__text"> Airy </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="saxophone" data-soundid="6">
-                            <span class="primary_button__text"> Saxophone </span>
+                        <div class="primary_button" data-sound="atmosPad" data-soundid="6">
+                            <span class="primary_button__text"> AtmosPad </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="piano" data-soundid="7">
-                            <span class="primary_button__text"> Flute </span>
+                        <div class="primary_button" data-sound="micropad" data-soundid="7">
+                            <span class="primary_button__text"> Micropad </span>
                             <div class="primary_button__margin"></div>
                         </div>
                     </div>
@@ -140,20 +140,20 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="piano" data-soundid="8">
-                            <span class="primary_button__text"> Piano </span>
+                        <div class="primary_button" data-sound="Allen" data-soundid="8">
+                            <span class="primary_button__text"> Allen </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="guitar" data-soundid="9">
-                            <span class="primary_button__text"> Guitar </span>
+                        <div class="primary_button" data-sound="Dirty" data-soundid="9">
+                            <span class="primary_button__text"> Dirty </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="saxophone" data-soundid="10">
-                            <span class="primary_button__text"> Saxophone </span>
+                        <div class="primary_button" data-sound="Sauce-ya" data-soundid="10">
+                            <span class="primary_button__text"> Sauce-ya </span>
                             <div class="primary_button__margin"></div>
                         </div>
-                        <div class="primary_button" data-sound="piano" data-soundid="11">
-                            <span class="primary_button__text"> Flute </span>
+                        <div class="primary_button" data-sound="Soft" data-soundid="11">
+                            <span class="primary_button__text"> Soft </span>
                             <div class="primary_button__margin"></div>
                         </div>
                     </div>
@@ -308,12 +308,12 @@ include '../controller/room.php';
                 <div class="key black invisibleKey" id="B6d"></div>
             </div>
             <div class="drumpad_keyboard">
-                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
-                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
-                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
-                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
-                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
-                <div class="drumpad_keys"><div class="drumpad_keys__text">Place Holder</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Hihat</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Kick</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Shaker</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Snare</div></div>
+                <div class="drumpad_keys"><div class="drumpad_keys__text">Snap</div></div>
+
             </div>
             <!-- <div class="test"></div>
             <div class="record"> record </div>

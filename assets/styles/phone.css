@@ -90,8 +90,8 @@ body{
 }
 
 .drumpad_keys{
-    width: 4em;
-    height: 4em;
+    width: 13vw;
+    height: 13vw;
     position: relative;
     margin: 10% 2.5%;
     text-align: center;
