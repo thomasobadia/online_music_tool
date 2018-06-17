@@ -74,7 +74,7 @@ const giveWhiteKeys = ()=>{
             socket.emit('black_key_pressed', blackKeyLetterNumber[l])
             
             //changing the color of the text when the key is active
-            $whites[l].style.background = "#000000"
+            $blacks[l].style.background = "#000000"
         })
         $whites[l].addEventListener("touchend", ()=>{ 
             
@@ -90,7 +90,7 @@ const giveWhiteKeys = ()=>{
             socket.emit('black_key_released', blackKeyLetterNumber[l])
             
             //returnin the base color the key is no longer active
-            $whites[l].style.background = "#202020"
+            $blacks[l].style.background = "#202020"
         })
     }
 }
