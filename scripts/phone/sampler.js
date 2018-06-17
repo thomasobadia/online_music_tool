@@ -2,92 +2,6 @@
 
 const $sample = document.querySelector(".sample")
 
-// const node = new Tone.AudioNode ( [ AudioContext ] ) 
-// //open microphone
-// const mic = new Tone.UserMedia()
-// mic.open().then(function(){
-//     //promise resolves when input is available
-// })
-
-// console.log($record)
-
-var sampler = new Tone.Sampler({
-    "C3" : "../assets/sounds/laser.wav",
-
-}, function(){
-    //sampler will repitch the closest sample
-    sampler.toMaster()
-})
-
-sampler.chain(volume, Tone.Master)
-
-// console.log(sampler)
-
-// sampler.add(
-//             "C3" , "../assets/sounds/pianoC3.wav")
-//         console.log(audio.src)
-//         sampler.toMaster()
-    
-
-
-
-
-
-// $sample.addEventListener("mousedown",()=>{
-//     // sampler.dispose()
-//     sampler.add(
-//         "C3" , audio.href)
-//     console.log(audio.src)
-//     sampler.toMaster()
-// })
-
-// /////Restream mic  
-// window.onload = function() {
-
-
-//   
-//     //add constraints object
-//     var constraints = { audio: true,
-//                         video: false};
-
-//     //call getUserMedia, then the magic
-//     navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream){
-//         var video = document.querySelector('audio');
-//         video.srcObject = mediaStream;
-//         video.play();
-//     }).catch(function(err){
-//         console.log("yikes, and err!" + err.message);
-//     });
-
-// }
-
-
-
-// $whites[0].addEventListener("mousedown", ()=>{ sampler.triggerAttack("C3")})
-// $whites[0].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
-// sampler.releaseAll()})
-// $whites[1].addEventListener("mousedown", ()=>{ sampler.triggerAttack("D3")})
-// $whites[1].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
-// sampler.releaseAll()})
-// $whites[2].addEventListener("mousedown", ()=>{ sampler.triggerAttack("E3")})
-// $whites[2].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
-// sampler.releaseAll()})
-// $whites[3].addEventListener("mousedown", ()=>{ sampler.triggerAttack("F3")})
-// $whites[3].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
-// sampler.releaseAll()})
-// $whites[4].addEventListener("mousedown", ()=>{ sampler.triggerAttack("G3")})
-// $whites[4].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
-// sampler.releaseAll()})
-// $whites[5].addEventListener("mousedown", ()=>{ sampler.triggerAttack("A3")})
-// $whites[5].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
-// sampler.releaseAll()})
-// $whites[6].addEventListener("mousedown", ()=>{ sampler.triggerAttack("B3")})
-// $whites[6].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
-// sampler.releaseAll()})
-// $whites[7].addEventListener("mousedown", ()=>{ sampler.triggerAttack("C4")})
-// $whites[7].addEventListener("mouseup", ()=>{ sampler.triggerRelease()
-// sampler.releaseAll()})
-
 
 if (!String.prototype.splice) {
     /**
@@ -146,20 +60,42 @@ const giveWhiteKeys = ()=>{
         }
     }
     for(let l = 0; l<$whites.length; l++){
-        // $whites[l].addEventListener("touchstart", ()=>{ sampler.triggerAttack(keyLetterNumber[l])})
-        $whites[l].addEventListener("touchstart", ()=>{ socket.emit('white_key_pressed', keyLetterNumber[l])})
-        $blacks[l].addEventListener("touchstart", ()=>{ socket.emit('black_key_pressed', blackKeyLetterNumber[l])})
-        $whites[l].addEventListener("touchend", ()=>{ socket.emit('white_key_released', keyLetterNumber[l])})
-        $blacks[l].addEventListener("touchend", ()=>{ socket.emit('black_key_released', blackKeyLetterNumber[l])})
+        $whites[l].addEventListener("touchstart", ()=>{ 
+            
+            //send signal to server to trigger the key's attack
+            socket.emit('white_key_pressed', keyLetterNumber[l])
+            
+            //changing the color of the text when the key is active
+            $whites[l].style.background = "#b0b0b0"
+        })
+        $blacks[l].addEventListener("touchstart", ()=>{ 
+            
+            //send signal to server to trigger the key's attack
+            socket.emit('black_key_pressed', blackKeyLetterNumber[l])
+            
+            //changing the color of the text when the key is active
+            $whites[l].style.background = "#000000"
+        })
+        $whites[l].addEventListener("touchend", ()=>{ 
+            
+            //send signal to server to trigger the key's release
+            socket.emit('white_key_released', keyLetterNumber[l])
+            
+            //returnin the base color the key is no longer active
+            $whites[l].style.background = "#e3e3e3"
+        })
+        $blacks[l].addEventListener("touchend", ()=>{ 
+            
+            //send signal to server to trigger the key's release
+            socket.emit('black_key_released', blackKeyLetterNumber[l])
+            
+            //returnin the base color the key is no longer active
+            $whites[l].style.background = "#202020"
+        })
     }
-    // console.log(keyLetterNumber)
 }
 
-const giveBlackKeys = ()=>{
-    $blacks.forEach(black => {
-        // console.log(black)
-    })
-}
+
     
 
 const giveKeys =()=>{
@@ -170,27 +106,3 @@ const giveKeys =()=>{
 
 
 giveKeys()
-// $whites[0].addEventListener("touchstart", ()=>{ sampler.triggerAttack("A-1")})
-// $whites[0].addEventListener("touchend", ()=>{ sampler.triggerRelease("C3")
-// })
-// $whites[1].addEventListener("touchstart", ()=>{ sampler.triggerAttack("D3")})
-// $whites[1].addEventListener("touchend", ()=>{ sampler.triggerRelease("D3")
-// })
-// $whites[2].addEventListener("touchstart", ()=>{ sampler.triggerAttack("E3")})
-// $whites[2].addEventListener("touchend", ()=>{ sampler.triggerRelease("E3")
-// })
-// $whites[3].addEventListener("touchstart", ()=>{ sampler.triggerAttack("F3")})
-// $whites[3].addEventListener("touchend", ()=>{ sampler.triggerRelease("F3")
-// })
-// $whites[4].addEventListener("touchstart", ()=>{ sampler.triggerAttack("G3")})
-// $whites[4].addEventListener("touchend", ()=>{ sampler.triggerRelease("G3")
-// })
-// $whites[5].addEventListener("touchstart", ()=>{ sampler.triggerAttack("A3")})
-// $whites[5].addEventListener("touchend", ()=>{ sampler.triggerRelease("A3")
-// })
-// $whites[6].addEventListener("touchstart", ()=>{ sampler.triggerAttack("B3")})
-// $whites[6].addEventListener("touchend", ()=>{ sampler.triggerRelease("B3")
-// })
-// $whites[7].addEventListener("touchstart", ()=>{ sampler.triggerAttack("C4")})
-// $whites[7].addEventListener("touchend", ()=>{ sampler.triggerRelease("C4")
-// })
