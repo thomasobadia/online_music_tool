@@ -39,7 +39,7 @@ let windowWidth = window.innerWidth
 let keyBoardLeft = 0
 let keyBoardDistance = 0
 let keyBoardStart 
-
+$keyBoard.style.left = -1500 + "px"
 console.log(keyBoardLeft)
 
 //moove keyboard from left to right when swipe on the gradient line
