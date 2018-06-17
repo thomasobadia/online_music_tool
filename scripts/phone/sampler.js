@@ -17,13 +17,13 @@ if (!String.prototype.splice) {
      * @return {string} A new string with the spliced substring.
      */
     String.prototype.splice = function(start, delCount, newSubStr) {
-        return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
+        return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount))
     }
 }
 
 String.prototype.splice = function(idx, rem, str) {
-    return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
-};
+    return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem))
+}
 
 
 
