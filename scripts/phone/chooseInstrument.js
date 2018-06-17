@@ -103,7 +103,7 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
             soundSelection.style.visibility = "hidden"
             sounds.forEach(sound =>{
                 sound.style.visibility = "hidden"
-                soundPrimaryButton.style.opacity = 1;
+                soundPrimaryButton.style.opacity = 1
             })
             isSelectionningSound = 0
 
@@ -130,7 +130,7 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
             
 
         })
-    });
+    })
     
 }
 
