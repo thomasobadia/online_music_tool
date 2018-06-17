@@ -36,6 +36,8 @@ include '../controller/room.php';
 </head>
 <body>
 
+<!-- DESKTOP -->
+
 <div class="desktop">
     <a href="" class="hiddenLinkSample"></a>
         <div class="room">
@@ -60,9 +62,6 @@ include '../controller/room.php';
                     <div class="room__footer__parameters__qr_code_toggle">Display Qr code</div>
                     <div class="room__footer__parameters__volume">
                         <div class="room__footer__parameters__volume__text">Volume : 100</div>
-                        <!-- <div class="room__footer__parameters__volume__slider">
-                            <div class="room__footer__parameters__volume__slider__cursor"></div>
-                        </div> -->
                         <input class="room__footer__parameters__volume__slider" type="range">
                     </div>
                     <div class="room__footer__parameters__audio_controls">
@@ -76,10 +75,9 @@ include '../controller/room.php';
         </div>
     </div>
 
-<!-- // fqdfhmqhdfoiqifjq -->
+<!-- MOBILE -->
 
 <div class="mobile">
-    <!-- <div class="content"> -->
     <div class="turnYourPhone"></div>
     <div class="primary_button_sound_selected" data-sound="piano">
                 <span class="primary_button__text"> Piano </span>
@@ -305,13 +303,6 @@ include '../controller/room.php';
                 <div class="drumpad_keys"><div class="drumpad_keys__text">Snap</div></div>
 
             </div>
-            <!-- <div class="test"></div>
-            <div class="record"> record </div>
-            <div class="stopRecord"> stop </div>
-            <div class="sample"> sample </div> -->
-            <audio src=""></audio>
-            <a href=""></a>
-        <!-- </div> -->
     </div>
 
 
@@ -328,7 +319,8 @@ include '../controller/room.php';
     </script>
     <script src="../scripts/phone/tone.js"></script>
 	<script src="../scripts/vendor/modernizr-custom.js"></script>
-	<script src="../scripts/web/qrCodeToggle.js"></script>
+    
+    <script src="../scripts/web/qrCodeToggle.js"></script>
 	<script src="../scripts/web/allInstruments.js"></script>
     <script src="../scripts/web/volume.js"></script>
     <script src="../scripts/web/timeCursor.js"></script>
@@ -346,6 +338,8 @@ include '../controller/room.php';
     <script src="../scripts/phone/chooseInstrument.js"></script>
     <script src="../scripts/phone/main.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+    
+    
     <script src="../scripts/room.js"></script>
 </body>
 </html>
