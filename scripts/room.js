@@ -3,8 +3,15 @@ const button = document.querySelector('#button')
 const $validate = document.querySelector('#validate')
 const  removeElement = (id) => {
     var elem = document.getElementById(id);
-	elem.parentNode.removeChild(elem);
-	elem = null
+	for (let k = 0; k<anchors.length; k++){
+		if(anchors[k].dataset.name){
+			if(anchors[k].dataset.name == id){
+				anchors.splice(k,1)
+				k--
+			}
+		}
+	}
+	return elem.parentNode.removeChild(elem);	
 }
 
 const desktop = document.querySelector(".desktop")
