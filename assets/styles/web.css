@@ -71,6 +71,11 @@ body{
     z-index: 1000;
     text-align: center;
     font-family: Montserrat-Light;
+    -moz-box-shadow: 5px 5px 10px 1px #000000;
+    -webkit-box-shadow: 5px 5px 10px 1px #000000;
+    -o-box-shadow: 5px 5px 10px 1px #000000;
+    box-shadow: 5px 5px 10px 1px #000000;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=134, Strength=10);
    
 }
 .qr_code__title{
