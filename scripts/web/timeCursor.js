@@ -47,7 +47,7 @@ console.log(timeCursorDistance)
 //when we resize
 window.addEventListener("resize", ()=>{
     trackContentWidth = $trackContent.offsetWidth
-    timeCursorDistance = trackContentWidth / 100
+    timeCursorDistance = trackContentWidth / timeCursorBPM
     console.log(timeCursorDistance)
 })
 
