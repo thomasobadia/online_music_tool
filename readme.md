@@ -1,6 +1,6 @@
 # Welcome to Harmony 
 
-- Harmony is a school project that lets you create music with your friends. Harmony is based on a simple principle, a computer and up to 4 mobiles connected together, each player can compose independently and the computer gathers all the soundtracks to create the final project gathering each copositions.
+Harmony is a school project that lets you create music with your friends. Harmony is based on a simple principle, a computer and up to 4 mobiles connected together, each player can compose independently and the computer gathers all the soundtracks to create the final project gathering each copositions.
 
 # Using
 
@@ -20,7 +20,7 @@
 - Sampler
 
 
-#Technologies used
+# Technologies used
 
 - Php
 - Node.js
