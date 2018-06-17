@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -22,7 +22,7 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
-		<title>Contact</title>
+		<title>Error</title>
 	</head>
 	<body>
 		<div class="logo"><a href="../index.php">Harmony</a></div>
@@ -31,8 +31,8 @@
 			<a href="contact.php">Contact</a>
 		</div>
 		<div class="content">
-			<h1>Contact</h1>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi maxime ea cum, perspiciatis fuga provident officiis quasi, asperiores voluptate, minus quam eos. In at, cum commodi voluptas magnam consectetur nulla.</p>
+			<h1>Computer limit exceeded</h1>
+			<p>Remember that only one computer can be connected at a room at once, please check the number of computer connected and try again</p>
 		</div>
 	</body>
 	</html>

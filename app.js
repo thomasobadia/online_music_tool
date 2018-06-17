@@ -78,7 +78,7 @@ io.sockets.on('connection',  (socket) =>{
 
 		} else {
 			io.sockets.adapter.rooms[$room].computer++
-			var destination = '404.php'
+			var destination = 'computer-error.php'
 			socket.emit('redirect', destination);
 		}
 		socket.on('disconnect', function () {
@@ -100,7 +100,7 @@ io.sockets.on('connection',  (socket) =>{
 			console.log(io.sockets.adapter.rooms[$room].touchDevice)
 		} else {
 			io.sockets.adapter.rooms[$room].touchDevice++
-			var destination = '404.php';
+			var destination = 'touch-error.php';
 			socket.emit('redirect', destination);
 		}
 
