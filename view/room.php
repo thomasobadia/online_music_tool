@@ -43,7 +43,7 @@ include '../controller/room.php';
         <div class="room">
             <div class="room__header">
                 <div class="room__header__title">Harmony</div>
-                <img src="../assets/img/web/arrow-left.svg" class="room__header__left_arrow"></img>
+                <a href="https://harmonyngal.ovh/"><img src="../assets/img/web/arrow-left.svg" class="room__header__left_arrow"></img></a>
                 <div class="room__header__room_name"><?= $room->name ?></div>
             </div>
             <div class="room__content">
