@@ -20,22 +20,21 @@ let windowWidth = window.innerWidth
         $whites[i].style.height = $keyBoard.offsetHeight + "px"
         $whites[i].style.width = windowWidth/8 + "px"
         $whites[i].style.left = whiteLeft + "px"
-        whiteLeft += parseInt($whites[i].style.width, 10) + 4 
+        whiteLeft += parseFloat(getComputedStyle($whites[i]).width) + 4 
         $whites[i].addEventListener("touchend", ()=>{
         })
     }
 
     //create each black keys 
-    let blackLeft = $whites[1].offsetWidth-$keyBoard.offsetWidth*0.07/2
+    let blackLeft = parseFloat(getComputedStyle($whites[1]).width)*3/4 + 2
     for (let j = 0; j < $blacks.length; j++ ){
-        $blacks[j].style.height = $keyBoard.offsetHeight*0.6 + "px"
-        $blacks[j].style.width = windowWidth*0.07 + "px"
+        $blacks[j].style.height =parseFloat(getComputedStyle($keyBoard).height)*0.6 + "px"
+        $blacks[j].style.width = parseFloat(getComputedStyle($whites[1]).width)/2 + "px"
         $blacks[j].style.left = blackLeft + "px"
-        blackLeft += parseFloat($whites[j].style.width)*1.022
+        blackLeft += parseFloat(getComputedStyle($whites[1]).width) + 4
         $blacks[j].addEventListener("touchend", ()=>{
         })
     }
-
 
 let keyBoardLeft = 0
 let keyBoardDistance = 0
