@@ -9,6 +9,7 @@ Harmony is a school project that lets you create music with your friends. Harmon
 - Replace the  database connection settings 
 - Run virtual server on the file
 - At the root of the project, use **node app.js**
+- Optimal use on Chrome
 
 
 
