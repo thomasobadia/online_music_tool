@@ -1,7 +1,17 @@
-//sampler
+/******************************
+ * DECLARING ALL THE INSTRUMENTS
+ *******************************/
+
+
+/**
+ * sampler
+ */
+
 const audio = document.querySelector(".hiddenLinkSample")
 
-
+/**
+ * Instruments
+ */
 const bassSampler = new Tone.Sampler({
     "C3" : "../assets/sounds/instruments/bass.wav",
 
@@ -33,6 +43,12 @@ const pianoSampler = new Tone.Sampler({
     //sampler will repitch the closest sample
     pianoSampler.toMaster()
 })
+
+
+/**
+ * Synth
+ */
+
 const huit08BassSampler = new Tone.Sampler({
     "C2" : "../assets/sounds/Synth/808Bass.wav",
 
@@ -40,6 +56,7 @@ const huit08BassSampler = new Tone.Sampler({
     //sampler will repitch the closest sample
     huit08BassSampler.toMaster()
 })
+
 const airySampler = new Tone.Sampler({
     "C3" : "../assets/sounds/Synth/Airy.wav",
 
@@ -47,6 +64,7 @@ const airySampler = new Tone.Sampler({
     //sampler will repitch the closest sample
     airySampler.toMaster()
 })
+
 const atmosPadSampler = new Tone.Sampler({
     "C2" : "../assets/sounds/Synth/AtmosPad.wav",
 
@@ -54,6 +72,7 @@ const atmosPadSampler = new Tone.Sampler({
     //sampler will repitch the closest sample
     atmosPadSampler.toMaster()
 })
+
 const microPadSampler = new Tone.Sampler({
     "C2" : "../assets/sounds/Synth/micropad.wav",
 
@@ -61,6 +80,10 @@ const microPadSampler = new Tone.Sampler({
     //sampler will repitch the closest sample
     microPadSampler.toMaster()
 })
+
+/**
+ * Drums
+ */
 
 const allenDrum = new Tone.Sampler({
     "C0" : "../assets/sounds/drumpads/Allen/Clap.wav",
@@ -87,6 +110,7 @@ const dirtyDrum = new Tone.Sampler({
     //sampler will repitch the closest sample
     dirtyDrum.toMaster()
 })
+
 const SauceYaDrum = new Tone.Sampler({
     "C0" : "../assets/sounds/drumpads/Sauce-ya/Metro-HiHat.wav",
     "C1" : "../assets/sounds/drumpads/Sauce-ya/Rack_Kick.wav",
@@ -124,7 +148,23 @@ const micSampler = new Tone.Sampler({
 
 
 
+//array with all the instruments
+const instrumentArray = 
+    [   bassSampler, 
+        bellSampler, 
+        guitarSampler, 
+        pianoSampler, 
+        huit08BassSampler, 
+        airySampler, 
+        atmosPadSampler, 
+        microPadSampler, 
+        allenDrum, 
+        dirtyDrum, 
+        SauceYaDrum, 
+        softDrum, 
+        micSampler
+    ]
 
-const instrumentArray = [bassSampler, bellSampler, guitarSampler, pianoSampler, huit08BassSampler, airySampler, atmosPadSampler, microPadSampler, allenDrum, dirtyDrum, SauceYaDrum, softDrum, micSampler]
+
 let currentInstrumentId = {}
 let currentInstrument = instrumentArray[currentInstrumentId]
