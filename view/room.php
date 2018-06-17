@@ -37,6 +37,7 @@ include '../controller/room.php';
 <body>
 
 <div class="desktop">
+    <a href="" class="hiddenLinkSample"></a>
         <div class="room">
             <div class="room__header">
                 <div class="room__header__title">Harmony</div>
@@ -164,20 +165,8 @@ include '../controller/room.php';
                         <div class="primary_button__margin"></div>
                     </div>
                     <div class="all_sounds">
-                        <div class="primary_button" data-sound="piano" data-number="3">
-                            <span class="primary_button__text"> Piano </span>
-                            <div class="primary_button__margin"></div>
-                        </div>
-                        <div class="primary_button" data-sound="guitar" data-number="3">
-                            <span class="primary_button__text"> Guitar </span>
-                            <div class="primary_button__margin"></div>
-                        </div>
-                        <div class="primary_button" data-sound="saxophone" data-number="3">
-                            <span class="primary_button__text"> Saxophone </span>
-                            <div class="primary_button__margin"></div>
-                        </div>
-                        <div class="primary_button" data-sound="piano" data-number="3">
-                            <span class="primary_button__text"> Flute </span>
+                        <div class="primary_button" data-sound="voice recorder" data-soundid="12">
+                            <span class="primary_button__text"> Voice recorder </span>
                             <div class="primary_button__margin"></div>
                         </div>
                     </div>
@@ -194,12 +183,13 @@ include '../controller/room.php';
                 <div class="sampler_page__circle_mic">
                     <img src="../assets/img/mic.svg" alt="mic">
                 </div>
+                <div class="sampler_instruction"> ? </div>
                 <div class="primary_button_sound_selected primary_button_sampler0">
-                    <span class="primary_button__text"> Retry </span>
+                    <span class="primary_button__text"> Record </span>
                     <div class="primary_button__margin"></div>
                 </div>
                 <div class="primary_button_sound_selected primary_button_sampler1">
-                    <span class="primary_button__text"> Next Step</span>
+                    <span class="primary_button__text"> Stop</span>
                     <div class="primary_button__margin"></div>
                 </div>
             </div>
@@ -350,7 +340,7 @@ include '../controller/room.php';
     <script src="../scripts/phone/pageOrientation.js"></script>
     <script src="../scripts/phone/createKeyBoard.js"></script>
     <script src="../scripts/phone/audio.js"></script>
-    <!-- <script src="../scripts/phone/mic.js"></script> -->
+    <script src="../scripts/phone/mic.js"></script>
     <script src="../scripts/phone/sampler.js"></script>
     <script src="../scripts/phone/drumpads.js"></script>
     <script src="../scripts/phone/chooseInstrument.js"></script>

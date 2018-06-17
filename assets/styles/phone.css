@@ -52,6 +52,7 @@ body{
     height: 8%;
     z-index: 3;
     background: -webkit-linear-gradient(left, #27a3a3 0%,#5544ac 100%); 
+    position: fixed;
 }
 
 .key{
@@ -114,8 +115,8 @@ body{
     height: 100vh;
     position: absolute;
     left: 0;
-    top: 0;
-    z-index: 100;
+    top: -30%;
+    /* z-index: 100; */
     visibility: hidden;
 }
 
@@ -138,17 +139,29 @@ body{
     transform: translateX(-50%) translateY(-50%);
 }
 
+
 .primary_button_sampler0{
-    top: 70%;
+    top: 65%;
     left: 30%;
 }
 
 .primary_button_sampler1{
-    top: 70%;
-    left: 60%;
+    top: 65%;
+    left: 55%;
 }
 
-
+.sampler_instruction{
+    position: absolute;
+    left: 10%;
+    top: 33%;
+    border-radius: 50%;
+    background-color: #e3e3e3;
+    width: 5vw;
+    height: 5vw;
+    text-align: center;
+    line-height: 5vw;
+    font-family: montserrat-black;
+}
 
 /************Intrument Choice *************/
 .choose_sound{
@@ -204,6 +217,7 @@ body{
     height: 10%;
     position: absolute;
     right: 0px;
+    z-index: 10;
     background-color: rgba(43, 44, 46, 0.9);
 }
 
@@ -231,6 +245,7 @@ body{
     transform: translateY(-50%);
     font-family: Montserrat-SemiBold;
     color: #F0F0F0;
+    user-select: none;
 
 }
 
@@ -272,6 +287,7 @@ body{
 
 .all_sounds>.primary_button>.primary_button__text{
     color: rgba(43, 44, 46, 1);
+    user-select: none;
 }
 
 .record{

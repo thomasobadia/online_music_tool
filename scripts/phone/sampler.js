@@ -100,7 +100,7 @@ const giveWhiteKeys = ()=>{
 
 const giveKeys =()=>{
     giveWhiteKeys()
-    giveBlackKeys()
+    // giveBlackKeys()
     
 }
 
