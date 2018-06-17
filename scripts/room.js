@@ -240,6 +240,12 @@ socket.on('addPlayer', (pseudo) => {
 			console.log(newTrackSubtracks)
 			newTrackSubtrack.setAttribute("class", 'sub_track')
 			newTrackSubtracks.appendChild(newTrackSubtrack)
+
+			let  newTrackSubtrackCross = document.createElement('img')
+			console.log(newTrackSubtracks)
+			newTrackSubtrackCross.setAttribute("class", 'sub_track__cross')
+			newTrackSubtrackCross.setAttribute("src", '../assets/img/web/x.svg')
+			newTrackSubtrack.appendChild(newTrackSubtrackCross)
 		}
 		
 		const  newTrackVolume = document.createElement('div')
