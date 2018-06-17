@@ -111,6 +111,14 @@ include '../controller/room.php';
                             <span class="primary_button__text"> Piano </span>
                             <div class="primary_button__margin"></div>
                         </div>
+                        <div class="primary_button" data-sound="orgue" data-soundid="15">
+                            <span class="primary_button__text"> Orgue </span>
+                            <div class="primary_button__margin"></div>
+                        </div>
+                        <div class="primary_button" data-sound="yeah" data-soundid="18">
+                            <span class="primary_button__text"> Yeah </span>
+                            <div class="primary_button__margin"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="synthesizers sounds_type">
@@ -133,6 +141,18 @@ include '../controller/room.php';
                         </div>
                         <div class="primary_button" data-sound="micropad" data-soundid="7">
                             <span class="primary_button__text"> Micropad </span>
+                            <div class="primary_button__margin"></div>
+                        </div>
+                        <div class="primary_button" data-sound="gameBoy" data-soundid="14">
+                            <span class="primary_button__text"> GameBoy </span>
+                            <div class="primary_button__margin"></div>
+                        </div>
+                        <div class="primary_button" data-sound="elephant" data-soundid="16">
+                            <span class="primary_button__text"> Elephant </span>
+                            <div class="primary_button__margin"></div>
+                        </div>
+                        <div class="primary_button" data-sound="groove" data-soundid="17">
+                            <span class="primary_button__text"> Groove </span>
                             <div class="primary_button__margin"></div>
                         </div>
                     </div>
@@ -161,6 +181,14 @@ include '../controller/room.php';
                         </div>
                         <div class="primary_button" data-sound="Travis" data-soundid="13">
                             <span class="primary_button__text"> Travis </span>
+                            <div class="primary_button__margin"></div>
+                        </div>
+                        <div class="primary_button" data-sound="brainFreeze" data-soundid="19">
+                            <span class="primary_button__text"> BrainFreeze </span>
+                            <div class="primary_button__margin"></div>
+                        </div>
+                        <div class="primary_button" data-sound="dumbPad" data-soundid="20">
+                            <span class="primary_button__text"> DumbPad </span>
                             <div class="primary_button__margin"></div>
                         </div>
                     </div>
