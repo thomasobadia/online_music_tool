@@ -44,6 +44,22 @@ const pianoSampler = new Tone.Sampler({
     pianoSampler.toMaster()
 })
 
+const orgueSampler = new Tone.Sampler({
+    "C3" : "../assets/sounds/instruments/orgue.wav",
+
+}, function(){
+    //sampler will repitch the closest sample
+    orgueSampler.toMaster()
+})
+
+const yeahSampler = new Tone.Sampler({
+    "C3" : "../assets/sounds/instruments/yeah.wav",
+
+}, function(){
+    //sampler will repitch the closest sample
+    yeahSampler.toMaster()
+})
+
 
 /**
  * Synth
@@ -79,6 +95,28 @@ const microPadSampler = new Tone.Sampler({
 }, function(){
     //sampler will repitch the closest sample
     microPadSampler.toMaster()
+})
+
+const gameSampler = new Tone.Sampler({
+    "C2" : "../assets/sounds/Synth/game.wav",
+
+}, function(){
+    //sampler will repitch the closest sample
+    gameSampler.toMaster()
+})
+const elephantSampler = new Tone.Sampler({
+    "C2" : "../assets/sounds/Synth/elephant.wav",
+
+}, function(){
+    //sampler will repitch the closest sample
+    elephantSampler.toMaster()
+})
+const grooveSampler = new Tone.Sampler({
+    "C3" : "../assets/sounds/Synth/groove.wav",
+
+}, function(){
+    //sampler will repitch the closest sample
+    grooveSampler.toMaster()
 })
 
 /**
@@ -142,12 +180,38 @@ const travisSampler = new Tone.Sampler({
     "C1" : "../assets/sounds/drumpads/Travis/LaFlame.wav",
     "C2" : "../assets/sounds/drumpads/Travis/StraightUp.wav",
     "C3" : "../assets/sounds/drumpads/Travis/YaYa.wav",
-    "C4" : "../assets/sounds/drumpads/Travis/YaYa.wav",
+    "C4" : "../assets/sounds/drumpads/Travis/yo.wav",
     "C5" : "../assets/sounds/drumpads/Travis/YaYa.wav",
 
 }, function(){
     //sampler will repitch the closest sample
     travisSampler.toMaster()
+})
+
+const brainFreezeDrum = new Tone.Sampler({
+    "C0" : "../assets/sounds/drumpads/brainFreeze/un.wav",
+    "C1" : "../assets/sounds/drumpads/brainFreeze/deux.wav",
+    "C2" : "../assets/sounds/drumpads/brainFreeze/trois.wav",
+    "C3" : "../assets/sounds/drumpads/brainFreeze/quatre.wav",
+    "C4" : "../assets/sounds/drumpads/brainFreeze/cinq.wav",
+    "C5" : "../assets/sounds/drumpads/brainFreeze/cinq.wav",
+
+}, function(){
+    //sampler will repitch the closest sample
+    brainFreezeDrum.toMaster()
+})
+
+const dumbpadDrum = new Tone.Sampler({
+    "C0" : "../assets/sounds/drumpads/dumbpad/hot.wav",
+    "C1" : "../assets/sounds/drumpads/dumbpad/ting.wav",
+    "C2" : "../assets/sounds/drumpads/dumbpad/twoPlusTwo.wav",
+    "C3" : "../assets/sounds/drumpads/dumbpad/qwak.wav",
+    "C4" : "../assets/sounds/drumpads/dumbpad/ya.wav",
+    "C5" : "../assets/sounds/drumpads/dumbpad/ting.wav",
+
+}, function(){
+    //sampler will repitch the closest sample
+    dumbpadDrum.toMaster()
 })
 
 
@@ -182,7 +246,14 @@ const instrumentArray =
         SauceYaDrum, 
         softDrum, 
         micSampler,
-        travisSampler
+        travisSampler,
+        gameSampler,
+        orgueSampler,
+        elephantSampler,
+        grooveSampler,
+        yeahSampler,
+        brainFreezeDrum,
+        dumbpadDrum
     ]
 
 
