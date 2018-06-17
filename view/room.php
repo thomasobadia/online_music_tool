@@ -159,6 +159,10 @@ include '../controller/room.php';
                             <span class="primary_button__text"> Soft </span>
                             <div class="primary_button__margin"></div>
                         </div>
+                        <div class="primary_button" data-sound="Travis" data-soundid="13">
+                            <span class="primary_button__text"> Travis </span>
+                            <div class="primary_button__margin"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="sampler sounds_type">

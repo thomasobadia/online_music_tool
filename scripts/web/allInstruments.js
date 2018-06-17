@@ -137,6 +137,23 @@ const softDrum = new Tone.Sampler({
     softDrum.toMaster()
 })
 
+const travisSampler = new Tone.Sampler({
+    "C0" : "../assets/sounds/drumpads/Travis/GodDamn.wav",
+    "C1" : "../assets/sounds/drumpads/Travis/LaFlame.wav",
+    "C2" : "../assets/sounds/drumpads/Travis/StraightUp.wav",
+    "C3" : "../assets/sounds/drumpads/Travis/YaYa.wav",
+    "C4" : "../assets/sounds/drumpads/Travis/YaYa.wav",
+    "C5" : "../assets/sounds/drumpads/Travis/YaYa.wav",
+
+}, function(){
+    //sampler will repitch the closest sample
+    travisSampler.toMaster()
+})
+
+
+/**
+ * Voice Sampler
+ */
 const micSampler = new Tone.Sampler({
     "C1" : "../assets/sounds/instruments/bass.wav",
 
@@ -144,6 +161,8 @@ const micSampler = new Tone.Sampler({
     //sampler will repitch the closest sample
     micSampler.toMaster()
 })
+
+
 
 
 
@@ -162,7 +181,8 @@ const instrumentArray =
         dirtyDrum, 
         SauceYaDrum, 
         softDrum, 
-        micSampler
+        micSampler,
+        travisSampler
     ]
 
 
