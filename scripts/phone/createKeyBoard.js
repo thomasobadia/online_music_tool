@@ -40,14 +40,11 @@ let keyBoardLeft = 0
 let keyBoardDistance = 0
 let keyBoardStart 
 $keyBoard.style.left = -1500 + "px"
-console.log(keyBoardLeft)
 
 //moove keyboard from left to right when swipe on the gradient line
     $gradientLine.addEventListener("touchstart",(e)=>{
-        console.log($keyBoard.style.left)
         keyBoardLeft = $keyBoard.style.left
         keyBoardStart =  parseInt(e.changedTouches[0].clientX)
-        console.log(keyBoardStart)
         e.preventDefault()
     })
 

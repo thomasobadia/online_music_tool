@@ -53,8 +53,6 @@ const giveWhiteKeys = ()=>{
         while(j<keyLetter.length){
             keyLetterNumber[k] = keyLetter[j] + keyNumber[i]
             blackKeyLetterNumber[k] = keyLetterNumber[k].splice(1, 0, "#")
-            // console.log(keyLetterNumber[k])
-            // console.log(blackKeyLetterNumber[k])
             j++
             k++
         }

@@ -110,20 +110,16 @@ const accessSoundsSelection = (instrumentColorFilter, soundSelection, soundPrima
             isSelectionningSound = 0
 
             //displaying either the keyboard, the drumpad or the sampler
-            console.log("pute = " + instrumentColorFilter.dataset.instrument)
             if(instrumentColorFilter.dataset.instrument === "syntesizers" || instrumentColorFilter.dataset.instrument === "instruments"){
                 $keyBoard.style.visibility = "visible"
                 changeSampleAudioFile(sound)
-                console.log(instrumentColorFilter.dataset.instrument)
                
             }
             else if(instrumentColorFilter.dataset.instrument === "drumpads"){
                 $drumpadKeyboard.style.visibility = "visible"
                 changeSampleAudioFile(sound)
-                console.log(instrumentColorFilter.dataset.instrument)
             }
             else if(instrumentColorFilter.dataset.instrument == "sampler"){
-                console.log(instrumentColorFilter.dataset.instrument)
                 $samplerRecorder.style.visibility = "visible"
                 $keyBoard.style.visibility = "visible"
                 changeSampleAudioFile(sound)
